@@ -11,17 +11,17 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             Spacer()
-//            Color(red: 21/255, green: 27/255, blue: 53/255, opacity: 1).ignoresSafeArea()
-            Color("BackGround").ignoresSafeArea()
+            //            Color(red: 21/255, green: 27/255, blue: 53/255, opacity: 1).ignoresSafeArea()
+            Color("marine").ignoresSafeArea()
             
             VStack{
                 Image("appLogo").resizable().aspectRatio( contentMode: .fit).frame(width: 250).padding(.bottom, 20)
                 
                 InicioYResgistroView()
             }
-   
+            
         }
-  
+        
         
     }
 }
@@ -31,24 +31,21 @@ struct InicioYResgistroView: View{
     var body: some View{
         VStack{
             HStack{
-                Spacer()
-                
+                //                Spacer()
                 Button(action: {tipoInicioSesion = true}) {
                     Text("INICIA SESION").fontWeight(.black).foregroundColor(tipoInicioSesion ? .white : .gray)
                 }
                 
-                
                 Spacer()
-                
                 
                 Button(action: {tipoInicioSesion = false}) {
                     Text("REGISTRATE").fontWeight(.black).foregroundColor(tipoInicioSesion ? .gray : .white)
                 }
                 
-                
-                Spacer()
-                
-            }
+                //                Spacer()
+            }.padding(.horizontal, 30)
+            
+            
             Spacer(minLength: 42)
             if tipoInicioSesion == true{
                 IncioSesionView()
@@ -63,8 +60,50 @@ struct InicioYResgistroView: View{
 }
 
 struct IncioSesionView: View{
+    @State var correo:String = ""
+    @State var contrasenia:String = ""
+    
     var body: some View{
-        Text("login vista").foregroundColor(.white)
+        ScrollView{
+            
+            VStack(alignment: .leading) {
+                
+                
+                Text("Correo electronico").foregroundColor(Color("dark-cian"))
+                
+                
+                ZStack(alignment: .leading){
+                    if(correo.isEmpty){
+                        Text(verbatim: "ejemplo@email.com").font(.caption).foregroundColor(Color("light-grey"))
+                    }
+                    
+                    TextField("", text: $correo).foregroundColor(Color("pure-white"))
+                }
+                
+                Divider().frame(height: 1).background(Color("dark-cian")).padding(.bottom)
+                
+                
+                Text("Contraseña").foregroundColor(Color("dark-cian"))
+                
+                ZStack(alignment: .leading){
+                    if(contrasenia.isEmpty){
+                        Text(verbatim: "escribe tu contraseña").font(.caption).foregroundColor(Color("light-grey"))
+                    }
+                    
+                    SecureField("", text: $contrasenia).foregroundColor(Color("pure-white"))
+                }
+                
+                Divider().frame(height: 1).background(Color("dark-cian")).padding(.bottom)
+                
+                
+                
+            }.padding(.horizontal, 77)
+            
+        }
+        
+        
+        
+        
         
     }
     

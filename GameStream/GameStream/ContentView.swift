@@ -68,34 +68,27 @@ struct IncioSesionView: View{
             
             VStack(alignment: .leading) {
                 
-                
+                ////CAMPO PARA CORREO
                 Text("Correo electronico").foregroundColor(Color("dark-cian"))
-                
-                
                 ZStack(alignment: .leading){
                     if(correo.isEmpty){
                         Text(verbatim: "ejemplo@email.com").font(.caption).foregroundColor(Color("light-grey"))
                     }
-                    
                     TextField("", text: $correo).foregroundColor(Color("pure-white"))
                 }
-                
                 Divider().frame(height: 1).background(Color("dark-cian")).padding(.bottom)
+                //// -
                 
-                
+                ////CAMPO PARA CONTRASE:A
                 Text("Contraseña").foregroundColor(Color("dark-cian"))
-                
                 ZStack(alignment: .leading){
                     if(contrasenia.isEmpty){
                         Text(verbatim: "escribe tu contraseña").font(.caption).foregroundColor(Color("light-grey"))
                     }
-                    
                     SecureField("", text: $contrasenia).foregroundColor(Color("pure-white"))
                 }
-                
                 Divider().frame(height: 1).background(Color("dark-cian")).padding(.bottom)
-                
-                
+                //// -
                 
             }.padding(.horizontal, 77)
             

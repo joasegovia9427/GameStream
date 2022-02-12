@@ -51,18 +51,12 @@ struct MenuTabView: View {
     
     
     init(){
-        ////        UITabBar.appearance().barTintColor = UIColor(Color("blue-action"))   //no sirve
         UITabBar.appearance().backgroundColor = UIColor(Color("tabBar-Color"))
         UITabBar.appearance().unselectedItemTintColor = UIColor(Color("tabBar-InactiveColor"))
         UITabBar.appearance().isTranslucent = true
-        //        let appearance = UITabBarAppearance()
-        //        appearance.configureWithOpaqueBackground()
-        //        appearance.backgroundColor = .blue
-        //        UITabBar.appearance().standardAppearance = appearance
-        //        if #available(iOS 15.0, *) {
-        //            UITabBar.appearance().scrollEdgeAppearance = appearance
-        //        }
     }
+    
+        
 }
 
 struct MenuTabView_Previews: PreviewProvider {

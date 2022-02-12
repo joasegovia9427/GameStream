@@ -31,19 +31,25 @@ struct InicioYResgistroView: View{
     var body: some View{
         VStack{
             HStack{
-                //                Spacer()
+                Spacer()
                 Button(action: {tipoInicioSesion = true}) {
-                    Text("INICIA SESION").fontWeight(.black).foregroundColor(tipoInicioSesion ? .white : .gray)
+                    VStack {
+                        Text("INICIA SESION").fontWeight(.black).foregroundColor(tipoInicioSesion ? .white : .gray)
+                        Divider().frame(width: 100, height: 1).background(tipoInicioSesion ? Color("dark-cian") : Color("marine"))
+                    }
                 }
                 
                 Spacer()
                 
                 Button(action: {tipoInicioSesion = false}) {
-                    Text("REGISTRATE").fontWeight(.black).foregroundColor(tipoInicioSesion ? .gray : .white)
+                    VStack {
+                        Text("REGISTRATE").fontWeight(.black).foregroundColor(tipoInicioSesion ? .gray : .white)
+                        Divider().frame(width: 100, height: 1).background(tipoInicioSesion ? Color("marine") : Color("dark-cian"))
+                    }
                 }
                 
-                //                Spacer()
-            }.padding(.horizontal, 30)
+                Spacer()
+            }//.padding(.horizontal, 30)
             
             
             Spacer(minLength: 42)
@@ -62,6 +68,7 @@ struct InicioYResgistroView: View{
 struct IncioSesionView: View{
     @State var correo:String = ""
     @State var contrasenia:String = ""
+    @State var isContraseniaVisible:Bool = false
     
     var body: some View{
         ScrollView{
@@ -85,10 +92,90 @@ struct IncioSesionView: View{
                     if(contrasenia.isEmpty){
                         Text(verbatim: "escribe tu contraseña").font(.caption).foregroundColor(Color("light-grey"))
                     }
-                    SecureField("", text: $contrasenia).foregroundColor(Color("pure-white"))
+                    HStack{
+                        if isContraseniaVisible{
+                            TextField("", text: $contrasenia).foregroundColor(Color("pure-white"))
+                        }else{
+                            SecureField("", text: $contrasenia).foregroundColor(Color("pure-white"))
+                        }
+                        Button(action: {isContraseniaVisible.toggle()}, label: {
+                            if isContraseniaVisible{
+                                Image(systemName:"eye.slash.fill").foregroundColor(Color("light-grey"))
+                            }else{
+                                
+                                Image(systemName:"eye.fill").foregroundColor(Color("dark-cian"))
+                            }
+                        })
+                    }
                 }
-                Divider().frame(height: 1).background(Color("dark-cian")).padding(.bottom)
+                VStack{
+                    Divider().frame(height: 1).background(Color("dark-cian")).padding(.bottom)
+                    if(!contrasenia.isEmpty && !isContraseniaVisible){
+                        Spacer().frame(height: 8)
+                    }
+                    if isContraseniaVisible{
+                        Spacer().frame(width: 0.0, height: 6.4)
+                    }
+                }
                 //// -
+                
+                VStack{
+                
+                    Button(action: {}, label: {
+                        Text("Olvidaste tu contraseña?").font(.footnote).foregroundColor(Color("dark-cian")).frame(width: 300, alignment: .trailing).padding(.bottom)
+                    })
+                    
+                    
+                    Button(action: iniciarSesion, label: {
+                        Text(String("Iniciar Sesion").uppercased())
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                            .frame(maxWidth: .infinity, alignment: .center)
+                            .padding(EdgeInsets(top: 11, leading: 18, bottom: 11, trailing: 18))
+                            .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color("dark-cian"), lineWidth: 2).shadow(color: .white, radius: 6))
+                    }).padding(.bottom, 100)
+                    
+                    
+                }
+                
+                
+                VStack {
+                    Text("Inicia sesion con redes sociales").foregroundColor(.white).frame(width: 300, alignment: .center).padding(.bottom)
+                    
+                    
+                    HStack{
+                        
+                        Button(action: {}, label: {
+                            HStack(alignment: .center) {
+                                Image("facebook").resizable().frame(width: 20, height: 20, alignment: .center).padding(.trailing,5).padding(.leading,5)
+                                Text("Facebook")
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.white)
+                                    .frame(maxWidth: .infinity, alignment: .center)
+                            }.padding(EdgeInsets(top: 11, leading: 11, bottom: 11, trailing: 11))
+                        }).background(Color("blue-grey")).cornerRadius(/*@START_MENU_TOKEN@*/8.0/*@END_MENU_TOKEN@*/)
+                        
+                        Spacer().frame(width: 20, alignment: .center)
+                        
+                        Button(action: {}, label: {
+                            HStack(alignment: .center){
+                                Image("twitter").resizable().frame(width: 20, height: 20, alignment: .center).padding(.trailing,5).padding(.leading,10)
+                                Text("Twitter")
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.white)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                            }.padding(EdgeInsets(top: 11, leading: 11, bottom: 11, trailing: 11))
+                        }).background(Color("blue-grey")).cornerRadius(/*@START_MENU_TOKEN@*/8.0/*@END_MENU_TOKEN@*/)
+                        
+                        
+                    }
+                }
+                
+                
+                
+                
+                
+                
                 
             }.padding(.horizontal, 77)
             
@@ -100,7 +187,15 @@ struct IncioSesionView: View{
         
     }
     
+    func iniciarSesion() {
+        print("Estoy iniciando session")
+    }
 }
+
+
+
+
+
 
 struct RegistroView: View{
     var body: some View{
@@ -109,6 +204,7 @@ struct RegistroView: View{
     }
     
 }
+
 
 
 struct ContentView_Previews: PreviewProvider {

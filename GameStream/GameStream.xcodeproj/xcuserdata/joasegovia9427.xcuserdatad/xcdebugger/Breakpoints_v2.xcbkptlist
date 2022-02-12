@@ -7,129 +7,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E49CB792-EDB9-4B1E-83D1-17E8AD658D0F"
+            uuid = "F341CF1B-64C7-4225-87A6-C4A4B0FBB1A8"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "GameStream/ContentView.swift"
+            filePath = "GameStream/AppEntry/InicioSesionView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
-            landmarkName = "IncioSesionView"
+            startingLineNumber = "10"
+            endingLineNumber = "10"
+            landmarkName = "InicioSesionView"
             landmarkType = "14">
-            <Locations>
-               <Location
-                  uuid = "E49CB792-EDB9-4B1E-83D1-17E8AD658D0F - d25a3b1c4f7fc299"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "GameStream.IncioSesionView.init() -&gt; GameStream.IncioSesionView"
-                  moduleName = "GameStream"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/joasegovia9427/softwaredevelopment/GameStream/GameStream/GameStream/ContentView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "69"
-                  endingLineNumber = "69"
-                  offsetFromSymbolStart = "72">
-               </Location>
-               <Location
-                  uuid = "E49CB792-EDB9-4B1E-83D1-17E8AD658D0F - cf7ad832b20acf4e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "GameStream.IncioSesionView.init(correo: Swift.String, contrasenia: Swift.String, isContraseniaVisible: Swift.Bool) -&gt; GameStream.IncioSesionView"
-                  moduleName = "GameStream"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/joasegovia9427/softwaredevelopment/GameStream/GameStream/GameStream/ContentView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "28">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "82ECBD45-FD18-40A6-8021-F27B07365B27"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GameStream/ContentView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
-            landmarkName = "RegistroView"
-            landmarkType = "14">
-            <Locations>
-               <Location
-                  uuid = "82ECBD45-FD18-40A6-8021-F27B07365B27 - c922b6d5fa91abef"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "GameStream.RegistroView.init() -&gt; GameStream.RegistroView"
-                  moduleName = "GameStream"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/joasegovia9427/softwaredevelopment/GameStream/GameStream/GameStream/ContentView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "169"
-                  endingLineNumber = "169"
-                  offsetFromSymbolStart = "72">
-               </Location>
-               <Location
-                  uuid = "82ECBD45-FD18-40A6-8021-F27B07365B27 - 98b00bc4c227bc0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "GameStream.RegistroView.init(correo: Swift.String, contrasenia: Swift.String, confirmacionContrasenia: Swift.String, isContraseniaVisible: Swift.Bool) -&gt; GameStream.RegistroView"
-                  moduleName = "GameStream"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/joasegovia9427/softwaredevelopment/GameStream/GameStream/GameStream/ContentView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "36">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E6F8C842-ED52-4F24-8E60-272AF58CC931"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GameStream/ContentView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "body"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "5D29B7E6-6F97-40EF-AF83-F3FFB869C69B"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GameStream/ContentView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
-            landmarkName = "body"
-            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

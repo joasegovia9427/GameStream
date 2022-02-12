@@ -9,21 +9,23 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        ZStack {
-            Spacer()
-            //            Color(red: 21/255, green: 27/255, blue: 53/255, opacity: 1).ignoresSafeArea()
-            Color("marine").ignoresSafeArea()
+        NavigationView{
             
-            VStack{
+            ZStack {
                 Spacer()
-                Image("appLogo").resizable().aspectRatio( contentMode: .fit).frame(width: 250).padding(.bottom, 20)
+                //            Color(red: 21/255, green: 27/255, blue: 53/255, opacity: 1).ignoresSafeArea()
+                Color("marine").ignoresSafeArea()
                 
-                InicioYResgistroView()
-            }
+                VStack{
+                    Spacer()
+                    Image("appLogo").resizable().aspectRatio( contentMode: .fit).frame(width: 250).padding(.bottom, 20)
+                    
+                    InicioYResgistroView()
+                }
+                
+            }.navigationBarHidden(true)
             
         }
-        
-        
     }
 }
 
@@ -68,8 +70,8 @@ struct InicioYResgistroView: View{
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-//        Image("pantalla1").resizable()
-//        Image("pantalla2").resizable()
+        //        Image("pantalla1").resizable()
+        //        Image("pantalla2").resizable()
         ContentView()
     }
 }

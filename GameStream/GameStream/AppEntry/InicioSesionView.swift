@@ -11,6 +11,7 @@ struct InicioSesionView: View {
     @State var correo:String = ""
     @State var contrasenia:String = ""
     @State var isContraseniaVisible:Bool = false
+    @State var isActiveHome:Bool = true
     
     var body: some View{
         
@@ -100,9 +101,14 @@ struct InicioSesionView: View {
                 }
             }.padding(.horizontal, 77)
         }
+        
+        NavigationLink(destination: MenuTabView(), isActive: $isActiveHome, label: {
+            EmptyView()
+        })
     }
     func iniciarSesion() {
-        print("Estoy iniciando session")
+        ////aqui van validaciones logicas correspondientes
+        isActiveHome.toggle()
     }
 }
 

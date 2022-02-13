@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2005022227B883920042B5FC /* AuxNivelador.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2005022127B883920042B5FC /* AuxNivelador.swift */; };
+		2005022527B99EF00042B5FC /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2005022427B99EF00042B5FC /* WelcomeScreen.swift */; };
+		2005022A27B9A76E0042B5FC /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2005022927B9A76E0042B5FC /* Model.swift */; };
+		2005022C27B9A7800042B5FC /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2005022B27B9A7800042B5FC /* ViewModel.swift */; };
 		204C016E27B5F13D0066CCAF /* GameStreamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204C016D27B5F13D0066CCAF /* GameStreamApp.swift */; };
 		204C017027B5F13D0066CCAF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204C016F27B5F13D0066CCAF /* ContentView.swift */; };
 		204C017227B5F13D0066CCAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 204C017127B5F13D0066CCAF /* Assets.xcassets */; };
@@ -23,6 +26,9 @@
 
 /* Begin PBXFileReference section */
 		2005022127B883920042B5FC /* AuxNivelador.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuxNivelador.swift; sourceTree = "<group>"; };
+		2005022427B99EF00042B5FC /* WelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreen.swift; sourceTree = "<group>"; };
+		2005022927B9A76E0042B5FC /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		2005022B27B9A7800042B5FC /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		204C016A27B5F13D0066CCAF /* GameStream.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameStream.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		204C016D27B5F13D0066CCAF /* GameStreamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStreamApp.swift; sourceTree = "<group>"; };
 		204C016F27B5F13D0066CCAF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -48,6 +54,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2005022627B9A6D00042B5FC /* Vistas */ = {
+			isa = PBXGroup;
+			children = (
+				204C016F27B5F13D0066CCAF /* ContentView.swift */,
+				209CE07F27B83D040058D70A /* MenuTabView.swift */,
+				209CE07E27B83A740058D70A /* AppEntry */,
+				209CE08327B84A530058D70A /* Pantallas */,
+			);
+			path = Vistas;
+			sourceTree = "<group>";
+		};
+		2005022727B9A72A0042B5FC /* Modelos */ = {
+			isa = PBXGroup;
+			children = (
+				2005022927B9A76E0042B5FC /* Model.swift */,
+			);
+			path = Modelos;
+			sourceTree = "<group>";
+		};
+		2005022827B9A73A0042B5FC /* VistaModelos */ = {
+			isa = PBXGroup;
+			children = (
+				2005022B27B9A7800042B5FC /* ViewModel.swift */,
+			);
+			path = VistaModelos;
+			sourceTree = "<group>";
+		};
 		204C016127B5F13D0066CCAF = {
 			isa = PBXGroup;
 			children = (
@@ -67,13 +100,12 @@
 		204C016C27B5F13D0066CCAF /* GameStream */ = {
 			isa = PBXGroup;
 			children = (
-				209CE08327B84A530058D70A /* Pantallas */,
-				209CE07E27B83A740058D70A /* AppEntry */,
+				2005022827B9A73A0042B5FC /* VistaModelos */,
+				2005022727B9A72A0042B5FC /* Modelos */,
+				2005022627B9A6D00042B5FC /* Vistas */,
 				204C016D27B5F13D0066CCAF /* GameStreamApp.swift */,
-				204C016F27B5F13D0066CCAF /* ContentView.swift */,
 				204C017127B5F13D0066CCAF /* Assets.xcassets */,
 				204C017327B5F13D0066CCAF /* Preview Content */,
-				209CE07F27B83D040058D70A /* MenuTabView.swift */,
 			);
 			path = GameStream;
 			sourceTree = "<group>";
@@ -91,6 +123,7 @@
 			children = (
 				209CE07A27B839F10058D70A /* InicioSesionView.swift */,
 				209CE07C27B839F90058D70A /* RegistroView.swift */,
+				2005022427B99EF00042B5FC /* WelcomeScreen.swift */,
 			);
 			path = AppEntry;
 			sourceTree = "<group>";
@@ -180,10 +213,13 @@
 				209CE07D27B839F90058D70A /* RegistroView.swift in Sources */,
 				209CE08B27B84B750058D70A /* PantallaJuegos.swift in Sources */,
 				209CE08727B84A700058D70A /* PantallaInicio.swift in Sources */,
+				2005022A27B9A76E0042B5FC /* Model.swift in Sources */,
 				2005022227B883920042B5FC /* AuxNivelador.swift in Sources */,
 				209CE07B27B839F10058D70A /* InicioSesionView.swift in Sources */,
+				2005022C27B9A7800042B5FC /* ViewModel.swift in Sources */,
 				209CE08027B83D040058D70A /* MenuTabView.swift in Sources */,
 				209CE08927B84B670058D70A /* PantallaPerfil.swift in Sources */,
+				2005022527B99EF00042B5FC /* WelcomeScreen.swift in Sources */,
 				204C017027B5F13D0066CCAF /* ContentView.swift in Sources */,
 				204C016E27B5F13D0066CCAF /* GameStreamApp.swift in Sources */,
 				209CE08D27B84B800058D70A /* PantallaFavoritos.swift in Sources */,

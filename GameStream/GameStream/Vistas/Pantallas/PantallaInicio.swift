@@ -257,7 +257,7 @@ struct reproductor:View{
     
     var body: some View{
         ZStack {
-            Image(imagenNameToLoadBG).resizable().scaledToFill().blur(radius: /*@START_MENU_TOKEN@*/6.0/*@END_MENU_TOKEN@*/).frame(maxWidth: 400, minHeight: screenHeight+10, alignment: .center)
+            Image(imagenNameToLoadBG).resizable().scaledToFill().blur(radius: /*@START_MENU_TOKEN@*/6.0/*@END_MENU_TOKEN@*/).frame(maxWidth: 400, minHeight: screenHeight+20, alignment: .center).padding(.top, -10)
             VideoPlayer(player: AVPlayer(url: URL(string: urlGlobal)!))
                 .frame(width: (screenWidth-15), height: 320, alignment: .center).padding(.all, 2.0)
             VStack {

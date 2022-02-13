@@ -106,7 +106,7 @@ struct InicioSesionView: View {
 //            EmptyView()
 //        })
         NavigationLink(isActive: $isActiveHome, destination: {MenuTabView()}, label: {EmptyView()})
-       
+//        NavigationLink(isActive: $isActiveHome, destination: {WelcomeScreen()}, label: {EmptyView()})
         
     }
     func iniciarSesion() {
@@ -114,6 +114,11 @@ struct InicioSesionView: View {
         isActiveHome.toggle()
     }
 }
+
+
+
+
+
 
 struct InicioSesionView_Previews: PreviewProvider {
     static var previews: some View {

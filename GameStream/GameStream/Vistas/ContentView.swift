@@ -23,6 +23,8 @@ struct ContentView: View {
                 Color("marine").ignoresSafeArea()
                 
                 VStack{
+                    
+                    
                     Spacer().frame(height: 10)
                     Image("appLogo").resizable().aspectRatio( contentMode: .fit).frame(width: 250).padding(.bottom, 20)
                     

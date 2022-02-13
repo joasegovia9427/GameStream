@@ -7,17 +7,23 @@
 
 import SwiftUI
 
+//struct NombreDeVista: View {
+//    var body: some View {
+//        Text(" ")
+//    }
+//}
+
 struct ContentView: View {
     var body: some View {
         NavigationView{
             
             ZStack {
-                Spacer()
+//                Spacer()
                 //            Color(red: 21/255, green: 27/255, blue: 53/255, opacity: 1).ignoresSafeArea()
                 Color("marine").ignoresSafeArea()
                 
                 VStack{
-                    Spacer()
+                    Spacer().frame(height: 10)
                     Image("appLogo").resizable().aspectRatio( contentMode: .fit).frame(width: 250).padding(.bottom, 20)
                     
                     InicioYResgistroView()

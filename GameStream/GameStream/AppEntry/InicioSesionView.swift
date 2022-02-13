@@ -102,9 +102,12 @@ struct InicioSesionView: View {
             }.padding(.horizontal, 77)
         }
         
-        NavigationLink(destination: MenuTabView(), isActive: $isActiveHome, label: {
-            EmptyView()
-        })
+//        NavigationLink(destination: MenuTabView(), isActive: $isActiveHome, label: {
+//            EmptyView()
+//        })
+        NavigationLink(isActive: $isActiveHome, destination: {MenuTabView()}, label: {EmptyView()})
+       
+        
     }
     func iniciarSesion() {
         ////aqui van validaciones logicas correspondientes

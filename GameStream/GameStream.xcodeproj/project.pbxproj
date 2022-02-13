@@ -22,6 +22,8 @@
 		209CE08927B84B670058D70A /* PantallaPerfil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209CE08827B84B670058D70A /* PantallaPerfil.swift */; };
 		209CE08B27B84B750058D70A /* PantallaJuegos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209CE08A27B84B750058D70A /* PantallaJuegos.swift */; };
 		209CE08D27B84B800058D70A /* PantallaFavoritos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209CE08C27B84B800058D70A /* PantallaFavoritos.swift */; };
+		20EBE18127B9BA24000C9CEC /* PantallaReproductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EBE18027B9BA24000C9CEC /* PantallaReproductor.swift */; };
+		20EBE18427B9C36D000C9CEC /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 20EBE18327B9C36D000C9CEC /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,7 @@
 		209CE08827B84B670058D70A /* PantallaPerfil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantallaPerfil.swift; sourceTree = "<group>"; };
 		209CE08A27B84B750058D70A /* PantallaJuegos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantallaJuegos.swift; sourceTree = "<group>"; };
 		209CE08C27B84B800058D70A /* PantallaFavoritos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantallaFavoritos.swift; sourceTree = "<group>"; };
+		20EBE18027B9BA24000C9CEC /* PantallaReproductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantallaReproductor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20EBE18427B9C36D000C9CEC /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +140,7 @@
 				209CE08A27B84B750058D70A /* PantallaJuegos.swift */,
 				209CE08C27B84B800058D70A /* PantallaFavoritos.swift */,
 				2005022127B883920042B5FC /* AuxNivelador.swift */,
+				20EBE18027B9BA24000C9CEC /* PantallaReproductor.swift */,
 			);
 			path = Pantallas;
 			sourceTree = "<group>";
@@ -156,6 +161,9 @@
 			dependencies = (
 			);
 			name = GameStream;
+			packageProductDependencies = (
+				20EBE18327B9C36D000C9CEC /* Kingfisher */,
+			);
 			productName = GameStream;
 			productReference = 204C016A27B5F13D0066CCAF /* GameStream.app */;
 			productType = "com.apple.product-type.application";
@@ -184,6 +192,9 @@
 				Base,
 			);
 			mainGroup = 204C016127B5F13D0066CCAF;
+			packageReferences = (
+				20EBE18227B9C36D000C9CEC /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 204C016B27B5F13D0066CCAF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -222,6 +233,7 @@
 				2005022527B99EF00042B5FC /* WelcomeScreen.swift in Sources */,
 				204C017027B5F13D0066CCAF /* ContentView.swift in Sources */,
 				204C016E27B5F13D0066CCAF /* GameStreamApp.swift in Sources */,
+				20EBE18127B9BA24000C9CEC /* PantallaReproductor.swift in Sources */,
 				209CE08D27B84B800058D70A /* PantallaFavoritos.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,6 +437,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		20EBE18227B9C36D000C9CEC /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		20EBE18327B9C36D000C9CEC /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 20EBE18227B9C36D000C9CEC /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 204C016227B5F13D0066CCAF /* Project object */;
 }

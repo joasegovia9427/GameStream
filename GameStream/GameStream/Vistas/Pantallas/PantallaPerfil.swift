@@ -12,7 +12,8 @@ struct PantallaPerfil: View {
         ZStack {
             Color("marine").ignoresSafeArea()
             Text("Perfil").font(.system(size: 30, weight: .bold, design: .rounded))
-        }
+        }.navigationBarHidden(true)
+            .navigationBarBackButtonHidden(true)
     }
 }
 

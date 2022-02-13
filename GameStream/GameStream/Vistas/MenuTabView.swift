@@ -9,7 +9,7 @@ import SwiftUI
 import UIKit
 
 struct MenuTabView: View {
-    @State var tabSeleccionado:Int=1
+    @State var tabSeleccionado:Int=2
         
     var body: some View {
         

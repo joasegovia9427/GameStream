@@ -246,6 +246,9 @@ struct SubModuloHome: View {
         ////-
         
         NavigationLink(isActive: $isPlayerActive, destination: {reproductor()}, label: {EmptyView()})
+        
+//        NavigationLink(isActive: $isPlayerActive, destination: {PantallaReproductor(in_urlGlobal: urlGlobal, in_imagenNameToLoadBG: imagenNameToLoadBG)}, label: {EmptyView()})
+        
     }
 }
 

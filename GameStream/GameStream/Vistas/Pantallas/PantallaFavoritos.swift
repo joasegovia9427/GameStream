@@ -12,7 +12,8 @@ struct PantallaFavoritos: View {
         ZStack {
             Color("marine").ignoresSafeArea()
             Text("Favoritos").font(.system(size: 30, weight: .bold, design: .rounded))
-        }
+        }.navigationBarHidden(true)
+            .navigationBarBackButtonHidden(true)
     }
 }
 

@@ -8,10 +8,10 @@
 import SwiftUI
 import Kingfisher
 
+
 struct PantallaJuegos: View {
     @State var gameVO: GameViewObject? = nil
-    
-    
+        
     @ObservedObject var todosLosVideoJuegos = ViewModel()
     
     @State var gameViewIsActive: Bool = false
@@ -61,6 +61,7 @@ struct PantallaJuegos: View {
                             Button(action: {
                                 gameVO = GameViewObject(game: juego)
                                 print("Pulse el juego \(gameVO!.title)")
+                                gameViewIsActive.toggle()
                             }, label: {
                                 
                                 
@@ -94,6 +95,13 @@ struct PantallaJuegos: View {
                     }.padding(.horizontal, 10.0)
                 }
             }.padding(.horizontal, 6)
+            
+            NavigationLink(isActive: $gameViewIsActive, destination: {PantallaViewJuego(url: gameVO!.title, title: gameVO!.title, studio: gameVO!.title, calification: gameVO!.title, anoPublicacion: gameVO!.title, description: gameVO!.title, tags: gameVO!.tags, imgUrls: gameVO!.imgUrls)}, label: {EmptyView()})
+            
+//            NavigationLink(isActive: $gameViewIsActive, destination: {PantallaViewJuego(gameFrom: gameVO)}, label: {EmptyView()})
+            
+            
+            
         }.navigationBarHidden(true)
             .navigationBarBackButtonHidden(true)
             .onAppear(perform: {
@@ -101,7 +109,7 @@ struct PantallaJuegos: View {
                 print("Titulo del primer videojuego del json: \(todosLosVideoJuegos.gamesInfo[0].title)")
                 
             })
-        
+    
     }
 }
 
@@ -135,31 +143,31 @@ func placeholderImage() -> some View {
 
 
 
-struct GameViewObject {
-    let url: String
-    let title: String
-    let studio: String
-    let calification: String
-    let pubYear: String
-    let description: String
-    let tags: [String]
-    let imgUrls: [String]
-    
-    init(game: Game) {
-        url = game.videosUrls.mobile
-        title = game.title
-        studio = game.studio
-        calification = game.contentRaiting
-        pubYear = game.publicationYear
-        description = game.description
-        tags = game.tags
-        imgUrls = game.galleryImages
-    }
-}
+//struct GameViewObject {
+//    let url: String
+//    let title: String
+//    let studio: String
+//    let calification: String
+//    let pubYear: String
+//    let description: String
+//    let tags: [String]
+//    let imgUrls: [String]
+//
+//    init(game: Game) {
+//        url = game.videosUrls.mobile
+//        title = game.title
+//        studio = game.studio
+//        calification = game.contentRaiting
+//        pubYear = game.publicationYear
+//        description = game.description
+//        tags = game.tags
+//        imgUrls = game.galleryImages
+//    }
+//}
 
 
-struct PantallaJuegos_Previews: PreviewProvider {
-    static var previews: some View {
-        PantallaJuegos()
-    }
-}
+//struct PantallaJuegos_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PantallaJuegos()
+//    }
+//}

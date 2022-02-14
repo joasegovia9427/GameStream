@@ -16,14 +16,14 @@ struct PantallaJuegos: View {
     
     @State var gameViewIsActive: Bool = false
     
-    //    @State var url: String = ""
-    //    @State var title: String = ""
-    //    @State var studio: String = ""
-    //    @State var calification: String = ""
-    //    @State var anoPublicacion: String = ""
-    //    @State var description: String = ""
-    //    @State var tags: [String] = [""]
-    //    @State var imgUrls: [String] = [""]
+        @State var url: String = ""
+        @State var title: String = ""
+        @State var studio: String = ""
+        @State var calification: String = ""
+        @State var anoPublicacion: String = ""
+        @State var description: String = ""
+        @State var tags: [String] = [""]
+        @State var imgUrls: [String] = [""]
     
     let formaGrid = [
         GridItem(.flexible()),
@@ -35,21 +35,21 @@ struct PantallaJuegos: View {
         ZStack {
             Color("marine").ignoresSafeArea()
             VStack{
-                Text("Juegos").font(.title2).fontWeight(.bold).foregroundColor(Color("cian")).padding(EdgeInsets(top: 16, leading: 0, bottom: 64, trailing: 0))
+                Text("Juegos").font(.title2).fontWeight(.bold).foregroundColor(Color("cian")).padding(EdgeInsets(top: 16, leading: 0, bottom: 64, trailing: 0)).padding(.bottom, -40)
                 ScrollView{
                     LazyVGrid(columns: formaGrid, spacing: 8){
                         ForEach(todosLosVideoJuegos.gamesInfo, id: \.self){
                             juego in
                             
-                            //                            Button(action: {
-                            //                                url = juego.videosUrls.mobile
-                            //                                title = juego.title
-                            //                                studio = juego.studio
-                            //                                calification = juego.contentRaiting
-                            //                                anoPublicacion = juego.publicationYear
-                            //                                description = juego.description
-                            //                                tags = juego.tags
-                            //                                imgUrls = juego.galleryImages
+                                                        Button(action: {
+                                                            url = juego.videosUrls.mobile
+                                                            title = juego.title
+                                                            studio = juego.studio
+                                                            calification = juego.contentRaiting
+                                                            anoPublicacion = juego.publicationYear
+                                                            description = juego.description
+                                                            tags = juego.tags
+                                                            imgUrls = juego.galleryImages
                             //
                             //                                print("Pulse el juego \(title)")
                             //
@@ -58,7 +58,7 @@ struct PantallaJuegos: View {
                             //
                             //                            })
                             
-                            Button(action: {
+//                            Button(action: {
                                 gameVO = GameViewObject(game: juego)
                                 print("Pulse el juego \(gameVO!.title)")
                                 gameViewIsActive.toggle()
@@ -96,7 +96,7 @@ struct PantallaJuegos: View {
                 }
             }.padding(.horizontal, 6)
             
-            NavigationLink(isActive: $gameViewIsActive, destination: {PantallaViewJuego(url: gameVO!.title, title: gameVO!.title, studio: gameVO!.title, calification: gameVO!.title, anoPublicacion: gameVO!.title, description: gameVO!.title, tags: gameVO!.tags, imgUrls: gameVO!.imgUrls)}, label: {EmptyView()})
+            NavigationLink(isActive: $gameViewIsActive, destination: {PantallaViewJuego(url: url, title: title, studio: studio, calification: calification, anoPublicacion: anoPublicacion, description: description, tags: tags, imgUrls: imgUrls)}, label: {EmptyView()})
             
 //            NavigationLink(isActive: $gameViewIsActive, destination: {PantallaViewJuego(gameFrom: gameVO)}, label: {EmptyView()})
             
@@ -148,7 +148,7 @@ func placeholderImage() -> some View {
 //    let title: String
 //    let studio: String
 //    let calification: String
-//    let pubYear: String
+//    let anoPublicacion: String
 //    let description: String
 //    let tags: [String]
 //    let imgUrls: [String]
@@ -158,14 +158,14 @@ func placeholderImage() -> some View {
 //        title = game.title
 //        studio = game.studio
 //        calification = game.contentRaiting
-//        pubYear = game.publicationYear
+//        anoPublicacion = game.publicationYear
 //        description = game.description
 //        tags = game.tags
 //        imgUrls = game.galleryImages
 //    }
 //}
 
-
+//
 //struct PantallaJuegos_Previews: PreviewProvider {
 //    static var previews: some View {
 //        PantallaJuegos()

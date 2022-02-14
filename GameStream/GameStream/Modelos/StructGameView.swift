@@ -12,7 +12,7 @@ struct GameViewObject {
     var title: String
     var studio: String
     var calification: String
-    var pubYear: String
+    var anoPublicacion: String
     var description: String
     var tags: [String]
     var imgUrls: [String]
@@ -20,7 +20,7 @@ struct GameViewObject {
 //    let title: String
 //    let studio: String
 //    let calification: String
-//    let pubYear: String
+//    let v: String
 //    let description: String
 //    let tags: [String]
 //    let imgUrls: [String]
@@ -30,7 +30,7 @@ struct GameViewObject {
         title = game.title
         studio = game.studio
         calification = game.contentRaiting
-        pubYear = game.publicationYear
+        anoPublicacion = game.publicationYear
         description = game.description
         tags = game.tags
         imgUrls = game.galleryImages

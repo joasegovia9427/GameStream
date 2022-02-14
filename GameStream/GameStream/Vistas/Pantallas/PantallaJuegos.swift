@@ -63,10 +63,27 @@ struct PantallaJuegos: View {
                                 print("Pulse el juego \(gameVO!.title)")
                             }, label: {
                                 
+                                
                                 VStack {
-                                    KFImage(URL(string: juego.galleryImages[0])!).resizable().aspectRatio(contentMode: .fit).clipShape(RoundedRectangle.init(cornerRadius: 4)).padding(.bottom, -15)
+                                    if #available(iOS 15.0, *) {
+                                        ////A partir de iOS 15 se podria usar https://developer.apple.com/documentation/swiftui/asyncimage
+                                        ///
+                                        AsyncImage( url: URL( string: juego.galleryImages[0] )!  )
+                                        { image in
+                                            image
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fit)
+                                                .clipShape(RoundedRectangle(cornerRadius: 4))
+                                                .padding(.bottom, -15)
+                                        } placeholder: {
+                                            placeholderImage()
+                                        }
+                                    } else {
+                                        KFImage(URL(string: juego.galleryImages[0])!).resizable().aspectRatio(contentMode: .fit).clipShape(RoundedRectangle.init(cornerRadius: 4)).padding(.bottom, -15)
+                                    }
                                     
-//                                    Text("\(juego.title)")
+                                    
+                                    //                                    Text("\(juego.title)")
                                     Text(cortarString(24, textoIn:juego.title)).font(.footnote).foregroundColor(.white).padding(EdgeInsets(top: 16, leading: 0, bottom: 30, trailing: 0))
                                     
                                 }
@@ -91,18 +108,32 @@ struct PantallaJuegos: View {
 func cortarString(_ cantidad: Int, textoIn:String) -> String {
     var stringToReturn:String = ""
     let mySubstring = textoIn.prefix(cantidad)
-
+    
     stringToReturn = String(mySubstring)
     
     if textoIn.count > cantidad {
         stringToReturn = stringToReturn + "..."
     }
-
-//    print("Texto entero \(textoIn)")
-//    print("Texto cortado \(mySubstring)")
-//    print("Texto a retornar \(stringToReturn)")
+    
+    //    print("Texto entero \(textoIn)")
+    //    print("Texto cortado \(mySubstring)")
+    //    print("Texto a retornar \(stringToReturn)")
     return String(stringToReturn)
 }
+
+
+@ViewBuilder
+func placeholderImage() -> some View {
+    Image(systemName: "photo")
+        .renderingMode(.template)
+        .resizable()
+        .aspectRatio(contentMode: .fit)
+    
+        .frame(width: 150, height: 150)
+        .foregroundColor(.gray)
+}
+
+
 
 struct GameViewObject {
     let url: String

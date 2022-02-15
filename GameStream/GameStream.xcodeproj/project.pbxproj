@@ -47,6 +47,7 @@
 		209CE08C27B84B800058D70A /* PantallaFavoritos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantallaFavoritos.swift; sourceTree = "<group>"; };
 		20B642D227B9D61500A02CB0 /* PantallaViewJuego.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantallaViewJuego.swift; sourceTree = "<group>"; };
 		20B642D427B9DBD500A02CB0 /* StructGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructGameView.swift; sourceTree = "<group>"; };
+		20B642D627BB421500A02CB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		20EBE18027B9BA24000C9CEC /* PantallaReproductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantallaReproductor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,6 +111,7 @@
 		204C016C27B5F13D0066CCAF /* GameStream */ = {
 			isa = PBXGroup;
 			children = (
+				20B642D627BB421500A02CB0 /* Info.plist */,
 				2005022827B9A73A0042B5FC /* VistaModelos */,
 				2005022727B9A72A0042B5FC /* Modelos */,
 				2005022627B9A6D00042B5FC /* Vistas */,
@@ -384,11 +386,15 @@
 				DEVELOPMENT_TEAM = 5Z53LMM5TS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GameStream/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -413,11 +419,15 @@
 				DEVELOPMENT_TEAM = 5Z53LMM5TS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GameStream/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

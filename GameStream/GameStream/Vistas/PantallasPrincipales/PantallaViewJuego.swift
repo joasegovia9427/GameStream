@@ -27,12 +27,14 @@ struct PantallaViewJuego: View {
             Color("marine").ignoresSafeArea()
             VStack {
                 ScrollView {
-                    videoComentarios()
-                    juegosSimilares()
                     
-                    //                    video(url: url).frame(height: 200).padding(.top,-60)
-                    //                    videoInfo(title: title, studio: studio, calification: calification, anoPublicacion: anoPublicacion, description: description, tags: tags).padding(.bottom, 30)
-                    //                    videoGallery(imgUrls: imgUrls)
+                    
+                    video(url: url).frame(height: 200).padding(.top,-60)
+                    videoInfo(title: title, studio: studio, calification: calification, anoPublicacion: anoPublicacion, description: description, tags: tags).padding(.bottom, 30)
+                    videoGallery(imgUrls: imgUrls).padding(.bottom, 30)
+                    
+                    videoComentarios().padding(.bottom, 30)
+                    juegosSimilares().padding(.bottom, 30)
                     
                     Spacer().frame(height:50)
                 }.frame(maxWidth: .infinity)
@@ -142,9 +144,9 @@ struct videoComentarios: View {
         VStack (alignment:.leading){
             HStack{
                 Text("COMENTARIOS").font(.title3).foregroundColor(.white).fontWeight(.bold).frame(minWidth: 0, maxWidth: .infinity, alignment: .leading).padding(.leading)//.padding(.top).padding(.bottom, -15)
-//                Button(action: {isMostrarMiComentarioActive = true}, label: {
-//                    Image(systemName: "plus.bubble").foregroundColor(.white)
-//                })
+                //                Button(action: {isMostrarMiComentarioActive = true}, label: {
+                //                    Image(systemName: "plus.bubble").foregroundColor(.white)
+                //                })
                 Button(action: {isMostrarMiComentarioActive = true}, label: {
                     Image(systemName: "square.and.pencil").foregroundColor(.white)
                 }).padding(.trailing)
@@ -216,7 +218,7 @@ struct videoComentarios: View {
                 .frame(maxWidth: 250, alignment: .center)
                 .padding(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5))
         }).background(Color("blue-action")).cornerRadius(8.0
-        ).padding()
+        ).padding(.top, -20)
     }
 }
 

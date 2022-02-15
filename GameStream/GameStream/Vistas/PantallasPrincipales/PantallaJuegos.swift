@@ -66,22 +66,22 @@ struct PantallaJuegos: View {
                                 
                                 
                                 VStack {
-                                    if #available(iOS 15.0, *) {
-                                        ////A partir de iOS 15 se podria usar https://developer.apple.com/documentation/swiftui/asyncimage
-                                        ///
-                                        AsyncImage( url: URL( string: juego.galleryImages[0] )!  )
-                                        { image in
-                                            image
-                                                .resizable()
-                                                .aspectRatio(contentMode: .fit)
-                                                .clipShape(RoundedRectangle(cornerRadius: 4))
-                                                .padding(.bottom, -15)
-                                        } placeholder: {
-                                            placeholderImage()
-                                        }
-                                    } else {
+//                                    if #available(iOS 15.0, *) {
+//                                        ////A partir de iOS 15 se podria usar https://developer.apple.com/documentation/swiftui/asyncimage
+//                                        ///
+//                                        AsyncImage( url: URL( string: juego.galleryImages[0] )!  )
+//                                        { image in
+//                                            image
+//                                                .resizable()
+//                                                .aspectRatio(contentMode: .fit)
+//                                                .clipShape(RoundedRectangle(cornerRadius: 4))
+//                                                .padding(.bottom, -15)
+//                                        } placeholder: {
+//                                            placeholderImage()
+//                                        }
+//                                    } else {
                                         KFImage(URL(string: juego.galleryImages[0])!).resizable().aspectRatio(contentMode: .fit).clipShape(RoundedRectangle.init(cornerRadius: 4)).padding(.bottom, -15)
-                                    }
+//                                    }
                                     
                                     
                                     //                                    Text("\(juego.title)")
@@ -105,8 +105,8 @@ struct PantallaJuegos: View {
         }.navigationBarHidden(true)
             .navigationBarBackButtonHidden(true)
             .onAppear(perform: {
-                print("Primer elemento del json: \(todosLosVideoJuegos.gamesInfo[0])")
-                print("Titulo del primer videojuego del json: \(todosLosVideoJuegos.gamesInfo[0].title)")
+//                print("Primer elemento del json: \(todosLosVideoJuegos.gamesInfo[0])")
+//                print("Titulo del primer videojuego del json: \(todosLosVideoJuegos.gamesInfo[0].title)")
                 
             })
     

@@ -11,7 +11,7 @@ struct InicioSesionView: View {
     @State var correo:String = ""
     @State var contrasenia:String = ""
     @State var isContraseniaVisible:Bool = false
-    @State var isActiveHome:Bool = false
+    @State var isActiveHome:Bool = true
     
     var body: some View{
         

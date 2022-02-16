@@ -24,7 +24,7 @@ let urlVideos:[String] = ["https://cdn.cloudflare.steamstatic.com/steam/apps/256
 
 struct PantallaInicio: View {
     @State var isAuxNiveladorActive:Bool = false
-    @State var textoBusqueda = ""
+    
     
     var body: some View {
         
@@ -37,27 +37,6 @@ struct PantallaInicio: View {
                 //                Spacer().frame(height: 10)
                 Image("appLogo").resizable().aspectRatio( contentMode: .fit).frame(width: 250).padding(.bottom, 20)
                 
-                HStack{
-                    
-                    
-                    ZStack(alignment: .leading){
-                        if(textoBusqueda.isEmpty){
-                            Text("Buscar un video").font(.caption).foregroundColor(Color("light-grey")).font(.caption)
-                        }
-                        TextField("", text: $textoBusqueda).foregroundColor(Color("pure-white"))
-                    }
-                    
-                    if(textoBusqueda.isEmpty){
-                        Image(systemName: "magnifyingglass").foregroundColor(textoBusqueda.isEmpty ? Color("blue-action") : Color("cian"))
-                    }else{
-                        Button(action: {busqueda()}, label: {
-                            Image(systemName: "magnifyingglass").foregroundColor(textoBusqueda.isEmpty ? Color("blue-action") : Color("cian"))
-                        })
-                    }
-                    
-                    
-                }.padding(.all, 11.0).background(Color("blue-grey")).cornerRadius(/*@START_MENU_TOKEN@*/8.0/*@END_MENU_TOKEN@*/)
-                // .clipShape(Capsule())
                 
                 
                 
@@ -77,16 +56,54 @@ struct PantallaInicio: View {
         
     }
     
-    func busqueda() {
-        print("buscando")
-    }
+    
 }
 
 struct SubModuloHome: View {
     @State var isPlayerActive = false
-    
+    @State var textoBusqueda = ""
+    @State var isGameInfoEmpty = false
     
     var body: some View {
+        
+        HStack{
+            ZStack(alignment: .leading){
+                if(textoBusqueda.isEmpty){
+                    Text("Buscar un video").font(.caption).foregroundColor(Color("light-grey")).font(.caption)
+                }
+                TextField("", text: $textoBusqueda).foregroundColor(Color("pure-white"))
+            }
+            
+            if(textoBusqueda.isEmpty){
+                Image(systemName: "magnifyingglass").foregroundColor(textoBusqueda.isEmpty ? Color("blue-action") : Color("cian"))
+            }else{
+                Button(action: {watchGame(name: textoBusqueda)}, label: {
+                    Image(systemName: "magnifyingglass").foregroundColor(textoBusqueda.isEmpty ? Color("blue-action") : Color("cian"))
+                }).alert(isPresented: $isGameInfoEmpty){
+                    Alert(title: Text("Error"), message: Text("No se encontro el juego"), dismissButton: .default(Text("Entendido")))
+                }
+            }
+            
+            
+            if(textoBusqueda.isEmpty){
+                Image(systemName: "xmark").foregroundColor(textoBusqueda.isEmpty ? Color("blue-action") : Color("cian"))
+            }else{
+                Button(action: {textoBusqueda=""}, label: {
+                    Image(systemName: "xmark").foregroundColor(textoBusqueda.isEmpty ? Color("blue-action") : Color("cian"))
+                })
+            }
+            
+            
+            
+            
+            
+            
+        }.padding(.all, 11.0).background(Color("blue-grey")).cornerRadius(/*@START_MENU_TOKEN@*/8.0/*@END_MENU_TOKEN@*/)
+        // .clipShape(Capsule())
+        
+        
+    
+        
         ////- 1) LOS MÁS POPULARES
         VStack {
             Text("LOS MÁS POPULARES").font(.title3).foregroundColor(.white).fontWeight(.bold).frame(minWidth: 0, maxWidth: .infinity, alignment: .leading).padding(.top).padding(.bottom, -15)
@@ -247,9 +264,23 @@ struct SubModuloHome: View {
         
         NavigationLink(isActive: $isPlayerActive, destination: {reproductor()}, label: {EmptyView()})
         
-//        NavigationLink(isActive: $isPlayerActive, destination: {PantallaReproductor(in_urlGlobal: urlGlobal, in_imagenNameToLoadBG: imagenNameToLoadBG)}, label: {EmptyView()})
+        //        NavigationLink(isActive: $isPlayerActive, destination: {PantallaReproductor(in_urlGlobal: urlGlobal, in_imagenNameToLoadBG: imagenNameToLoadBG)}, label: {EmptyView()})
         
     }
+    
+    func busqueda() {
+        print("buscando")
+    }
+    
+    func watchGame(name: String) {
+        print("Buscar Juego")
+        isGameInfoEmpty.toggle()
+    }
+    
+    
+    
+    
+    
 }
 
 struct reproductor:View{

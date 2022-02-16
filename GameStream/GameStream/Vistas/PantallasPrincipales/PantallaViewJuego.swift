@@ -4,10 +4,11 @@
 //
 //  Created by Joaquin Segovia on 13/2/22.
 //
-
+//
 import SwiftUI
 import AVKit
 import Kingfisher
+import UIKit
 
 struct PantallaViewJuego: View {
     //    var gameVOFromPantallaJuegos : GameViewObject?
@@ -27,8 +28,7 @@ struct PantallaViewJuego: View {
             Color("marine").ignoresSafeArea()
             VStack {
                 ScrollView {
-                    
-                    
+
                     video(url: url).frame(height: 200).padding(.top,-60)
                     videoInfo(title: title, studio: studio, calification: calification, anoPublicacion: anoPublicacion, description: description, tags: tags).padding(.bottom, 30)
                     videoGallery(imgUrls: imgUrls).padding(.bottom, 30)
@@ -36,7 +36,7 @@ struct PantallaViewJuego: View {
                     videoComentarios().padding(.bottom, 30)
                     juegosSimilares().padding(.bottom, 30)
                     
-                    Spacer().frame(height:50)
+//                    Spacer().frame(height:50)
                 }.frame(maxWidth: .infinity)
             }
         }
@@ -77,10 +77,24 @@ struct videoInfo: View {
     var description: String
     var tags: [String]
     
+    @State var isFavouriteActive:Bool = true
+    
+    
     var body: some View {
         VStack(alignment: .leading  ) {
             
-            Text("\(title)").fontWeight(.bold).foregroundColor(Color("cian")).font(.largeTitle).padding(.leading)
+            HStack {
+                Text("\(title)").fontWeight(.bold).foregroundColor(Color("cian")).font(.largeTitle).padding(.leading)
+                Spacer()
+                Button(action: {isFavouriteActive.toggle()}, label: {
+                    
+                    if isFavouriteActive{
+                        Image(systemName: "heart.fill").resizable().aspectRatio(contentMode: .fit).foregroundColor(Color("amarello")).frame(width: 30, height: 30, alignment: .center)
+                    }else{
+                        Image(systemName: "heart").resizable().aspectRatio(contentMode: .fit).foregroundColor(Color("pure-white")).frame(width: 30, height: 30, alignment: .center)
+                    }
+                }).padding(.leading)
+            }
             HStack{
                 Text("\(studio)").fontWeight(.bold).foregroundColor(.white).font(.subheadline).padding(.top, 5).padding(.leading)
                 Text("\(calification)").foregroundColor(.white).font(.subheadline).padding(.top, 5)
@@ -224,9 +238,19 @@ struct videoComentarios: View {
 
 struct juegosSimilares: View {
     var body: some View {
-        Text("").foregroundColor(.white)
+        VStack {
+            Text("JUEGOS SIMILIARES").font(.title3).foregroundColor(.white).fontWeight(.bold).frame(minWidth: 0, maxWidth: .infinity, alignment: .leading).padding(.leading)
+            ScrollView(.horizontal, showsIndicators: false){
+                HStack{
+                    Image("13-swiftuiapps-2105-spiderman").resizable().frame(width: 240, height: 135, alignment: .center).padding(.leading)
+                    Image("13-swiftuiapps-2105-battkefield").resizable().frame(width: 240, height: 135, alignment: .center).padding(.leading)
+                    Image("13-swiftuiapps-2105-lastofus").resizable().frame(width: 240, height: 135, alignment: .center).padding(.leading)
+                }
+            }
+        }
     }
 }
+
 
 struct PantallaViewJuego_Previews: PreviewProvider {
     
@@ -246,3 +270,4 @@ struct PantallaViewJuego_Previews: PreviewProvider {
     }
     
 }
+

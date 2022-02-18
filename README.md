@@ -9,26 +9,26 @@ API use:: https://gamestream-api.herokuapp.com/api-docs/#/default/get_api_games
 
 ##Capturas de Progreso
 ### puedes encontrar todo el timeline en la carpeta ScreenShots
-<img src="https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/class14a.png" width="30px" data-canonical-src="https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/class14a.png" style="max-width: 100%;">
-
 <img src="https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/class14a.png" width="30px" data-canonical-src="https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/class14a.png" style="width: 300px;">
 
-<img src="" width="30px" data-canonical-src="" style="max-width: 100%;">
-<img src="" width="30px" data-canonical-src="" style="max-width: 100%;">
-<img src="" width="30px" data-canonical-src="" style="max-width: 100%;">
-<img src="" width="30px" data-canonical-src="" style="max-width: 100%;">
-<img src="" width="30px" data-canonical-src="" style="max-width: 100%;">
+<img src="https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/class14b.png" width="30px" data-canonical-src="https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/class14b.png" style="width: 300px;">
 
+<img src="https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/class23a.png" width="30px" data-canonical-src="https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/class23a.png" style="width: 300px;">
 
+<img src="https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/Class07.png" width="30px" data-canonical-src="https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/Class07.png" style="width: 300px;">
 
-https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/class14a.png
-
-
-https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/class14b.png
+<img src="https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/Class08.png" width="30px" data-canonical-src="https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/Class08.png" style="width: 300px;">
 
 
 
 
-https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/class23a.png
-https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/Class07.png
-https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/Class08.png
+
+
+
+
+
+
+
+
+
+

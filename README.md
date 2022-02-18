@@ -7,7 +7,7 @@ Fimga design:: https://www.figma.com/file/J62PMUCv8uCtKNpoN3L7iK/Game-Stream?nod
 
 API use:: https://gamestream-api.herokuapp.com/api-docs/#/default/get_api_games
 
-<img src="https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/class14a.png" width="30px" data-canonical-src="" style="max-width: 100%;">
+<img src="https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/class14a.png" width="30px" data-canonical-src="https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/class14a.png" style="max-width: 100%;">
 
 <img src="" width="30px" data-canonical-src="" style="max-width: 100%;">
 <img src="" width="30px" data-canonical-src="" style="max-width: 100%;">

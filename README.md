@@ -6,3 +6,25 @@ Game Stream es una aplicación diseñada para iOS con el propósito de llevarla 
 Fimga design:: https://www.figma.com/file/J62PMUCv8uCtKNpoN3L7iK/Game-Stream?node-id=21%3A22
 
 API use:: https://gamestream-api.herokuapp.com/api-docs/#/default/get_api_games
+
+<img src="https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/class14a.png" width="30px" data-canonical-src="" style="max-width: 100%;">
+
+<img src="" width="30px" data-canonical-src="" style="max-width: 100%;">
+<img src="" width="30px" data-canonical-src="" style="max-width: 100%;">
+<img src="" width="30px" data-canonical-src="" style="max-width: 100%;">
+<img src="" width="30px" data-canonical-src="" style="max-width: 100%;">
+<img src="" width="30px" data-canonical-src="" style="max-width: 100%;">
+
+
+
+https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/class14a.png
+
+
+https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/class14b.png
+
+
+
+
+https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/class23a.png
+https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/Class07.png
+https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/Class08.png

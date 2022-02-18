@@ -20,4 +20,4 @@ API use:: https://gamestream-api.herokuapp.com/api-docs/#/default/get_api_games
 </tr>
 </tbody>
 </table>
-<img src="https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/class23a.png" width="3000px" data-canonical-src="https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/class23a.png" style="width: 800px;">
+<img src="https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/class23a.png" width="30px" data-canonical-src="https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/class23a.png" style="width: 1000px;">

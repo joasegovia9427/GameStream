@@ -9,26 +9,20 @@ API use:: https://gamestream-api.herokuapp.com/api-docs/#/default/get_api_games
 
 ## Capturas de Progreso
 ### Puedes encontrar todo el timeline en la carpeta ScreenShots
-<img src="https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/class14a.png" width="30px" data-canonical-src="https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/class14a.png" style="width: 300px;">
 
-<img src="https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/class14b.png" width="30px" data-canonical-src="https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/class14b.png" style="width: 300px;">
-
-<img src="https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/class23a.png" width="30px" data-canonical-src="https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/class23a.png" style="width: 300px;">
-
-<img src="https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/Class07.png" width="30px" data-canonical-src="https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/Class07.png" style="width: 300px;">
-
-<img src="https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/Class08.png" width="30px" data-canonical-src="https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/Class08.png" style="width: 300px;">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<table style="border-collapse: collapse; width: 100%; height: 54px;" border="1">
+<tbody>
+<tr style="height: 18px;">
+<td style="width: 20%; height: 18px;"><img src="https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/class14a.png" width="30px" data-canonical-src="https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/class14a.png" style="width: 300px;"></td>
+<td style="width: 20%; height: 18px;"><img src="https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/class14b.png" width="30px" data-canonical-src="https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/class14b.png" style="width: 300px;"></td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 20%; height: 18px;"><img src="https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/class23a.png" width="30px" data-canonical-src="https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/class23a.png" style="width: 300px;"></td>
+<td style="width: 20%; height: 18px;">&nbsp;</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 20%; height: 18px;"><img src="https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/Class07.png" width="30px" data-canonical-src="https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/Class07.png" style="width: 300px;"></td>
+<td style="width: 20%; height: 18px;"><img src="https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/Class08.png" width="30px" data-canonical-src="https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/Class08.png" style="width: 300px;"></td>
+</tr>
+</tbody>
+</table>

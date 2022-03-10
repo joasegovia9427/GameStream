@@ -20,7 +20,7 @@ struct PantallaPerfil: View {
                         Text("Perfil").font(.title2).fontWeight(.bold).foregroundColor(Color("cian")).padding(EdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 0))
                         
                         VStack{
-                            Image("08-swiftuiapps-2105-goto-prueba").resizable().aspectRatio( contentMode: .fill).frame(width: 118, height: 118, alignment: .center).clipShape(Circle())
+                            Image("08-swiftuiapps-2105-goto-prueba").resizable().aspectRatio(contentMode: .fill).frame(width: 118, height: 118, alignment: .center).clipShape(Circle())
                             
                             Text("Lanie Janecki").fontWeight(.bold).foregroundColor(.white).frame(width: 300, alignment: .center)
                             

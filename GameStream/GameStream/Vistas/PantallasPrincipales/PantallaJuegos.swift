@@ -36,7 +36,7 @@ struct PantallaJuegos: View {
             Color("marine").ignoresSafeArea()
             VStack{
                 Text("Juegos").font(.title2).fontWeight(.bold).foregroundColor(Color("cian")).padding(EdgeInsets(top: 16, leading: 0, bottom: 64, trailing: 0)).padding(.bottom, -40)
-                ScrollView{
+                ScrollView(showsIndicators: false){
                     LazyVGrid(columns: formaGrid, spacing: 8){
                         ForEach(todosLosVideoJuegos.gamesInfo, id: \.self){
                             juego in

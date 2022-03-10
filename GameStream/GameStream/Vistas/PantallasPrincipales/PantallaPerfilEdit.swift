@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PantallaPerfilEdit: View {
-
+    
     var body: some View {
         ZStack{
             Color("marine").ignoresSafeArea()
@@ -125,15 +125,31 @@ struct ModuloEditarData : View{
                 //// -
             }
             
+            ////CAMPO PARA NOMBRE
+            Text("Nombre").foregroundColor(Color("dark-cian"))
+            ZStack(alignment: .leading){
+                if(correo.isEmpty){
+                    Text(verbatim: "Introduce tu nombre de usuario").font(.caption).foregroundColor(Color("light-grey"))
+                }
+                TextField("", text: $correo).foregroundColor(Color("pure-white"))
+            }
+            Divider().frame(height: 1).background(Color("dark-cian")).padding(.bottom,10)
+            //// -
+            
+            ///
             Spacer().padding(5)
             VStack{
-                Button(action: registro, label: {
-                    Text(String("Actualizar datos").uppercased())
-                        .fontWeight(.bold)
-                        .foregroundColor(.white)
-                        .frame(maxWidth: .infinity, alignment: .center)
-                        .padding(EdgeInsets(top: 11, leading: 18, bottom: 11, trailing: 18))
-                        .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color("dark-cian"), lineWidth: 2).shadow(color: .white, radius: 6))
+                Button(action: actualizarDatos, label: {
+                    ZStack{
+                        Spacer().frame(maxWidth: .infinity, minHeight: 20, maxHeight: 20, alignment: .center)
+                            .padding(EdgeInsets(top: 11, leading: 18, bottom: 11, trailing: 18))
+                            .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color("dark-cian"), lineWidth: 2).shadow(color: .white, radius: 6))
+                        
+                        Text(String("Actualizar datos").uppercased())
+                            .fontWeight(.bold)
+                            .foregroundColor(.white).frame(maxWidth: .infinity, minHeight: 20, maxHeight: 20, alignment: .center)
+                            .padding(EdgeInsets(top: 11, leading: 18, bottom: 11, trailing: 18)).background(Color("marine")).cornerRadius(12)
+                    }
                 })
             }
             
@@ -141,7 +157,7 @@ struct ModuloEditarData : View{
         }.padding(.horizontal, 26)
     }
     
-    func registro() {
+    func actualizarDatos() {
         print("Estoy actualizando")
     }
 }

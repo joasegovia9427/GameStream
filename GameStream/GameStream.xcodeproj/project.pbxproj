@@ -11,6 +11,7 @@
 		2005022527B99EF00042B5FC /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2005022427B99EF00042B5FC /* WelcomeScreen.swift */; };
 		2005022A27B9A76E0042B5FC /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2005022927B9A76E0042B5FC /* Model.swift */; };
 		2005022C27B9A7800042B5FC /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2005022B27B9A7800042B5FC /* ViewModel.swift */; };
+		2038872027D9898300AE9121 /* PantallaPerfilEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2038871F27D9898300AE9121 /* PantallaPerfilEdit.swift */; };
 		204C016E27B5F13D0066CCAF /* GameStreamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204C016D27B5F13D0066CCAF /* GameStreamApp.swift */; };
 		204C017027B5F13D0066CCAF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204C016F27B5F13D0066CCAF /* ContentView.swift */; };
 		204C017227B5F13D0066CCAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 204C017127B5F13D0066CCAF /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 		2005022427B99EF00042B5FC /* WelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreen.swift; sourceTree = "<group>"; };
 		2005022927B9A76E0042B5FC /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		2005022B27B9A7800042B5FC /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		2038871F27D9898300AE9121 /* PantallaPerfilEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantallaPerfilEdit.swift; sourceTree = "<group>"; };
 		204C016A27B5F13D0066CCAF /* GameStream.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameStream.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		204C016D27B5F13D0066CCAF /* GameStreamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStreamApp.swift; sourceTree = "<group>"; };
 		204C016F27B5F13D0066CCAF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				209CE08A27B84B750058D70A /* PantallaJuegos.swift */,
 				209CE08C27B84B800058D70A /* PantallaFavoritos.swift */,
 				20B642D227B9D61500A02CB0 /* PantallaViewJuego.swift */,
+				2038871F27D9898300AE9121 /* PantallaPerfilEdit.swift */,
 			);
 			path = PantallasPrincipales;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 			files = (
 				209CE07D27B839F90058D70A /* RegistroView.swift in Sources */,
 				209CE08B27B84B750058D70A /* PantallaJuegos.swift in Sources */,
+				2038872027D9898300AE9121 /* PantallaPerfilEdit.swift in Sources */,
 				209CE08727B84A700058D70A /* PantallaInicio.swift in Sources */,
 				2005022A27B9A76E0042B5FC /* Model.swift in Sources */,
 				2005022227B883920042B5FC /* AuxNivelador.swift in Sources */,

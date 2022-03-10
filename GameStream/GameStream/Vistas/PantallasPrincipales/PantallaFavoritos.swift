@@ -16,6 +16,7 @@ struct PantallaFavoritos: View {
             Color("marine").ignoresSafeArea()
             
             VStack{
+                
                 Text("Favoritos").font(.title2).fontWeight(.bold).foregroundColor(Color("cian")).padding(EdgeInsets(top: 16, leading: 0, bottom: 44, trailing: 0)).padding(.bottom, -40)
                 
                 ScrollView{

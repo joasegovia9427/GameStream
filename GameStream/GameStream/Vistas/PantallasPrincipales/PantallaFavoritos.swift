@@ -11,17 +11,14 @@ import AVKit
 struct PantallaFavoritos: View {
     @ObservedObject var todosLosVideoJuegos = ViewModel()
     
-    
     var body: some View {
         ZStack {
             Color("marine").ignoresSafeArea()
-            
             
             VStack{
                 Text("Favoritos").font(.title2).fontWeight(.bold).foregroundColor(Color("cian")).padding(EdgeInsets(top: 16, leading: 0, bottom: 44, trailing: 0)).padding(.bottom, -40)
                 
                 ScrollView{
-                    
                     ForEach(todosLosVideoJuegos.gamesInfo, id: \.self){
                         juego in
                         
@@ -32,13 +29,10 @@ struct PantallaFavoritos: View {
                             
                         }.frame(minWidth: 0, maxWidth: .infinity, alignment: .center).padding(.vertical)
                         
-                        
                     } //for each
                     
                 }.padding(.bottom, 8) //scroll view
             }.padding(.horizontal, 6)
-            
-            
         }.navigationBarHidden(true)
             .navigationBarBackButtonHidden(true)
     }

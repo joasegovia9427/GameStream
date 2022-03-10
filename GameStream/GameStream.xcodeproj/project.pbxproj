@@ -15,6 +15,7 @@
 		204C017027B5F13D0066CCAF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204C016F27B5F13D0066CCAF /* ContentView.swift */; };
 		204C017227B5F13D0066CCAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 204C017127B5F13D0066CCAF /* Assets.xcassets */; };
 		204C017527B5F13D0066CCAF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 204C017427B5F13D0066CCAF /* Preview Assets.xcassets */; };
+		2060C77427BEA8BE000BF61B /* SerachGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2060C77327BEA8BE000BF61B /* SerachGame.swift */; };
 		209CE07B27B839F10058D70A /* InicioSesionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209CE07A27B839F10058D70A /* InicioSesionView.swift */; };
 		209CE07D27B839F90058D70A /* RegistroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209CE07C27B839F90058D70A /* RegistroView.swift */; };
 		209CE08027B83D040058D70A /* MenuTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209CE07F27B83D040058D70A /* MenuTabView.swift */; };
@@ -38,6 +39,7 @@
 		204C016F27B5F13D0066CCAF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		204C017127B5F13D0066CCAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		204C017427B5F13D0066CCAF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2060C77327BEA8BE000BF61B /* SerachGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerachGame.swift; sourceTree = "<group>"; };
 		209CE07A27B839F10058D70A /* InicioSesionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InicioSesionView.swift; sourceTree = "<group>"; };
 		209CE07C27B839F90058D70A /* RegistroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroView.swift; sourceTree = "<group>"; };
 		209CE07F27B83D040058D70A /* MenuTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTabView.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				2005022B27B9A7800042B5FC /* ViewModel.swift */,
+				2060C77327BEA8BE000BF61B /* SerachGame.swift */,
 			);
 			path = VistaModelos;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				20B642D327B9D61500A02CB0 /* PantallaViewJuego.swift in Sources */,
 				204C016E27B5F13D0066CCAF /* GameStreamApp.swift in Sources */,
 				20EBE18127B9BA24000C9CEC /* PantallaReproductor.swift in Sources */,
+				2060C77427BEA8BE000BF61B /* SerachGame.swift in Sources */,
 				209CE08D27B84B800058D70A /* PantallaFavoritos.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

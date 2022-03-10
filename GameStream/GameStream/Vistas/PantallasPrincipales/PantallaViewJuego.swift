@@ -28,7 +28,7 @@ struct PantallaViewJuego: View {
             Color("marine").ignoresSafeArea()
             VStack {
                 ScrollView {
-
+                    
                     video(url: url).frame(height: 200).padding(.top,-60)
                     videoInfo(title: title, studio: studio, calification: calification, anoPublicacion: anoPublicacion, description: description, tags: tags).padding(.bottom, 30)
                     videoGallery(imgUrls: imgUrls).padding(.bottom, 30)
@@ -36,7 +36,7 @@ struct PantallaViewJuego: View {
                     videoComentarios().padding(.bottom, 30)
                     juegosSimilares().padding(.bottom, 30)
                     
-//                    Spacer().frame(height:50)
+                    //                    Spacer().frame(height:50)
                 }.frame(maxWidth: .infinity)
             }
         }
@@ -237,18 +237,64 @@ struct videoComentarios: View {
 }
 
 struct juegosSimilares: View {
+    @State var isPlayerActive=false
+    @State var urlGlobal = ""
+    
+    let urlVideos:[String] = ["https://cdn.cloudflare.steamstatic.com/steam/apps/256658589/movie480.mp4","https://cdn.cloudflare.steamstatic.com/steam/apps/256671638/movie480.mp4","https://cdn.cloudflare.steamstatic.com/steam/apps/256720061/movie480.mp4","https://cdn.cloudflare.steamstatic.com/steam/apps/256814567/movie480.mp4","https://cdn.cloudflare.steamstatic.com/steam/apps/256705156/movie480.mp4","https://cdn.cloudflare.steamstatic.com/steam/apps/256801252/movie480.mp4","https://cdn.cloudflare.steamstatic.com/steam/apps/256757119/movie480.mp4"]
+    
     var body: some View {
         VStack {
-            Text("JUEGOS SIMILIARES").font(.title3).foregroundColor(.white).fontWeight(.bold).frame(minWidth: 0, maxWidth: .infinity, alignment: .leading).padding(.leading)
+            Text("VIDEOS DE JUEGOS SIMILIARES").font(.title3).foregroundColor(.white).fontWeight(.bold).frame(minWidth: 0, maxWidth: .infinity, alignment: .leading).padding(.leading)
             ScrollView(.horizontal, showsIndicators: false){
                 HStack{
-                    Image("13-swiftuiapps-2105-spiderman").resizable().frame(width: 240, height: 135, alignment: .center).padding(.leading)
-                    Image("13-swiftuiapps-2105-battkefield").resizable().frame(width: 240, height: 135, alignment: .center).padding(.leading)
-                    Image("13-swiftuiapps-2105-lastofus").resizable().frame(width: 240, height: 135, alignment: .center).padding(.leading)
+
+                    Button(action: {
+                        urlGlobal = urlVideos[6]
+                        isPlayerActive.toggle()
+                        imagenNameToLoadBG = "13-swiftuiapps-2105-spiderman"
+                    }, label: {
+                        VStack(alignment: .center){
+                            ZStack{
+                                Image("13-swiftuiapps-2105-spiderman").resizable().frame(width: 240, height: 135, alignment: .center)
+                                Image(systemName: "play.circle").resizable().aspectRatio(contentMode: .fit).foregroundColor(Color("pure-white")).frame(width: 50, height: 50, alignment: .center)
+                            }
+                        }.padding(EdgeInsets(top: 11, leading: 11, bottom: 11, trailing: 11))
+                    })
+                    
+                
+                    Button(action: {
+                        urlGlobal = urlVideos[4]
+                        isPlayerActive.toggle()
+                        imagenNameToLoadBG = "13-swiftuiapps-2105-battkefield"
+                    }, label: {
+                        VStack(alignment: .center){
+                            ZStack{
+                                Image("13-swiftuiapps-2105-battkefield").resizable().frame(width: 240, height: 135, alignment: .center)
+                                Image(systemName: "play.circle").resizable().aspectRatio(contentMode: .fit).foregroundColor(Color("pure-white")).frame(width: 50, height: 50, alignment: .center)
+                            }
+                        }.padding(EdgeInsets(top: 11, leading: 11, bottom: 11, trailing: 11))
+                    })
+                    
+                    Button(action: {
+                        urlGlobal = urlVideos[5]
+                        isPlayerActive.toggle()
+                        imagenNameToLoadBG = "13-swiftuiapps-2105-lastofus"
+                    }, label: {
+                        VStack(alignment: .center){
+                            ZStack{
+                                Image("13-swiftuiapps-2105-lastofus").resizable().frame(width: 240, height: 135, alignment: .center)
+                                Image(systemName: "play.circle").resizable().aspectRatio(contentMode: .fit).foregroundColor(Color("pure-white")).frame(width: 50, height: 50, alignment: .center)
+                            }
+                        }.padding(EdgeInsets(top: 11, leading: 11, bottom: 11, trailing: 11))
+                    })
+
                 }
             }
         }
+        
+        NavigationLink(isActive: $isPlayerActive, destination: {PantallaReproductor(in_urlGlobal: urlGlobal, in_imagenNameToLoadBG: imagenNameToLoadBG)}, label: {EmptyView()})
     }
+        
 }
 
 

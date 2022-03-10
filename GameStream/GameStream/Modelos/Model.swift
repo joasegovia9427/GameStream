@@ -26,6 +26,12 @@ struct videosUrl: Codable, Hashable {
     var mobile, tablet: String
 }
 
+struct Resultados: Codable {   // para busqueda del home
+    var results:[Game]
+}
+
+
+
 //{
 //    "title": "The Witcher 3: Wild Hunt",
 //    "studio": "CD Project Red",

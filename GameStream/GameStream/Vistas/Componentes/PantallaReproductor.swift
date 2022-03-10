@@ -14,14 +14,14 @@ struct PantallaReproductor: View {
     let screenWidth = UIScreen.main.bounds.width
     let screenHeight = UIScreen.main.bounds.height
     
-    var urlGlobal:String
-    var imagenNameToLoadBG:String
+    var in_urlGlobal:String
+    var in_imagenNameToLoadBG:String
     
     var body: some View{
         ZStack {
-            Image(imagenNameToLoadBG).resizable().scaledToFill().blur(radius: /*@START_MENU_TOKEN@*/6.0/*@END_MENU_TOKEN@*/).frame(maxWidth: 400, minHeight: screenHeight+20, alignment: .center).padding(.top, -10)
+            Image(in_imagenNameToLoadBG).resizable().scaledToFill().blur(radius: /*@START_MENU_TOKEN@*/6.0/*@END_MENU_TOKEN@*/).frame(maxWidth: 400, minHeight: screenHeight+20, alignment: .center).padding(.top, -10)
             
-            VideoPlayer(player: AVPlayer(url: URL(string: urlGlobal)!))
+            VideoPlayer(player: AVPlayer(url: URL(string: in_urlGlobal)!))
                 .frame(width: (screenWidth-15), height: 320, alignment: .center).padding(.all, 2.0)
             VStack {
                 Spacer().frame(height: 500)
@@ -37,12 +37,12 @@ struct PantallaReproductor: View {
         }.ignoresSafeArea()
     }
     
-    init(in_urlGlobal : String, in_imagenNameToLoadBG : String){
-        self.urlGlobal = in_urlGlobal
-        self.imagenNameToLoadBG = in_urlGlobal
-        
-        print("urlGlobal \(urlGlobal)")
-    }
+//    init(in_urlGlobal : String, in_imagenNameToLoadBG : String){
+//        self.urlGlobal = in_urlGlobal
+//        self.imagenNameToLoadBG = in_urlGlobal
+//
+//        print("urlGlobal \(urlGlobal)")
+//    }
 }
 
 struct PantallaReproductor_Previews: PreviewProvider {
@@ -50,3 +50,6 @@ struct PantallaReproductor_Previews: PreviewProvider {
         PantallaReproductor(in_urlGlobal : "", in_imagenNameToLoadBG : "")
     }
 }
+
+
+

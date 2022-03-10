@@ -32,7 +32,7 @@ struct PantallaFavoritos: View {
                     } //for each
                     
                 }.padding(.bottom, 8) //scroll view
-            }.padding(.horizontal, 6)
+            }.padding(.horizontal, 16)
         }.navigationBarHidden(true)
             .navigationBarBackButtonHidden(true)
     }

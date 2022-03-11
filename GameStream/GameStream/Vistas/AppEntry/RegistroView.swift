@@ -49,7 +49,7 @@ struct RegistroView: View {
                     if(correo_input.isEmpty){
                         Text(verbatim: "ejemplo@email.com").font(.caption).foregroundColor(Color("light-grey"))
                     }
-                    TextField("", text: $correo_input).foregroundColor(Color("pure-white"))
+                    TextField("", text: $correo_input).foregroundColor(Color("pure-white")).autocapitalization(UITextAutocapitalizationType.none)
                 }
                 Divider().frame(height: 1).background(Color("dark-cian")).padding(.bottom,10)
                 //// -

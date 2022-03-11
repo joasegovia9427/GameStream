@@ -196,11 +196,17 @@ struct ModuloEditarData : View{
         
         let datosUsuario:[String] = objetoActualizadorDatos.recuperarDatos()
         
-        correo_input = datosUsuario[0]
-        contrasenia_input = datosUsuario[1]
-        confirmacionContrasenia_input = datosUsuario[1]
-        nombre_input = datosUsuario[2]
-         
+        if !datosUsuario[0].isEmpty {
+            correo_input = datosUsuario[0]
+        }
+        if !datosUsuario[1].isEmpty {
+            contrasenia_input = datosUsuario[1]
+            confirmacionContrasenia_input = datosUsuario[1]
+        }
+        if !datosUsuario[2].isEmpty {
+            nombre_input = datosUsuario[2]
+        }
+                 
     }
     
     

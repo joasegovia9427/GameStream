@@ -15,6 +15,15 @@ class SaveData{
     
     let llaveParaGuardarYRecuperarDatos = "datosUsuario"
     
+    func crearClaveVacia() {
+        print("crearClaveVacia")
+        
+        if UserDefaults.standard.object(forKey: llaveParaGuardarYRecuperarDatos) == nil {
+            UserDefaults.standard.set(["", "", ""], forKey: llaveParaGuardarYRecuperarDatos)
+        }
+        
+    }
+    
     func guardarDatos(correo: String, contrasenia: String, nombre: String) -> Bool {
         print("Dentro de la funcion guardar, datos a guardar desde Vista: \(correo) +  \(contrasenia)  + \(nombre)  ")
         

@@ -8,10 +8,14 @@
 import SwiftUI
 
 struct InicioSesionView: View {
-    @State var correo:String = ""
-    @State var contrasenia:String = ""
+    @State var correo_input:String = ""
+    @State var contrasenia_input:String = ""
     @State var isContraseniaVisible:Bool = false
     @State var isActiveHome:Bool = false
+    
+    @State var isAlertLoginViewActive = false
+    @State var tituloAlerta = ""
+    @State var textoAlerta = ""
     
     var body: some View{
         
@@ -22,10 +26,10 @@ struct InicioSesionView: View {
                 ////CAMPO PARA CORREO
                 Text("Correo electronico").foregroundColor(Color("dark-cian"))
                 ZStack(alignment: .leading){
-                    if(correo.isEmpty){
+                    if(correo_input.isEmpty){
                         Text(verbatim: "ejemplo@email.com").font(.caption).foregroundColor(Color("light-grey"))
                     }
-                    TextField("", text: $correo).foregroundColor(Color("pure-white"))
+                    TextField("", text: $correo_input).foregroundColor(Color("pure-white"))
                 }
                 Divider().frame(height: 1).background(Color("dark-cian")).padding(.bottom)
                 //// -
@@ -33,14 +37,14 @@ struct InicioSesionView: View {
                 ////CAMPO PARA CONTRASE:A
                 Text("Contraseña").foregroundColor(Color("dark-cian"))
                 ZStack(alignment: .leading){
-                    if(contrasenia.isEmpty){
+                    if(contrasenia_input.isEmpty){
                         Text(verbatim: "escribe tu contraseña").font(.caption).foregroundColor(Color("light-grey"))
                     }
                     HStack{
                         if isContraseniaVisible{
-                            TextField("", text: $contrasenia).foregroundColor(Color("pure-white"))
+                            TextField("", text: $contrasenia_input).foregroundColor(Color("pure-white"))
                         }else{
-                            SecureField("", text: $contrasenia).foregroundColor(Color("pure-white"))
+                            SecureField("", text: $contrasenia_input).foregroundColor(Color("pure-white"))
                         }
                         Button(action: {isContraseniaVisible.toggle()}, label: {
                             if isContraseniaVisible{
@@ -54,7 +58,7 @@ struct InicioSesionView: View {
                 }
                 VStack{
                     Divider().frame(height: 1).background(Color("dark-cian")).padding(.bottom)
-                    if(!contrasenia.isEmpty && !isContraseniaVisible){
+                    if(!contrasenia_input.isEmpty && !isContraseniaVisible){
                         Spacer().frame(height: 8)
                     }
                     if isContraseniaVisible{
@@ -74,6 +78,9 @@ struct InicioSesionView: View {
                             .padding(EdgeInsets(top: 11, leading: 18, bottom: 11, trailing: 18))
                             .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color("dark-cian"), lineWidth: 2).shadow(color: .white, radius: 6))
                     }).padding(.bottom, 100)
+                        .alert(isPresented: $isAlertLoginViewActive){
+                            Alert(title: Text(tituloAlerta), message: Text(textoAlerta), dismissButton: .default(Text("Entendido")))
+                        }
                 }
                 VStack {
                     Text("Inicia sesion con redes sociales").foregroundColor(.white).frame(width: 300, alignment: .center).padding(.bottom)
@@ -102,16 +109,42 @@ struct InicioSesionView: View {
             }.padding(.horizontal, 77)
         }
         
-//        NavigationLink(destination: MenuTabView(), isActive: $isActiveHome, label: {
-//            EmptyView()
-//        })
+        //        NavigationLink(destination: MenuTabView(), isActive: $isActiveHome, label: {
+        //            EmptyView()
+        //        })
         NavigationLink(isActive: $isActiveHome, destination: {MenuTabView()}, label: {EmptyView()})
-//        NavigationLink(isActive: $isActiveHome, destination: {WelcomeScreen()}, label: {EmptyView()})
+        //        NavigationLink(isActive: $isActiveHome, destination: {WelcomeScreen()}, label: {EmptyView()})
         
     }
+    
     func iniciarSesion() {
-        ////aqui van validaciones logicas correspondientes
-        isActiveHome.toggle()
+        tituloAlerta = "ERROR :("
+        
+        if correo_input.isEmpty {
+            textoAlerta = "Debe ingresar un correo electornico"
+            isAlertLoginViewActive.toggle()
+        }else{
+            if contrasenia_input.isEmpty {
+                textoAlerta = "Debe ingresar una contraseña"
+                isAlertLoginViewActive.toggle()
+            } else {
+                let objetoActualizadorDatos = SaveData()
+                
+                let datosUsuario:[String] = objetoActualizadorDatos.recuperarDatos()
+                
+                if !datosUsuario[0].isEmpty && !datosUsuario[1].isEmpty{
+                    if (correo_input == datosUsuario[0]) || (contrasenia_input == datosUsuario[1]) {
+                        isActiveHome.toggle()
+                    } else {
+                        textoAlerta = "El correo o la contraseña no coinciden con los guardados en el dispositivo, reintente nuevamente"
+                        isAlertLoginViewActive.toggle()
+                    }
+                }else{
+                    textoAlerta = "No hay datos guardados en el dispositivo, cree una cuenta en REGISTRO"
+                    isAlertLoginViewActive.toggle()
+                }
+            }
+        }
     }
 }
 

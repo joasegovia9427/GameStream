@@ -37,7 +37,7 @@ struct PantallaPerfil: View {
                 }
             }
             
-            
+            Spacer()
             //            .frame(minWidth: 0, maxWidth: .infinity, alignment: .center).padding(.vertical)
             
             
@@ -57,7 +57,10 @@ struct PantallaPerfil: View {
         
         let datosUsuario:[String] = objetoActualizadorDatos.recuperarDatos()
         
-        nombreUsuario = datosUsuario[2]
+        if !datosUsuario[2].isEmpty {
+            nombreUsuario = datosUsuario[2]
+        }
+        
     }
 }
 

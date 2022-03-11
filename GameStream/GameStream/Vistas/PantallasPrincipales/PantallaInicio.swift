@@ -42,6 +42,9 @@ struct PantallaInicio: View {
             }.padding(.horizontal, 18)//.padding(.top, -85)
             
             NavigationLink(isActive: $isAuxNiveladorActive, destination: {AuxNivelador()}, label: {EmptyView()})
+        }.onAppear {
+            let objetoActualizadorDatos = SaveData()
+            objetoActualizadorDatos.crearClaveVacia()
         }
     }
 }

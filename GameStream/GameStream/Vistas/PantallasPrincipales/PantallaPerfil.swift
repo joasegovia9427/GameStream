@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct PantallaPerfil: View {
-    @State var nombreUsuario = "Lorem"
+    @State var nombreUsuario:String = "Lanie Janecki"
+    
     
     var body: some View {
         ZStack {
@@ -20,9 +21,9 @@ struct PantallaPerfil: View {
                         Text("Perfil").font(.title2).fontWeight(.bold).foregroundColor(Color("cian")).padding(EdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 0))
                         
                         VStack{
-                            Image("08-swiftuiapps-2105-goto-prueba").resizable().aspectRatio(contentMode: .fill).frame(width: 118, height: 118, alignment: .center).clipShape(Circle())
+                            Image("40-profile-picture").resizable().aspectRatio(contentMode: .fill).frame(width: 118, height: 118, alignment: .center).clipShape(Circle())
                             
-                            Text("Lanie Janecki").fontWeight(.bold).foregroundColor(.white).frame(width: 300, alignment: .center)
+                            Text(nombreUsuario).fontWeight(.bold).foregroundColor(.white).frame(width: 300, alignment: .center)
                             
                         }.padding(EdgeInsets(top: 26, leading: 0, bottom: 32, trailing: 0))
                         
@@ -45,9 +46,18 @@ struct PantallaPerfil: View {
             .navigationBarBackButtonHidden(true).onAppear(perform: {
                 
                 print("Revisando si tengo datos de usuario en mis UserDefaults")
+                recuperarNombreDeUsuario()
                 
             })
         
+    }
+    
+    func recuperarNombreDeUsuario(){
+        let objetoActualizadorDatos = SaveData()
+        
+        let datosUsuario:[String] = objetoActualizadorDatos.recuperarDatos()
+        
+        nombreUsuario = datosUsuario[2]
     }
 }
 

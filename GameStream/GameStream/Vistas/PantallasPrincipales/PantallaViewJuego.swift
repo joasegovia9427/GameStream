@@ -170,9 +170,9 @@ struct videoComentarios: View {
             if(isMostrarMiComentarioActive){
                 VStack{
                     HStack{
-                        Image("08-swiftuiapps-2105-goto-prueba").resizable().aspectRatio( contentMode: .fit).frame(width: 50, height: 50, alignment: .center)
+                        Image("40-profile-picture").resizable().aspectRatio( contentMode: .fit).frame(width: 50, height: 50, alignment: .center)
                         VStack{
-                            Text("Alvy Baack").fontWeight(.bold).foregroundColor(Color("dark-cian")).font(.subheadline)//.padding(.top, 5).padding(.leading)
+                            Text("Geoff Atto").fontWeight(.bold).foregroundColor(Color("dark-cian")).font(.subheadline)//.padding(.top, 5).padding(.leading)
                             Spacer().frame(height: 10)
                             Text("Hace 7 días").foregroundColor(.white).font(.subheadline)//.padding(.top, 5)
                         }.padding(.leading, 10)
@@ -193,9 +193,9 @@ struct videoComentarios: View {
             
             VStack{
                 HStack{
-                    Image("40-profile-picture").resizable().aspectRatio( contentMode: .fit).frame(width: 50, height: 50, alignment: .center)
+                    Image("08-swiftuiapps-2105-goto-prueba").resizable().aspectRatio( contentMode: .fit).frame(width: 50, height: 50, alignment: .center)
                     VStack{
-                        Text("Geoff Atto").fontWeight(.bold).foregroundColor(.white).font(.subheadline)//.padding(.top, 5).padding(.leading)
+                        Text("Alvy Baack").fontWeight(.bold).foregroundColor(.white).font(.subheadline)//.padding(.top, 5).padding(.leading)
                         Spacer().frame(height: 10)
                         Text("Hace 12 días").foregroundColor(.white).font(.subheadline)//.padding(.top, 5)
                     }.padding(.leading, 10)

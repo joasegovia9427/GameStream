@@ -32,7 +32,7 @@ struct ModuloEditarPhoto : View{
             VStack{
                 Button(action: tomarFoto) {
                     ZStack{
-                        Image("08-swiftuiapps-2105-goto-prueba").resizable().aspectRatio(contentMode: .fill).frame(width: 118, height: 118, alignment: .center).clipShape(Circle())
+                        Image("40-profile-picture").resizable().aspectRatio(contentMode: .fill).frame(width: 118, height: 118, alignment: .center).clipShape(Circle())
                         Image(systemName: "camera").resizable().aspectRatio(contentMode: .fit).frame(width: 40, height:40, alignment: .center).foregroundColor(Color("pure-white"))
                     }
                 }
@@ -54,9 +54,26 @@ struct ModuloEditarData : View{
     @State var nombre_input:String = ""
     @State var isContraseniaVisible:Bool = false
     
+    @State var isAlertActualizarDatosViewActive = false
+    @State var tituloAlerta = ""
+    @State var textoAlerta = ""
+    
     var body: some View{
         
         VStack(alignment: .leading) {
+            
+            ////CAMPO PARA NOMBRE
+            Text("Nombre").foregroundColor(Color("dark-cian"))
+            ZStack(alignment: .leading){
+                if(nombre_input.isEmpty){
+                    Text(verbatim: "Introduce tu nombre de usuario").font(.caption).foregroundColor(Color("light-grey"))
+                }
+                TextField("", text: $nombre_input).foregroundColor(Color("pure-white"))
+            }
+            Divider().frame(height: 1).background(Color("dark-cian")).padding(.bottom,10)
+            //// -
+            ///
+            ///
             ////CAMPO PARA CORREO
             Text("Correo electronico").foregroundColor(Color("dark-cian"))
             ZStack(alignment: .leading){
@@ -126,16 +143,7 @@ struct ModuloEditarData : View{
                 //// -
             }
             
-            ////CAMPO PARA NOMBRE
-            Text("Nombre").foregroundColor(Color("dark-cian"))
-            ZStack(alignment: .leading){
-                if(nombre_input.isEmpty){
-                    Text(verbatim: "Introduce tu nombre de usuario").font(.caption).foregroundColor(Color("light-grey"))
-                }
-                TextField("", text: $nombre_input).foregroundColor(Color("pure-white"))
-            }
-            Divider().frame(height: 1).background(Color("dark-cian")).padding(.bottom,10)
-            //// -
+            
             
             ///
             Spacer().padding(5)
@@ -151,11 +159,15 @@ struct ModuloEditarData : View{
                             .foregroundColor(.white).frame(maxWidth: .infinity, minHeight: 20, maxHeight: 20, alignment: .center)
                             .padding(EdgeInsets(top: 11, leading: 18, bottom: 11, trailing: 18)).background(Color("marine")).cornerRadius(12)
                     }
-                })
+                }).alert(isPresented: $isAlertActualizarDatosViewActive){
+                    Alert(title: Text(tituloAlerta), message: Text(textoAlerta), dismissButton: .default(Text("Entendido")))
+                }
             }
+            Spacer()
             
-            
-        }.padding(.horizontal, 26)
+        }.padding(.horizontal, 26).onAppear {
+            recuperarDatos()
+        }
     }
     
     func actualizarDatos() {
@@ -165,8 +177,33 @@ struct ModuloEditarData : View{
         let resultado = objetoActualizadorDatos.guardarDatos(correo: correo_input, contrasenia: contrasenia_input, nombre: nombre_input)
         
         print("Se guardaron los datos con exito? \(resultado)")
-                
+        
+        if resultado {
+            tituloAlerta = "CORRECTO :)"
+            textoAlerta = "Resultado de actualiar datos: Se han cuardado los datos correctamente"
+        } else {
+            tituloAlerta = "ERROR :("
+            textoAlerta = "Resultado de actualiar datos: Ha ocurrido un error al intentar guardar los datos, reintente"
+        }
+        isAlertActualizarDatosViewActive.toggle()
+        
+          
     }
+    
+    func recuperarDatos() {
+        
+        let objetoActualizadorDatos = SaveData()
+        
+        let datosUsuario:[String] = objetoActualizadorDatos.recuperarDatos()
+        
+        correo_input = datosUsuario[0]
+        contrasenia_input = datosUsuario[1]
+        confirmacionContrasenia_input = datosUsuario[1]
+        nombre_input = datosUsuario[2]
+         
+    }
+    
+    
 }
 
 

@@ -8,31 +8,48 @@
 import SwiftUI
 
 struct RegistroView: View {
-    @State var correo:String = ""
-    @State var contrasenia:String = ""
-    @State var confirmacionContrasenia:String = ""
+    @State var correo_input:String = ""
+    @State var contrasenia_input:String = ""
+    @State var confirmacionContrasenia_input:String = ""
+    @State var nombre_input:String = ""
     @State var isContraseniaVisible:Bool = false
     
+    @State var isAlertActualizarDatosViewActive = false
+    @State var tituloAlerta = ""
+    @State var textoAlerta = ""
+        
     var body: some View{
         ScrollView{
             VStack(alignment: .center){
-                Text("Elije una foto de perfil").fontWeight(.bold).foregroundColor(.white).frame(width: 300, alignment: .center)
+                Text("Elije una foto de perfil").font(.subheadline).fontWeight(.bold).foregroundColor(.white).frame(width: 250, alignment: .center)
                 Text("Puedes cambiar o elegirla mas adelante").fontWeight(.light).font(.footnote).foregroundColor(Color("light-grey")).frame(width: 300, alignment: .center).padding(.bottom)
                 Button(action: tomarFoto) {
                     ZStack{
-                        Image("08-swiftuiapps-2105-goto-prueba")
-                        Image(systemName: "camera").resizable().aspectRatio(contentMode: .fit).frame(width: 40, height:40, alignment: .center).foregroundColor(Color("pure-white"))
+                        Image("40-profile-picture").resizable().aspectRatio(contentMode: .fill).frame(width: 68, height: 68, alignment: .center).clipShape(Circle())
+                        Image(systemName: "camera").resizable().aspectRatio(contentMode: .fit).frame(width: 20, height:20, alignment: .center).foregroundColor(Color("pure-white"))
                     }
                 }
-            }.padding()
+            }.padding(.bottom, 5)
             VStack(alignment: .leading) {
+                
+                ////CAMPO PARA NOMBRE
+                Text("Nombre").foregroundColor(Color("dark-cian"))
+                ZStack(alignment: .leading){
+                    if(nombre_input.isEmpty){
+                        Text(verbatim: "Introduce tu nombre de usuario").font(.caption).foregroundColor(Color("light-grey"))
+                    }
+                    TextField("", text: $nombre_input).foregroundColor(Color("pure-white"))
+                }
+                Divider().frame(height: 1).background(Color("dark-cian")).padding(.bottom,10)
+                //// -
+                
                 ////CAMPO PARA CORREO
                 Text("Correo electronico*").foregroundColor(Color("dark-cian"))
                 ZStack(alignment: .leading){
-                    if(correo.isEmpty){
+                    if(correo_input.isEmpty){
                         Text(verbatim: "ejemplo@email.com").font(.caption).foregroundColor(Color("light-grey"))
                     }
-                    TextField("", text: $correo).foregroundColor(Color("pure-white"))
+                    TextField("", text: $correo_input).foregroundColor(Color("pure-white"))
                 }
                 Divider().frame(height: 1).background(Color("dark-cian")).padding(.bottom,10)
                 //// -
@@ -41,14 +58,14 @@ struct RegistroView: View {
                     ////CAMPO PARA CONTRASE:A
                     Text("Contraseña*").foregroundColor(Color("dark-cian"))
                     ZStack(alignment: .leading){
-                        if(contrasenia.isEmpty){
+                        if(contrasenia_input.isEmpty){
                             Text(verbatim: "escribe tu contraseña").font(.caption).foregroundColor(Color("light-grey"))
                         }
                         HStack{
                             if isContraseniaVisible{
-                                TextField("", text: $contrasenia).foregroundColor(Color("pure-white"))
+                                TextField("", text: $contrasenia_input).foregroundColor(Color("pure-white"))
                             }else{
-                                SecureField("", text: $contrasenia).foregroundColor(Color("pure-white"))
+                                SecureField("", text: $contrasenia_input).foregroundColor(Color("pure-white"))
                             }
                             Button(action: {isContraseniaVisible.toggle()}, label: {
                                 if isContraseniaVisible{
@@ -62,7 +79,7 @@ struct RegistroView: View {
                     }
                     VStack{
                         Divider().frame(height: 1).background(Color("dark-cian")).padding(.bottom,10)
-                        if(!contrasenia.isEmpty && !isContraseniaVisible){
+                        if(!contrasenia_input.isEmpty && !isContraseniaVisible){
                             Spacer().frame(height: 8)
                         }
                         if isContraseniaVisible{
@@ -74,18 +91,18 @@ struct RegistroView: View {
                     ////CAMPO PARA CONTRASE:A
                     Text("Confirmar contraseña*").foregroundColor(Color("dark-cian"))
                     ZStack(alignment: .leading){
-                        if(confirmacionContrasenia.isEmpty){
+                        if(confirmacionContrasenia_input.isEmpty){
                             Text(verbatim: "confirmar contraseña").font(.caption).foregroundColor(Color("light-grey"))
                         }
                         if isContraseniaVisible{
-                            TextField("", text: $confirmacionContrasenia).foregroundColor(Color("pure-white"))
+                            TextField("", text: $confirmacionContrasenia_input).foregroundColor(Color("pure-white"))
                         }else{
-                            SecureField("", text: $confirmacionContrasenia).foregroundColor(Color("pure-white"))
+                            SecureField("", text: $confirmacionContrasenia_input).foregroundColor(Color("pure-white"))
                         }
                     }
                     VStack{
                         Divider().frame(height: 1).background(Color("dark-cian")).padding(.bottom,10)
-                        if(!confirmacionContrasenia.isEmpty && !isContraseniaVisible){
+                        if(!confirmacionContrasenia_input.isEmpty && !isContraseniaVisible){
                             Spacer().frame(height: 8)
                         }
                         if isContraseniaVisible{
@@ -102,7 +119,7 @@ struct RegistroView: View {
                             .frame(maxWidth: .infinity, alignment: .center)
                             .padding(EdgeInsets(top: 11, leading: 18, bottom: 11, trailing: 18))
                             .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color("dark-cian"), lineWidth: 2).shadow(color: .white, radius: 6))
-                    }).padding(.bottom, 50)
+                    }).padding(.bottom, 30)
                 }
                 VStack {
                     Text("Resgistrate con redes sociales").foregroundColor(.white).frame(width: 300, alignment: .center).padding(.bottom)
@@ -131,7 +148,7 @@ struct RegistroView: View {
                     }
                 }
             }.padding(.horizontal, 77)
-        }
+        }.background(Color("marine"))
         
     }
     

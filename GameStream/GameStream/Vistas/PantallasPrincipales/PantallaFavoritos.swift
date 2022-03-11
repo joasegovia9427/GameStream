@@ -26,7 +26,11 @@ struct PantallaFavoritos: View {
                         VStack(spacing: 0) {
                             VideoPlayer(player: AVPlayer(url: URL(string: juego.videosUrls.mobile)!)).frame(height: 200)
                             
-                            Text("\(juego.title)").font(.title3).foregroundColor(.white).fontWeight(.bold).frame(minWidth: 0, maxWidth: .infinity, alignment: .leading).padding(.top).padding([.leading, .bottom, .trailing]).background(Color("blue-grey"))
+                            
+                            HStack {
+                                Text("\(juego.title)").font(.title3).foregroundColor(.white).fontWeight(.bold).frame(minWidth: 0, maxWidth: .infinity, alignment: .leading).padding(.top).padding([.leading, .bottom, .trailing])
+                                Image(systemName: "heart.fill").resizable().aspectRatio(contentMode: .fit).foregroundColor(Color("amarello")).frame(width: 25, height: 25, alignment: .center).padding(.trailing, 16)
+                            }.background(Color("blue-grey"))
                             
                         }.frame(minWidth: 0, maxWidth: .infinity, alignment: .center).padding(.vertical)
                         

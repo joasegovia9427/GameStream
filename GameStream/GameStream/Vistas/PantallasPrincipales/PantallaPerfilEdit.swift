@@ -48,9 +48,10 @@ struct ModuloEditarPhoto : View{
 }
 
 struct ModuloEditarData : View{
-    @State var correo:String = ""
-    @State var contrasenia:String = ""
-    @State var confirmacionContrasenia:String = ""
+    @State var correo_input:String = ""
+    @State var contrasenia_input:String = ""
+    @State var confirmacionContrasenia_input:String = ""
+    @State var nombre_input:String = ""
     @State var isContraseniaVisible:Bool = false
     
     var body: some View{
@@ -59,10 +60,10 @@ struct ModuloEditarData : View{
             ////CAMPO PARA CORREO
             Text("Correo electronico").foregroundColor(Color("dark-cian"))
             ZStack(alignment: .leading){
-                if(correo.isEmpty){
+                if(correo_input.isEmpty){
                     Text(verbatim: "ejemplo@email.com").font(.caption).foregroundColor(Color("light-grey"))
                 }
-                TextField("", text: $correo).foregroundColor(Color("pure-white"))
+                TextField("", text: $correo_input).foregroundColor(Color("pure-white"))
             }
             Divider().frame(height: 1).background(Color("dark-cian")).padding(.bottom,10)
             //// -
@@ -71,14 +72,14 @@ struct ModuloEditarData : View{
                 ////CAMPO PARA CONTRASE:A
                 Text("Contraseña*").foregroundColor(Color("dark-cian"))
                 ZStack(alignment: .leading){
-                    if(contrasenia.isEmpty){
+                    if(contrasenia_input.isEmpty){
                         Text(verbatim: "escribe tu contraseña").font(.caption).foregroundColor(Color("light-grey"))
                     }
                     HStack{
                         if isContraseniaVisible{
-                            TextField("", text: $contrasenia).foregroundColor(Color("pure-white"))
+                            TextField("", text: $contrasenia_input).foregroundColor(Color("pure-white"))
                         }else{
-                            SecureField("", text: $contrasenia).foregroundColor(Color("pure-white"))
+                            SecureField("", text: $contrasenia_input).foregroundColor(Color("pure-white"))
                         }
                         Button(action: {isContraseniaVisible.toggle()}, label: {
                             if isContraseniaVisible{
@@ -92,7 +93,7 @@ struct ModuloEditarData : View{
                 }
                 VStack{
                     Divider().frame(height: 1).background(Color("dark-cian")).padding(.bottom,10)
-                    if(!contrasenia.isEmpty && !isContraseniaVisible){
+                    if(!contrasenia_input.isEmpty && !isContraseniaVisible){
                         Spacer().frame(height: 8)
                     }
                     if isContraseniaVisible{
@@ -104,18 +105,18 @@ struct ModuloEditarData : View{
                 ////CAMPO PARA CONTRASE:A
                 Text("Confirmar contraseña*").foregroundColor(Color("dark-cian"))
                 ZStack(alignment: .leading){
-                    if(confirmacionContrasenia.isEmpty){
+                    if(confirmacionContrasenia_input.isEmpty){
                         Text(verbatim: "confirmar contraseña").font(.caption).foregroundColor(Color("light-grey"))
                     }
                     if isContraseniaVisible{
-                        TextField("", text: $confirmacionContrasenia).foregroundColor(Color("pure-white"))
+                        TextField("", text: $confirmacionContrasenia_input).foregroundColor(Color("pure-white"))
                     }else{
-                        SecureField("", text: $confirmacionContrasenia).foregroundColor(Color("pure-white"))
+                        SecureField("", text: $confirmacionContrasenia_input).foregroundColor(Color("pure-white"))
                     }
                 }
                 VStack{
                     Divider().frame(height: 1).background(Color("dark-cian")).padding(.bottom,10)
-                    if(!confirmacionContrasenia.isEmpty && !isContraseniaVisible){
+                    if(!confirmacionContrasenia_input.isEmpty && !isContraseniaVisible){
                         Spacer().frame(height: 8)
                     }
                     if isContraseniaVisible{
@@ -128,10 +129,10 @@ struct ModuloEditarData : View{
             ////CAMPO PARA NOMBRE
             Text("Nombre").foregroundColor(Color("dark-cian"))
             ZStack(alignment: .leading){
-                if(correo.isEmpty){
+                if(nombre_input.isEmpty){
                     Text(verbatim: "Introduce tu nombre de usuario").font(.caption).foregroundColor(Color("light-grey"))
                 }
-                TextField("", text: $correo).foregroundColor(Color("pure-white"))
+                TextField("", text: $nombre_input).foregroundColor(Color("pure-white"))
             }
             Divider().frame(height: 1).background(Color("dark-cian")).padding(.bottom,10)
             //// -
@@ -158,7 +159,13 @@ struct ModuloEditarData : View{
     }
     
     func actualizarDatos() {
-        print("Estoy actualizando")
+        
+        let objetoActualizadorDatos = SaveData()
+        
+        let resultado = objetoActualizadorDatos.guardarDatos(correo: correo_input, contrasenia: contrasenia_input, nombre: nombre_input)
+        
+        print("Se guardaron los datos con exito? \(resultado)")
+                
     }
 }
 

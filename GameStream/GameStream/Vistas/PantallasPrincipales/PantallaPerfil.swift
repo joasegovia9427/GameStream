@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PantallaPerfil: View {
     @State var nombreUsuario:String = "Lanie Janecki"
-    
+    @State var isLogOutViewActive = false
     
     var body: some View {
         ZStack {
@@ -34,12 +34,30 @@ struct PantallaPerfil: View {
                     
                     
                     ModuloAjustes()
+                    
+                    VStack {
+                        Button(action: logOut, label: {
+                            HStack(alignment: .center) {
+                                Text("Cerrar Sesión")
+                                    .fontWeight(.medium)
+                                    .foregroundColor(.white)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                
+//                                    Image(systemName: "figure.walk").frame(width: 20, height: 20, alignment: .center).padding(.trailing,5).padding(.leading,5).foregroundColor(.white)
+                                    Image(systemName: "rectangle.portrait.and.arrow.right").frame(width: 20, height: 20, alignment: .center).padding(.trailing,5).padding(.leading,5).foregroundColor(.white)
+                                
+                                
+                            }.padding(EdgeInsets(top: 21, leading: 16, bottom: 21, trailing: 16))
+                        }).background(Color("blue-grey"))
+                    }.padding(.top, 16)//.padding(.horizontal, 16)
                 }
             }
             
             Spacer()
             //            .frame(minWidth: 0, maxWidth: .infinity, alignment: .center).padding(.vertical)
             
+            
+            NavigationLink(isActive: $isLogOutViewActive, destination: {ContentView()}, label: {EmptyView()})
             
             
         }.navigationBarHidden(true)
@@ -61,6 +79,10 @@ struct PantallaPerfil: View {
             nombreUsuario = datosUsuario[2]
         }
         
+    }
+    
+    func logOut() {
+        isLogOutViewActive.toggle()
     }
 }
 
@@ -110,7 +132,6 @@ struct ModuloAjustes:View {
                     Image(systemName: "chevron.right").frame(width: 20, height: 20, alignment: .center).padding(.trailing,5).padding(.leading,5).foregroundColor(.white)
                 }.padding(EdgeInsets(top: 21, leading: 16, bottom: 21, trailing: 16))
             }).background(Color("blue-grey"))
-            
             
             NavigationLink(isActive: $isEditProfileVIewActive, destination: {PantallaPerfilEdit()}, label: {EmptyView()})
             

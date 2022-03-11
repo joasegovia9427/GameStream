@@ -14,10 +14,10 @@ struct RegistroView: View {
     @State var nombre_input:String = ""
     @State var isContraseniaVisible:Bool = false
     
-    @State var isAlertActualizarDatosViewActive = false
+    @State var isAlertCrearUsuarioViewActive = false
     @State var tituloAlerta = ""
     @State var textoAlerta = ""
-        
+    
     var body: some View{
         ScrollView{
             VStack(alignment: .center){
@@ -113,13 +113,15 @@ struct RegistroView: View {
                 }
                 VStack{
                     Button(action: registro, label: {
-                        Text(String("Resgistrate").uppercased())
+                        Text(String("Resgistrase").uppercased())
                             .fontWeight(.bold)
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity, alignment: .center)
                             .padding(EdgeInsets(top: 11, leading: 18, bottom: 11, trailing: 18))
                             .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color("dark-cian"), lineWidth: 2).shadow(color: .white, radius: 6))
-                    }).padding(.bottom, 30)
+                    }).padding(.bottom, 30).alert(isPresented: $isAlertCrearUsuarioViewActive){
+                        Alert(title: Text(tituloAlerta), message: Text(textoAlerta), dismissButton: .default(Text("Entendido")))
+                    }
                 }
                 VStack {
                     Text("Resgistrate con redes sociales").foregroundColor(.white).frame(width: 300, alignment: .center).padding(.bottom)
@@ -158,6 +160,43 @@ struct RegistroView: View {
     
     func registro() {
         print("Estoy registrando")
+        tituloAlerta = "ERROR :("
+        
+        if nombre_input.isEmpty {
+            textoAlerta = "Debe ingresar un nombre"
+        }else{
+            if correo_input.isEmpty {
+                textoAlerta = "Debe ingresar un correo electornico"
+            }else{
+                if contrasenia_input.isEmpty {
+                    textoAlerta = "Debe ingresar una contraseña"
+                } else {
+                    if confirmacionContrasenia_input.isEmpty {
+                        textoAlerta = "Debe ingresar confirmación de contraseña"
+                    } else {
+                        if contrasenia_input != confirmacionContrasenia_input {
+                            textoAlerta = "La contraseña y la confirmacion deben coincidir"
+                        } else {
+                            
+                            let objetoActualizadorDatos = SaveData()
+                            
+                            let resultado = objetoActualizadorDatos.guardarDatos(correo: correo_input, contrasenia: contrasenia_input, nombre: nombre_input)
+                            
+                            print("Se creo el usuario con con exito? \(resultado)")
+                            
+                            if resultado {
+                                tituloAlerta = "CORRECTO :)"
+                                textoAlerta = "Resultado de crear usuario: Se ha creado el usuario correctamente"
+                            } else {
+                                textoAlerta = "Resultado de crear usuario: Ha ocurrido un error al intentar crear el usuario, reintente"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        isAlertCrearUsuarioViewActive.toggle()
+        
     }
 }
 

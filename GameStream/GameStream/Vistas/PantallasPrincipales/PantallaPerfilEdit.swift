@@ -171,23 +171,44 @@ struct ModuloEditarData : View{
     }
     
     func actualizarDatos() {
+        tituloAlerta = "ERROR :("
         
-        let objetoActualizadorDatos = SaveData()
-        
-        let resultado = objetoActualizadorDatos.guardarDatos(correo: correo_input, contrasenia: contrasenia_input, nombre: nombre_input)
-        
-        print("Se guardaron los datos con exito? \(resultado)")
-        
-        if resultado {
-            tituloAlerta = "CORRECTO :)"
-            textoAlerta = "Resultado de actualiar datos: Se han cuardado los datos correctamente"
-        } else {
-            tituloAlerta = "ERROR :("
-            textoAlerta = "Resultado de actualiar datos: Ha ocurrido un error al intentar guardar los datos, reintente"
+        if nombre_input.isEmpty {
+            textoAlerta = "Debe ingresar un nombre"
+        }else{
+            
+            if correo_input.isEmpty {
+                textoAlerta = "Debe ingresar un correo electornico"
+            }else{
+                if contrasenia_input.isEmpty {
+                    textoAlerta = "Debe ingresar una contraseña"
+                } else {
+                    if confirmacionContrasenia_input.isEmpty {
+                        textoAlerta = "Debe ingresar confirmación de contraseña"
+                    } else {
+                        if contrasenia_input != confirmacionContrasenia_input {
+                            textoAlerta = "La contraseña y la confirmacion deben coincidir"
+                        } else {
+                            
+                            let objetoActualizadorDatos = SaveData()
+                            
+                            let resultado = objetoActualizadorDatos.guardarDatos(correo: correo_input, contrasenia: contrasenia_input, nombre: nombre_input)
+                            
+                            print("Se guardaron los datos con exito? \(resultado)")
+                            
+                            if resultado {
+                                tituloAlerta = "CORRECTO :)"
+                                textoAlerta = "Resultado de actualiar datos: Se han guardado los datos correctamente"
+                            } else {
+                                tituloAlerta = "ERROR :("
+                                textoAlerta = "Resultado de actualiar datos: Ha ocurrido un error al intentar guardar los datos, reintente"
+                            }
+                        }
+                    }
+                }
+            }
         }
         isAlertActualizarDatosViewActive.toggle()
-        
-          
     }
     
     func recuperarDatos() {
@@ -206,7 +227,7 @@ struct ModuloEditarData : View{
         if !datosUsuario[2].isEmpty {
             nombre_input = datosUsuario[2]
         }
-                 
+        
     }
     
     

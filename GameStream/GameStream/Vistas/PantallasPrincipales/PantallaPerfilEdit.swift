@@ -24,6 +24,8 @@ struct PantallaPerfilEdit: View {
 }
 
 struct ModuloEditarPhoto : View{
+    @State var imagenPerfil: Image? = Image("40-profile-picture")
+    @State var isCameraActive = false
     
     var body: some View{
         VStack(alignment: .center){
@@ -32,7 +34,13 @@ struct ModuloEditarPhoto : View{
             VStack{
                 Button(action: tomarFoto) {
                     ZStack{
-                        Image("40-profile-picture").resizable().aspectRatio(contentMode: .fill).frame(width: 118, height: 118, alignment: .center).clipShape(Circle())
+                        imagenPerfil!
+                        .resizable().aspectRatio(contentMode: .fill).frame(width: 118, height: 118, alignment: .center).clipShape(Circle())
+                        .sheet(isPresented: $isCameraActive, content: {
+                            SUImagePickerView(sourceType: .photoLibrary, image: $imagenPerfil, isPresented: $isCameraActive)
+                        })
+                        
+//                        Image("40-profile-picture").resizable().aspectRatio(contentMode: .fill).frame(width: 118, height: 118, alignment: .center).clipShape(Circle())
                         Image(systemName: "camera").resizable().aspectRatio(contentMode: .fit).frame(width: 40, height:40, alignment: .center).foregroundColor(Color("pure-white"))
                     }
                 }
@@ -44,6 +52,9 @@ struct ModuloEditarPhoto : View{
     
     func tomarFoto() {
         print("Estoy editando la foto")
+        isCameraActive.toggle()
+        
+        
     }
 }
 
@@ -209,6 +220,10 @@ struct ModuloEditarData : View{
             }
         }
         isAlertActualizarDatosViewActive.toggle()
+        
+        
+        
+        
     }
     
     func recuperarDatos() {

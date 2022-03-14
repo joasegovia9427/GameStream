@@ -6,5 +6,9 @@
 	<false/>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleLightContent</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Se utilizara la cámara para tomar foto de perfil</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Se utilizara la libreria de fotos para seleccionar foto de perfil</string>
 </dict>
 </plist>

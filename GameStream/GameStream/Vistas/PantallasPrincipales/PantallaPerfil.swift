@@ -6,10 +6,14 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct PantallaPerfil: View {
     @State var nombreUsuario:String = "Lanie Janecki"
     @State var isLogOutViewActive = false
+    
+    @State var imagenPerfil: UIImage = UIImage(named: "40-profile-picture")!
+    @State var imagenPerfilAUX: UIImage = UIImage(named: "40-profile-picture")!
     
     var body: some View {
         ZStack {
@@ -21,8 +25,10 @@ struct PantallaPerfil: View {
                         Text("Perfil").font(.title2).fontWeight(.bold).foregroundColor(Color("cian")).padding(EdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 0))
                         
                         VStack{
-                            Image("40-profile-picture").resizable().aspectRatio(contentMode: .fill).frame(width: 118, height: 118, alignment: .center).clipShape(Circle())
+                            Image(uiImage: imagenPerfil).resizable().aspectRatio(contentMode: .fill).frame(width: 118, height: 118, alignment: .center).clipShape(Circle())
                             
+//                            Image("40-profile-picture").resizable().aspectRatio(contentMode: .fill).frame(width: 118, height: 118, alignment: .center).clipShape(Circle())
+//
                             Text(nombreUsuario).fontWeight(.bold).foregroundColor(.white).frame(width: 300, alignment: .center)
                             
                         }.padding(EdgeInsets(top: 26, leading: 0, bottom: 32, trailing: 0))
@@ -61,10 +67,21 @@ struct PantallaPerfil: View {
             
             
         }.navigationBarHidden(true)
-            .navigationBarBackButtonHidden(true).onAppear(perform: {
+            .navigationBarBackButtonHidden(true)
+            .onAppear(perform: {
                 
                 print("Revisando si tengo datos de usuario en mis UserDefaults")
+                
                 recuperarNombreDeUsuario()
+                
+                if returnUIImage(named: "fotoperfil.png") != nil{
+                    imagenPerfilAUX = returnUIImage(named: "fotoperfil.png")!
+                                        
+                    imagenPerfil = imagenPerfilAUX.rotate(radians: .pi/2)! // Rotate 90 degrees
+
+                }else{
+                    print("No se encontro foto de perfil guardada en el dispositivo")
+                }
                 
             })
         
@@ -79,6 +96,15 @@ struct PantallaPerfil: View {
             nombreUsuario = datosUsuario[2]
         }
         
+    }
+    
+    func returnUIImage(named: String) -> UIImage?{
+        if let dir = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+        {
+            return UIImage(contentsOfFile: URL(fileURLWithPath: dir.absoluteString).appendingPathComponent(named).path)
+        }
+        
+        return nil
     }
     
     func logOut() {

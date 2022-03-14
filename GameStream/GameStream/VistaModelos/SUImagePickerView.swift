@@ -14,9 +14,10 @@ struct SUImagePickerView: UIViewControllerRepresentable {
     var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @Binding var image: Image?
     @Binding var isPresented: Bool
+    @Binding var capturo: Bool
     
     func makeCoordinator() -> ImagePickerViewCoordinator {
-        return ImagePickerViewCoordinator(image: $image, isPresented: $isPresented)
+        return ImagePickerViewCoordinator(image: $image, isPresented: $isPresented, capturo: $capturo)
     }
     
     func makeUIViewController(context: Context) -> UIImagePickerController {
@@ -36,22 +37,42 @@ class ImagePickerViewCoordinator: NSObject, UINavigationControllerDelegate, UIIm
     
     @Binding var image: Image?
     @Binding var isPresented: Bool
-    
-    init(image: Binding<Image?>, isPresented: Binding<Bool>) {
+    @Binding var capturo: Bool
+        
+    init(image: Binding<Image?>, isPresented: Binding<Bool>, capturo: Binding<Bool>) {
         self._image = image
         self._isPresented = isPresented
+        self._capturo = capturo
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            self.image = Image(uiImage: image)
+        //modificar nombre constante
+        if let UiImageFromUser = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            self.image = Image(uiImage: UiImageFromUser)
+            
+            //codigo agregado
+            if let data = UiImageFromUser.pngData(){
+                let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+                let url = documents.appendingPathComponent("fotoperfil.png")
+                
+                do{
+                    try data.write(to: url)
+                }catch{
+                   print("no pude guardar foto en el folder del dispositivo \(error)")
+                }
+                
+            }
+            
         }
+        self.capturo = true
         self.isPresented = false
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.isPresented = false
     }
+    
+    
     
 }
 

@@ -31,6 +31,7 @@
 		20EBE18127B9BA24000C9CEC /* PantallaReproductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EBE18027B9BA24000C9CEC /* PantallaReproductor.swift */; };
 		20EBE18427B9C36D000C9CEC /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 20EBE18327B9C36D000C9CEC /* Kingfisher */; };
 		20F463ED27DEB36200C4B834 /* SUImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F463EC27DEB36100C4B834 /* SUImagePickerView.swift */; };
+		20F463EF27DED94C00C4B834 /* RotateImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F463EE27DED94C00C4B834 /* RotateImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		20B642D627BB421500A02CB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		20EBE18027B9BA24000C9CEC /* PantallaReproductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantallaReproductor.swift; sourceTree = "<group>"; };
 		20F463EC27DEB36100C4B834 /* SUImagePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SUImagePickerView.swift; sourceTree = "<group>"; };
+		20F463EE27DED94C00C4B834 /* RotateImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotateImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 		2005022627B9A6D00042B5FC /* Vistas */ = {
 			isa = PBXGroup;
 			children = (
+				20F463F127DEDAEA00C4B834 /* Extensiones */,
 				20B642D127B9D5D000A02CB0 /* Componentes */,
 				204C016F27B5F13D0066CCAF /* ContentView.swift */,
 				209CE07F27B83D040058D70A /* MenuTabView.swift */,
@@ -176,6 +179,14 @@
 			path = Componentes;
 			sourceTree = "<group>";
 		};
+		20F463F127DEDAEA00C4B834 /* Extensiones */ = {
+			isa = PBXGroup;
+			children = (
+				20F463EE27DED94C00C4B834 /* RotateImage.swift */,
+			);
+			path = Extensiones;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -262,6 +273,7 @@
 				209CE07B27B839F10058D70A /* InicioSesionView.swift in Sources */,
 				2005022C27B9A7800042B5FC /* ViewModel.swift in Sources */,
 				209CE08027B83D040058D70A /* MenuTabView.swift in Sources */,
+				20F463EF27DED94C00C4B834 /* RotateImage.swift in Sources */,
 				209CE08927B84B670058D70A /* PantallaPerfil.swift in Sources */,
 				20B642D527B9DBD500A02CB0 /* StructGameView.swift in Sources */,
 				2005022527B99EF00042B5FC /* WelcomeScreen.swift in Sources */,

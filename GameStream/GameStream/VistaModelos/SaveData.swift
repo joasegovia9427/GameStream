@@ -33,6 +33,7 @@ class SaveData{
     }
     
     func recuperarDatos() -> [String] {
+        crearClaveVacia()
         let datosUsuario:[String] = UserDefaults.standard.stringArray(forKey: llaveParaGuardarYRecuperarDatos)!
         
         print("Estoy en el metodo recuperar datos y obtuve: \(datosUsuario) ")

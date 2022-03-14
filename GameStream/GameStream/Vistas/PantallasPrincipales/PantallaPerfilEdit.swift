@@ -27,6 +27,11 @@ struct ModuloEditarPhoto : View{
     @State var imagenPerfil: Image? = Image("40-profile-picture")
     @State var isCameraActive = false
     
+    @State var imagenRecuperadaPerfil: UIImage = UIImage(named: "40-profile-picture")!
+    @State var imagenRecuperadaPerfilAUX: UIImage = UIImage(named: "40-profile-picture")!
+    @State var isImageGuardadaShow = false
+    @State var ocultarAnterior = false
+    
     var body: some View{
         VStack(alignment: .center){
             Text("Editar perfil").font(.title2).fontWeight(.bold).foregroundColor(Color("cian")).padding(EdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 0))
@@ -34,28 +39,55 @@ struct ModuloEditarPhoto : View{
             VStack{
                 Button(action: tomarFoto) {
                     ZStack{
-                        imagenPerfil!
-                        .resizable().aspectRatio(contentMode: .fill).frame(width: 118, height: 118, alignment: .center).clipShape(Circle())
-                        .sheet(isPresented: $isCameraActive, content: {
-                            SUImagePickerView(sourceType: .photoLibrary, image: $imagenPerfil, isPresented: $isCameraActive)
-                        })
+                        if !ocultarAnterior {
+                            Image(uiImage: imagenRecuperadaPerfil).resizable().aspectRatio(contentMode: .fill).frame(width: 118, height: 118, alignment: .center).clipShape(Circle())
+                        } else {
+                            imagenPerfil!
+                            .resizable().aspectRatio(contentMode: .fill).frame(width: 118, height: 118, alignment: .center).clipShape(Circle())
+                            
+                        }
                         
 //                        Image("40-profile-picture").resizable().aspectRatio(contentMode: .fill).frame(width: 118, height: 118, alignment: .center).clipShape(Circle())
                         Image(systemName: "camera").resizable().aspectRatio(contentMode: .fit).frame(width: 40, height:40, alignment: .center).foregroundColor(Color("pure-white"))
+                            .sheet(isPresented: $isCameraActive, content: {
+                                SUImagePickerView(sourceType: .camera, image: $imagenPerfil, isPresented: $isCameraActive, capturo: $ocultarAnterior)
+                            })
                     }
                 }
             }.padding(EdgeInsets(top: 26, leading: 0, bottom: 32, trailing: 0))
             
-        }.padding()
+        }.padding().onAppear {
+            print("Revisando si tengo foto de perfil")
+            
+            
+            if returnUIImage(named: "fotoperfil.png") != nil{
+                imagenRecuperadaPerfilAUX = returnUIImage(named: "fotoperfil.png")!
+                
+                imagenRecuperadaPerfil = imagenRecuperadaPerfilAUX.rotate(radians: .pi/2)! // Rotate 90 degrees
+            
+                
+                isImageGuardadaShow = true
+            }else{
+                print("No se encontro foto de perfil guardada en el dispositivo")
+            }
+        }
         
     }
     
     func tomarFoto() {
         print("Estoy editando la foto")
         isCameraActive.toggle()
-        
-        
     }
+    
+    func returnUIImage(named: String) -> UIImage?{
+        if let dir = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+        {
+            return UIImage(contentsOfFile: URL(fileURLWithPath: dir.absoluteString).appendingPathComponent(named).path)
+        }
+        
+        return nil
+    }
+    
 }
 
 struct ModuloEditarData : View{
@@ -176,7 +208,8 @@ struct ModuloEditarData : View{
             }
             Spacer()
             
-        }.padding(.horizontal, 26).onAppear {
+        }.padding(.horizontal, 26)
+            .onAppear {
             recuperarDatos()
         }
     }

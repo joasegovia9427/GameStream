@@ -1,13 +1,15 @@
 # GameStream 2022.02.10 to 03.13 with note 9.33
 A project to get practice the Platzi's courses, "Curso de Desarrollo de Aplicaciones iOS con SwiftUI" (https://platzi.com/cursos/swiftui-apps-ios/) and course "Curso de SwiftUI: Porteo y Ciclo de Vida de Aplicaciones" (https://platzi.com/cursos/swiftui-especializacion/)
 
-## 1st Course "Curso de Desarrollo de Aplicaciones iOS con SwiftUI" (https://platzi.com/cursos/swiftui-apps-ios/)
+## 1st Course "Curso de Desarrollo de Aplicaciones iOS con SwiftUI" 
+(https://platzi.com/cursos/swiftui-apps-ios/)
 Start at 2022.02.10 to 2022.03.13 with note 9.33
 Platzi credential https://platzi.com/p/joasegovia9427/course/2354-swiftui-apps-ios/diploma/detalle/
 
 You can see my GoodNotes in pdf:: https://drive.google.com/file/d/1Ze-PUjk80VODRRclqTyuCRmqw5dcTGZ0/view?usp=sharing
 
-## 2nd Course "Curso de SwiftUI: Porteo y Ciclo de Vida de Aplicaciones" (https://platzi.com/cursos/swiftui-especializacion/)
+## 2nd Course "Curso de SwiftUI: Porteo y Ciclo de Vida de Aplicaciones" 
+(https://platzi.com/cursos/swiftui-especializacion/)
 Start at 2022.03.13 to 2022.03.__ with note ___
 Platzi credential ___
 

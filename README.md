@@ -30,7 +30,7 @@ Fimga design:: https://www.figma.com/file/J62PMUCv8uCtKNpoN3L7iK/Game-Stream?nod
 
 API use:: https://gamestream-api.herokuapp.com/api-docs/#/default/get_api_games
 
-## Capturas de Progreso
+## Progress' Screenshots / Capturas de Progreso
 <h3> Puedes encontrar todo el timeline en la carpeta <a title="ScreensShots Folder" href="https://github.com/joasegovia9427/GameStream/tree/main/ScreensShots" target="_blank">ScreensShots Folder</a></h3>
 
 <img src="https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/General-1.png" width="30px" data-canonical-src="https://raw.githubusercontent.com/joasegovia9427/GameStream/main/ScreensShots/General-1.png" style="width: 1000px;">

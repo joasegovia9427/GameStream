@@ -11,7 +11,7 @@ Platzi credential ___
 
 🇬🇧 Game Stream is an app, designed in Figma, for iOS environmnet, with the goal of get it done in code with SwiftUI Apple's library. This is to practice both Platzi's online courses. In this app, you can find videos about videogame's digital content. Also, you can share your reviews and vote for your favourites videogames.
 
-🇪🇸 Game Stream es una aplicación diseñada para iOS con el propósito de llevarla a código en SwiftUI para el C"Curso de Desarrollo de Aplicaciones iOS con SwiftUI" y el "Curso de SwiftUI: Porteo y Ciclo de Vida de Aplicaciones", los 2 de Platzi.
+🇪🇸 Game Stream es una aplicación diseñada para iOS con el propósito de llevarla a código en SwiftUI para el "Curso de Desarrollo de Aplicaciones iOS con SwiftUI" y el "Curso de SwiftUI: Porteo y Ciclo de Vida de Aplicaciones", los 2 de Platzi.
 En esta app puedes encontrar videos sobre contenidos en el mundo de los videojuegos para compartir sus opiniones y valoraciones.
 
 🇵🇹 Game Stream é um aplicativo, projetado em Figma, para iOS environmnet, com o objetivo de fazê-lo em código com a biblioteca da Apple SwiftUI. Isso é para praticar os dois cursos online da Platzi. Neste app, você encontra vídeos sobre o conteúdo digital do videogame. Além disso, você pode compartilhar seus comentários e votar em seus videogames favoritos.

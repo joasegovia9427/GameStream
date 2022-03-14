@@ -1,4 +1,5 @@
-# GameStream 2022.02.10
+# GameStream 2022.02.10 to 03.13 with note 9.33
+Platzi credential https://platzi.com/p/joasegovia9427/course/2354-swiftui-apps-ios/diploma/detalle/
 A project to practice the Platzi course, Curso de Desarrollo de Aplicaciones iOS con SwiftUI (https://platzi.com/cursos/swiftui-apps-ios/)
 
 Game Stream es una aplicación diseñada para iOS con el propósito de llevarla a código en SwiftUI para el Curso de Desarrollo de Apps para iOS con Swift UI, donde puedes encontrar videos sobre contenidos en el mundo de los videojuegos para compartir sus opiniones y valoraciones.

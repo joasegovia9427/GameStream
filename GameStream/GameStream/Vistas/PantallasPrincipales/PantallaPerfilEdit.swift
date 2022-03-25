@@ -26,11 +26,17 @@ struct PantallaPerfilEdit: View {
 struct ModuloEditarPhoto : View{
     @State var imagenPerfil: Image? = Image("40-profile-picture")
     @State var isCameraActive = false
+    @State var isLibraryActive = false
     
     @State var imagenRecuperadaPerfil: UIImage = UIImage(named: "40-profile-picture")!
     @State var imagenRecuperadaPerfilAUX: UIImage = UIImage(named: "40-profile-picture")!
     @State var isImageGuardadaShow = false
     @State var ocultarAnterior = false
+    
+    @State var isMostrarPopOver: Bool = false
+    @State var isCerrarPopOverReturned = false
+    @State var isCameraSelectedReturned = false
+    @State var isLibrarySelectedReturned = false
     
     var body: some View{
         VStack(alignment: .center){
@@ -43,20 +49,32 @@ struct ModuloEditarPhoto : View{
                             Image(uiImage: imagenRecuperadaPerfil).resizable().aspectRatio(contentMode: .fill).frame(width: 118, height: 118, alignment: .center).clipShape(Circle())
                         } else {
                             imagenPerfil!
-                            .resizable().aspectRatio(contentMode: .fill).frame(width: 118, height: 118, alignment: .center).clipShape(Circle())
+                                .resizable().aspectRatio(contentMode: .fill).frame(width: 118, height: 118, alignment: .center).clipShape(Circle())
                             
                         }
                         
-//                        Image("40-profile-picture").resizable().aspectRatio(contentMode: .fill).frame(width: 118, height: 118, alignment: .center).clipShape(Circle())
+                        //                        Image("40-profile-picture").resizable().aspectRatio(contentMode: .fill).frame(width: 118, height: 118, alignment: .center).clipShape(Circle())
                         Image(systemName: "camera").resizable().aspectRatio(contentMode: .fit).frame(width: 40, height:40, alignment: .center).foregroundColor(Color("pure-white"))
                             .sheet(isPresented: $isCameraActive, content: {
                                 SUImagePickerView(sourceType: .camera, image: $imagenPerfil, isPresented: $isCameraActive, capturo: $ocultarAnterior)
                             })
+                            .sheet(isPresented: $isLibraryActive, content: {
+                                SUImagePickerView(sourceType: .photoLibrary, image: $imagenPerfil, isPresented: $isLibraryActive, capturo: $ocultarAnterior)
+                            })
+                        
                     }
+                }.popover(isPresented: $isMostrarPopOver) {
+                    VentanaPopUp(isCerrarPopOver: $isMostrarPopOver, isCameraSelected: $isCameraActive, isLibrarySelected: $isLibraryActive)
+                    
+//                    .popover(isPresented: $isMostrarPopOver) {
+//                        VentanaPopUp(isCerrarPopOver: $isMostrarPopOver, isCameraSelected: $isCameraSelectedReturned, isLibrarySelected: $isLibrarySelectedReturned)
+                    
+                   
                 }
+                
             }.padding(EdgeInsets(top: 26, leading: 0, bottom: 32, trailing: 0))
             
-        }.padding().onAppear {
+        }.onAppear {
             print("Revisando si tengo foto de perfil")
             
             
@@ -64,7 +82,7 @@ struct ModuloEditarPhoto : View{
                 imagenRecuperadaPerfilAUX = returnUIImage(named: "fotoperfil.png")!
                 
                 imagenRecuperadaPerfil = imagenRecuperadaPerfilAUX.rotate(radians: .pi/2)! // Rotate 90 degrees
-            
+                
                 
                 isImageGuardadaShow = true
             }else{
@@ -76,7 +94,20 @@ struct ModuloEditarPhoto : View{
     
     func tomarFoto() {
         print("Estoy editando la foto")
-        isCameraActive.toggle()
+        
+        isMostrarPopOver.toggle()
+        
+      
+//        print("valores de varialbes luego de popup")
+//        print("isCameraSelectedReturned: \(isCameraSelectedReturned)")
+//        print("isLibrarySelectedReturned: \(isLibrarySelectedReturned)")
+//
+//        if isCameraSelectedReturned {
+//            isCameraActive.toggle()
+//        }
+//        if isLibrarySelectedReturned {
+//            isLibraryActive.toggle()
+//        }
     }
     
     func returnUIImage(named: String) -> UIImage?{
@@ -100,6 +131,11 @@ struct ModuloEditarData : View{
     @State var isAlertActualizarDatosViewActive = false
     @State var tituloAlerta = ""
     @State var textoAlerta = ""
+    
+    @State var isMostrarPopOver: Bool = false
+    @State var isCerrarPopOverReturned = false
+    @State var isCameraSelectedReturned = false
+    @State var isLibrarySelectedReturned = false
     
     var body: some View{
         
@@ -205,13 +241,56 @@ struct ModuloEditarData : View{
                 }).alert(isPresented: $isAlertActualizarDatosViewActive){
                     Alert(title: Text(tituloAlerta), message: Text(textoAlerta), dismissButton: .default(Text("Entendido")))
                 }
+                
+                
+                Button(action: {isMostrarPopOver.toggle()}, label: {
+                    Text(String("Mostrar popup").uppercased())
+                        .fontWeight(.bold)
+                        .foregroundColor(.white).frame(maxWidth: .infinity, minHeight: 20, maxHeight: 20, alignment: .center)
+                        .padding(EdgeInsets(top: 11, leading: 18, bottom: 11, trailing: 18))
+                    
+                }).popover(isPresented: $isMostrarPopOver) {
+                    VentanaPopUp(isCerrarPopOver: $isMostrarPopOver, isCameraSelected: $isCameraSelectedReturned, isLibrarySelected: $isLibrarySelectedReturned)
+                }
+                
+                    
+//                    .popover(isPresented: $isMostrarPopOver, attachmentAnchor: .point(UnitPoint(x: 20, y: 20)), arrowEdge: .top, content: {
+//                        VStack { // just example
+//                            Text("Test").padding(.top)
+//                            TextField("Placeholder", text: $nombre_input)
+//                                .padding(.horizontal)
+//                                .padding(.bottom)
+//                                .frame(width: 200)
+//                        }
+//                    }
+//                )
+//
+                
+//
+                
+                
+                //                    .popover(isPresented: $isMostrarPopOver, attachmentAnchor: .rect(.bounds), arrowEdge: .bottom, content: {
+                //                    VentanaPopUp().frame(width: 100, height: 100)
+                //                    Text(String("Texto").uppercased())
+                //                        .fontWeight(.bold)
+                //                        .foregroundColor(.white).frame(maxWidth: .infinity, minHeight: 20, maxHeight: 20, alignment: .center)
+                //                        .padding(EdgeInsets(top: 11, leading: 18, bottom: 11, trailing: 18))
+                //                    Text(String("Texto").uppercased())
+                //                        .fontWeight(.bold)
+                //                        .foregroundColor(.black).frame(maxWidth: .infinity, minHeight: 20, maxHeight: 20, alignment: .center)
+                //                        .padding(EdgeInsets(top: 11, leading: 18, bottom: 11, trailing: 18))
+                //                })
+                
+                
+                
+                
             }
             Spacer()
             
         }.padding(.horizontal, 26)
             .onAppear {
-            recuperarDatos()
-        }
+                recuperarDatos()
+            }
     }
     
     func actualizarDatos() {

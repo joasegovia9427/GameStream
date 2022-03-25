@@ -9,8 +9,12 @@ import SwiftUI
 import Kingfisher
 
 
+//var juegoPorParametroParaEnviar: GameViewObject? = nil
+
 struct PantallaJuegos: View {
     @State var gameVO: GameViewObject? = nil
+    
+    @State var juegoPorParametroParaEnviar: GameViewObject?
         
     @ObservedObject var todosLosVideoJuegos = ViewModel()
     
@@ -40,34 +44,39 @@ struct PantallaJuegos: View {
                     LazyVGrid(columns: formaGrid, spacing: 8){
                         ForEach(todosLosVideoJuegos.gamesInfo, id: \.self){
                             juego in
-                            
-                                                        Button(action: {
-                                                            url = juego.videosUrls.mobile
-                                                            title = juego.title
-                                                            studio = juego.studio
-                                                            calification = juego.contentRaiting
-                                                            anoPublicacion = juego.publicationYear
-                                                            description = juego.description
-                                                            tags = juego.tags
-                                                            imgUrls = juego.galleryImages
-                            //
-                            //                                print("Pulse el juego \(title)")
-                            //
-                            //                            }, label: {
-                            //                                Text("\(juego.title)").font(.title2).fontWeight(.bold).foregroundColor(.white).padding(EdgeInsets(top: 16, leading: 0, bottom: 64, trailing: 0))
-                            //
-                            //                            })
-                            
-//                            Button(action: {
-                                gameVO = GameViewObject(game: juego)
-                                print("Pulse el juego \(gameVO!.title)")
-                                gameViewIsActive.toggle()
-                            }, label: {
-                                
-                                
+                                    Button(action: {
+                                        url = juego.videosUrls.mobile
+                                        title = juego.title
+                                        studio = juego.studio
+                                        calification = juego.contentRaiting
+                                        anoPublicacion = juego.publicationYear
+                                        description = juego.description
+                                        tags = juego.tags
+                                        imgUrls = juego.galleryImages
+                                        
+                                        print("Pulse el juego \(juego.title)")
+                                        
+                                        juegoPorParametroParaEnviar = GameViewObject(game: juego)
+                                        
+                                        print("Pulse el juegoPorParametroParaEnviar \(juegoPorParametroParaEnviar?.title)")
+                                        
+//                                        juegoPorParametroParaEnviar?.title = "prueba para pasar un solo struct en lugar de parametros sueltos"
+                                    //
+                                    //                                print("Pulse el juego \(title)")
+                                    //
+                                    //                            }, label: {
+                                    //                                Text("\(juego.title)").font(.title2).fontWeight(.bold).foregroundColor(.white).padding(EdgeInsets(top: 16, leading: 0, bottom: 64, trailing: 0))
+                                    //
+                                    //                            })
+                                    
+        //                            Button(action: {
+                                        gameVO = GameViewObject(game: juego)
+                                        print("Pulse el juego \(gameVO!.title)")
+                                        gameViewIsActive.toggle()
+                                    }, label: {
                                 VStack {
 //                                    if #available(iOS 15.0, *) {
-//                                        ////A partir de iOS 15 se podria usar https://developer.apple.com/documentation/swiftui/asyncimage
+//                                        ////A partir de iOS 15 se podria usar                              https://developer.apple.com/documentation/swiftui/asyncimage
 //                                        ///
 //                                        AsyncImage( url: URL( string: juego.galleryImages[0] )!  )
 //                                        { image in
@@ -82,11 +91,8 @@ struct PantallaJuegos: View {
 //                                    } else {
                                         KFImage(URL(string: juego.galleryImages[0])!).resizable().aspectRatio(contentMode: .fit).clipShape(RoundedRectangle.init(cornerRadius: 4)).padding(.bottom, -15)
 //                                    }
-                                    
-                                    
                                     //                                    Text("\(juego.title)")
                                     Text(cortarString(24, textoIn:juego.title)).font(.footnote).foregroundColor(.white).padding(EdgeInsets(top: 16, leading: 0, bottom: 30, trailing: 0))
-                                    
                                 }
                                 
                             })
@@ -96,7 +102,7 @@ struct PantallaJuegos: View {
                 }
             }.padding(.horizontal, 6)
             
-            NavigationLink(isActive: $gameViewIsActive, destination: {PantallaViewJuego(url: url, title: title, studio: studio, calification: calification, anoPublicacion: anoPublicacion, description: description, tags: tags, imgUrls: imgUrls)}, label: {EmptyView()})
+            NavigationLink(isActive: $gameViewIsActive, destination: {PantallaViewJuego(juegoPorParametroIn: juegoPorParametroParaEnviar, url: url, title: title, studio: studio, calification: calification, anoPublicacion: anoPublicacion, description: description, tags: tags, imgUrls: imgUrls)}, label: {EmptyView()})
             
 //            NavigationLink(isActive: $gameViewIsActive, destination: {PantallaViewJuego(gameFrom: gameVO)}, label: {EmptyView()})
             

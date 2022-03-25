@@ -16,6 +16,7 @@ struct InicioSesionView: View {
     @State var isAlertLoginViewActive = false
     @State var tituloAlerta = ""
     @State var textoAlerta = ""
+       
     
     var body: some View{
         
@@ -70,6 +71,7 @@ struct InicioSesionView: View {
                     Button(action: {}, label: {
                         Text("Olvidaste tu contraseña?").font(.footnote).foregroundColor(Color("dark-cian")).frame(width: 300, alignment: .trailing).padding(.bottom)
                     })
+                    
                     Button(action: iniciarSesion, label: {
                         Text(String("Iniciar Sesion").uppercased())
                             .fontWeight(.bold)
@@ -107,7 +109,7 @@ struct InicioSesionView: View {
                     }
                 }
             }.padding(.horizontal, 77)
-        }
+        }.background(Color("marine"))
         
         //        NavigationLink(destination: MenuTabView(), isActive: $isActiveHome, label: {
         //            EmptyView()

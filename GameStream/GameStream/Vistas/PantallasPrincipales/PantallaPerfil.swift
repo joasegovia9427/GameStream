@@ -8,6 +8,8 @@
 import SwiftUI
 import UIKit
 
+//var isFromCameraReturned:String = ""
+
 struct PantallaPerfil: View {
     @State var nombreUsuario:String = "Lanie Janecki"
     @State var isLogOutViewActive = false
@@ -76,8 +78,13 @@ struct PantallaPerfil: View {
                 
                 if returnUIImage(named: "fotoperfil.png") != nil{
                     imagenPerfilAUX = returnUIImage(named: "fotoperfil.png")!
-                                        
-                    imagenPerfil = imagenPerfilAUX.rotate(radians: .pi/2)! // Rotate 90 degrees
+                    
+                    if isFromCameraReturned=="true" {
+                        imagenPerfil = imagenPerfilAUX.rotate(radians: .pi/2)! // Rotate 90 degrees
+                    }else{
+                        imagenPerfil = imagenPerfilAUX
+                    }
+                    
 
                 }else{
                     print("No se encontro foto de perfil guardada en el dispositivo")
@@ -94,6 +101,12 @@ struct PantallaPerfil: View {
         
         if !datosUsuario[2].isEmpty {
             nombreUsuario = datosUsuario[2]
+        }
+        
+        if !datosUsuario[3].isEmpty {
+            print("Entro a buscar dato camara")
+            isFromCameraReturned = datosUsuario[3]
+            print("dato: \(isFromCameraReturned)")
         }
         
     }

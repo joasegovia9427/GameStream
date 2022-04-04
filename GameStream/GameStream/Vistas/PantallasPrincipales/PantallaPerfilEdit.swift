@@ -7,6 +7,9 @@
 
 import SwiftUI
 
+var isFromCamera:Bool = false
+var isFromCameraReturned:String = ""
+
 struct PantallaPerfilEdit: View {
     
     var body: some View {
@@ -37,6 +40,7 @@ struct ModuloEditarPhoto : View{
     @State var isCerrarPopOverReturned = false
     @State var isCameraSelectedReturned = false
     @State var isLibrarySelectedReturned = false
+    
     
     var body: some View{
         VStack(alignment: .center){
@@ -81,8 +85,12 @@ struct ModuloEditarPhoto : View{
             if returnUIImage(named: "fotoperfil.png") != nil{
                 imagenRecuperadaPerfilAUX = returnUIImage(named: "fotoperfil.png")!
                 
-                imagenRecuperadaPerfil = imagenRecuperadaPerfilAUX.rotate(radians: .pi/2)! // Rotate 90 degrees
-                
+                if isFromCameraReturned=="true" {
+                    imagenRecuperadaPerfil = imagenRecuperadaPerfilAUX.rotate(radians: .pi/2)! // Rotate 90 degrees
+                }else{
+                    imagenRecuperadaPerfil = imagenRecuperadaPerfilAUX
+                }
+
                 
                 isImageGuardadaShow = true
             }else{
@@ -97,7 +105,7 @@ struct ModuloEditarPhoto : View{
         
         isMostrarPopOver.toggle()
         
-      
+        isFromCamera = isCameraActive
 //        print("valores de varialbes luego de popup")
 //        print("isCameraSelectedReturned: \(isCameraSelectedReturned)")
 //        print("isLibrarySelectedReturned: \(isLibrarySelectedReturned)")
@@ -243,15 +251,15 @@ struct ModuloEditarData : View{
                 }
                 
                 
-                Button(action: {isMostrarPopOver.toggle()}, label: {
-                    Text(String("Mostrar popup").uppercased())
-                        .fontWeight(.bold)
-                        .foregroundColor(.white).frame(maxWidth: .infinity, minHeight: 20, maxHeight: 20, alignment: .center)
-                        .padding(EdgeInsets(top: 11, leading: 18, bottom: 11, trailing: 18))
-                    
-                }).popover(isPresented: $isMostrarPopOver) {
-                    VentanaPopUp(isCerrarPopOver: $isMostrarPopOver, isCameraSelected: $isCameraSelectedReturned, isLibrarySelected: $isLibrarySelectedReturned)
-                }
+//                Button(action: {isMostrarPopOver.toggle()}, label: {
+//                    Text(String("Mostrar popup").uppercased())
+//                        .fontWeight(.bold)
+//                        .foregroundColor(.white).frame(maxWidth: .infinity, minHeight: 20, maxHeight: 20, alignment: .center)
+//                        .padding(EdgeInsets(top: 11, leading: 18, bottom: 11, trailing: 18))
+//
+//                }).popover(isPresented: $isMostrarPopOver) {
+//                    VentanaPopUp(isCerrarPopOver: $isMostrarPopOver, isCameraSelected: $isCameraSelectedReturned, isLibrarySelected: $isLibrarySelectedReturned)
+//                }
                 
                     
 //                    .popover(isPresented: $isMostrarPopOver, attachmentAnchor: .point(UnitPoint(x: 20, y: 20)), arrowEdge: .top, content: {
@@ -315,7 +323,12 @@ struct ModuloEditarData : View{
                             
                             let objetoActualizadorDatos = SaveData()
                             
-                            let resultado = objetoActualizadorDatos.guardarDatos(correo: correo_input, contrasenia: contrasenia_input, nombre: nombre_input)
+                            var isFotoFromCamera:String = "false"
+                            if isFromCamera {
+                                isFotoFromCamera = "true"
+                            }
+                            
+                            let resultado = objetoActualizadorDatos.guardarDatos(correo: correo_input, contrasenia: contrasenia_input, nombre: nombre_input, isFotoFromCamera: isFotoFromCamera)
                             
                             print("Se guardaron los datos con exito? \(resultado)")
                             
@@ -353,6 +366,9 @@ struct ModuloEditarData : View{
         }
         if !datosUsuario[2].isEmpty {
             nombre_input = datosUsuario[2]
+        }
+        if !datosUsuario[3].isEmpty {
+            isFromCameraReturned = datosUsuario[3]
         }
         
     }

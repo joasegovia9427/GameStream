@@ -68,7 +68,7 @@ struct InicioYResgistroView: View{
                 Spacer(minLength: 42)
                 InicioSesionView()
             }else{
-                RegistroView()
+                RegistroView(tipoInicioSesion: $tipoInicioSesion)
             }
             
         }

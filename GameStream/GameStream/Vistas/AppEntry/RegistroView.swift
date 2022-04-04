@@ -7,7 +7,13 @@
 
 import SwiftUI
 
+//var isFromCamera:Bool = false
+//var isFromCameraReturned:String = ""
+
+
 struct RegistroView: View {
+    @Binding var tipoInicioSesion:Bool
+    
     @State var correo_input:String = ""
     @State var contrasenia_input:String = ""
     @State var confirmacionContrasenia_input:String = ""
@@ -18,6 +24,21 @@ struct RegistroView: View {
     @State var tituloAlerta = ""
     @State var textoAlerta = ""
     
+    @State var imagenPerfil: Image? = Image("40-profile-picture")
+    @State var isCameraActive = false
+    @State var isLibraryActive = false
+//
+//    @State var imagenRecuperadaPerfil: UIImage = UIImage(named: "40-profile-picture")!
+//    @State var imagenRecuperadaPerfilAUX: UIImage = UIImage(named: "40-profile-picture")!
+//    @State var isImageGuardadaShow = false
+    @State var ocultarAnterior = false
+    
+    
+    @State var isMostrarPopOver: Bool = false
+    @State var isCerrarPopOverReturned = false
+    @State var isCameraSelectedReturned = false
+    @State var isLibrarySelectedReturned = false
+    
     var body: some View{
         ScrollView{
             VStack(alignment: .center){
@@ -25,10 +46,23 @@ struct RegistroView: View {
                 Text("Puedes cambiar o elegirla mas adelante").fontWeight(.light).font(.footnote).foregroundColor(Color("light-grey")).frame(width: 300, alignment: .center).padding(.bottom)
                 Button(action: tomarFoto) {
                     ZStack{
-                        Image("40-profile-picture").resizable().aspectRatio(contentMode: .fill).frame(width: 68, height: 68, alignment: .center).clipShape(Circle())
+                        imagenPerfil!
+                            .resizable().aspectRatio(contentMode: .fill).frame(width: 68, height: 68, alignment: .center).clipShape(Circle())
+                        
+//                        Image("40-profile-picture").resizable().aspectRatio(contentMode: .fill).frame(width: 68, height: 68, alignment: .center).clipShape(Circle())
                         Image(systemName: "camera").resizable().aspectRatio(contentMode: .fit).frame(width: 20, height:20, alignment: .center).foregroundColor(Color("pure-white"))
+                            .sheet(isPresented: $isCameraActive, content: {
+                                SUImagePickerView(sourceType: .camera, image: $imagenPerfil, isPresented: $isCameraActive, capturo: $ocultarAnterior)
+                            })
+                            .sheet(isPresented: $isLibraryActive, content: {
+                                SUImagePickerView(sourceType: .photoLibrary, image: $imagenPerfil, isPresented: $isLibraryActive, capturo: $ocultarAnterior)
+                            })
                     }
+                }.popover(isPresented: $isMostrarPopOver) {
+                    VentanaPopUp(isCerrarPopOver: $isMostrarPopOver, isCameraSelected: $isCameraActive, isLibrarySelected: $isLibraryActive)
                 }
+                    
+                    
             }.padding(.bottom, 5)
             VStack(alignment: .leading) {
                 
@@ -156,6 +190,7 @@ struct RegistroView: View {
     
     func tomarFoto() {
         print("Estoy editando la foto")
+        isMostrarPopOver.toggle()
     }
     
     func registro() {
@@ -180,13 +215,20 @@ struct RegistroView: View {
                             
                             let objetoActualizadorDatos = SaveData()
                             
-                            let resultado = objetoActualizadorDatos.guardarDatos(correo: correo_input, contrasenia: contrasenia_input, nombre: nombre_input)
+                            var isFotoFromCamera:String = "false"
+                            if isCameraActive {
+                                print("Entro a setear isFotoFromCamera = true")
+                                isFotoFromCamera = "true"
+                            }
+                            
+                            let resultado = objetoActualizadorDatos.guardarDatos(correo: correo_input, contrasenia: contrasenia_input, nombre: nombre_input, isFotoFromCamera: isFotoFromCamera)
                             
                             print("Se creo el usuario con con exito? \(resultado)")
                             
                             if resultado {
                                 tituloAlerta = "CORRECTO :)"
                                 textoAlerta = "Resultado de crear usuario: Se ha creado el usuario correctamente"
+//                                tipoInicioSesion = true
                             } else {
                                 textoAlerta = "Resultado de crear usuario: Ha ocurrido un error al intentar crear el usuario, reintente"
                             }
@@ -200,8 +242,9 @@ struct RegistroView: View {
     }
 }
 
-struct RegistroView_Previews: PreviewProvider {
-    static var previews: some View {
-        RegistroView()
-    }
-}
+//struct RegistroView_Previews: PreviewProvider {
+//    @State var tipoInicioSesion = true
+//    static var previews: some View {
+//        RegistroView(tipoInicioSesion: $tipoInicioSesion)
+//    }
+//}

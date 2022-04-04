@@ -12,6 +12,7 @@ class SaveData{
     var correo: String = ""
     var contrasenia: String = ""
     var nombre: String = ""
+    var isFotoFromCamera: String = ""
     
     let llaveParaGuardarYRecuperarDatos = "datosUsuario"
     
@@ -19,15 +20,15 @@ class SaveData{
         print("crearClaveVacia")
         
         if UserDefaults.standard.object(forKey: llaveParaGuardarYRecuperarDatos) == nil {
-            UserDefaults.standard.set(["", "", ""], forKey: llaveParaGuardarYRecuperarDatos)
+            UserDefaults.standard.set(["", "", "", "false"], forKey: llaveParaGuardarYRecuperarDatos)
         }
         
     }
     
-    func guardarDatos(correo: String, contrasenia: String, nombre: String) -> Bool {
-        print("Dentro de la funcion guardar, datos a guardar desde Vista: \(correo) +  \(contrasenia)  + \(nombre)  ")
+    func guardarDatos(correo: String, contrasenia: String, nombre: String, isFotoFromCamera: String) -> Bool {
+        print("Dentro de la funcion guardar, datos a guardar desde Vista: \(correo) +  \(contrasenia)  + \(nombre) + \(isFotoFromCamera) ")
         
-        UserDefaults.standard.set([correo, contrasenia, nombre], forKey: llaveParaGuardarYRecuperarDatos)
+        UserDefaults.standard.set([correo, contrasenia, nombre, isFotoFromCamera], forKey: llaveParaGuardarYRecuperarDatos)
         
         return true
     }

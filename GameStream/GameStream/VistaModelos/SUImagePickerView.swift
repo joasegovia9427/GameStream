@@ -15,9 +15,10 @@ struct SUImagePickerView: UIViewControllerRepresentable {
     @Binding var image: Image?
     @Binding var isPresented: Bool
     @Binding var capturo: Bool
+    @Binding var isLoadedFromCamera: Bool
     
     func makeCoordinator() -> ImagePickerViewCoordinator {
-        return ImagePickerViewCoordinator(image: $image, isPresented: $isPresented, capturo: $capturo)
+        return ImagePickerViewCoordinator(image: $image, isPresented: $isPresented, capturo: $capturo, isLoadedFromCamera: $isLoadedFromCamera)
     }
     
     func makeUIViewController(context: Context) -> UIImagePickerController {
@@ -38,17 +39,32 @@ class ImagePickerViewCoordinator: NSObject, UINavigationControllerDelegate, UIIm
     @Binding var image: Image?
     @Binding var isPresented: Bool
     @Binding var capturo: Bool
+    @Binding var isLoadedFromCamera: Bool
         
-    init(image: Binding<Image?>, isPresented: Binding<Bool>, capturo: Binding<Bool>) {
+    init(image: Binding<Image?>, isPresented: Binding<Bool>, capturo: Binding<Bool>, isLoadedFromCamera: Binding<Bool>) {
         self._image = image
         self._isPresented = isPresented
         self._capturo = capturo
+        self._isLoadedFromCamera = isLoadedFromCamera
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         //modificar nombre constante
         if let UiImageFromUser = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            
             self.image = Image(uiImage: UiImageFromUser)
+            
+            if self.isLoadedFromCamera {
+//                var imagenRecuperadaPerfilAUX: UIImage = UIImage(named: "40-profile-picture")!
+//                imagenRecuperadaPerfilAUX = returnUIImage(self.image)!
+////                imagenRecuperadaPerfilAUX = self.image
+//
+//
+//                self.image = imagenRecuperadaPerfilAUX.rotate(radians: .pi/2)! // Rotate 90 degrees
+//
+                
+            }
+            
             
             //codigo agregado
             if let data = UiImageFromUser.pngData(){

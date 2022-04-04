@@ -13,11 +13,13 @@ struct VentanaPopUp: View {
     @Binding var isCerrarPopOver:Bool// = false
     @Binding var isCameraSelected:Bool// = false
     @Binding var isLibrarySelected:Bool// = false
+    @Binding var isLoadedFromCamera:Bool
     
-    init(isCerrarPopOver: Binding<Bool>, isCameraSelected: Binding<Bool>, isLibrarySelected: Binding<Bool>) {
+    init(isCerrarPopOver: Binding<Bool>, isCameraSelected: Binding<Bool>, isLibrarySelected: Binding<Bool>, isLoadedFromCamera: Binding<Bool>) {
         self._isCerrarPopOver = isCerrarPopOver
         self._isCameraSelected = isCameraSelected
         self._isLibrarySelected = isLibrarySelected
+        self._isLoadedFromCamera = isLoadedFromCamera
     }
     
     var body: some View {
@@ -35,6 +37,7 @@ struct VentanaPopUp: View {
                     Button(action: {
                         self.isCameraSelected = true
                         self.isLibrarySelected = false
+                        self.isLoadedFromCamera = true
                         self.isCerrarPopOver = true
                         self.presentationMode.wrappedValue.dismiss()
                     }, label: {
@@ -58,6 +61,7 @@ struct VentanaPopUp: View {
                     Button(action: {
                         self.isCameraSelected = false
                         self.isLibrarySelected = true
+                        self.isLoadedFromCamera = false
                         self.isCerrarPopOver = true
                         self.presentationMode.wrappedValue.dismiss()
                     }, label: {
@@ -86,6 +90,7 @@ struct VentanaPopUp: View {
                     self.isCameraSelected = false
                     self.isLibrarySelected = false
                     self.isCerrarPopOver = true
+                    self.isLoadedFromCamera = false
                     self.presentationMode.wrappedValue.dismiss()
                 }, label: {
                         Text("Volver")

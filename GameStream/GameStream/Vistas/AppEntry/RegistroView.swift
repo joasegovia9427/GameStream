@@ -9,7 +9,7 @@ import SwiftUI
 
 //var isFromCamera:Bool = false
 //var isFromCameraReturned:String = ""
-
+var isFotoFromCamera:String = "false"
 
 struct RegistroView: View {
     @Binding var tipoInicioSesion:Bool
@@ -39,6 +39,8 @@ struct RegistroView: View {
     @State var isCameraSelectedReturned = false
     @State var isLibrarySelectedReturned = false
     
+    @State var isLoadedFromCamera = false
+    
     var body: some View{
         ScrollView{
             VStack(alignment: .center){
@@ -52,14 +54,16 @@ struct RegistroView: View {
 //                        Image("40-profile-picture").resizable().aspectRatio(contentMode: .fill).frame(width: 68, height: 68, alignment: .center).clipShape(Circle())
                         Image(systemName: "camera").resizable().aspectRatio(contentMode: .fit).frame(width: 20, height:20, alignment: .center).foregroundColor(Color("pure-white"))
                             .sheet(isPresented: $isCameraActive, content: {
-                                SUImagePickerView(sourceType: .camera, image: $imagenPerfil, isPresented: $isCameraActive, capturo: $ocultarAnterior)
+                                SUImagePickerView(sourceType: .camera, image: $imagenPerfil, isPresented: $isCameraActive, capturo: $ocultarAnterior, isLoadedFromCamera: $isLoadedFromCamera)
+//                                isFotoFromCamera = "true"
                             })
                             .sheet(isPresented: $isLibraryActive, content: {
-                                SUImagePickerView(sourceType: .photoLibrary, image: $imagenPerfil, isPresented: $isLibraryActive, capturo: $ocultarAnterior)
+                                SUImagePickerView(sourceType: .photoLibrary, image: $imagenPerfil, isPresented: $isLibraryActive, capturo: $ocultarAnterior, isLoadedFromCamera: $isLoadedFromCamera)
+//                                isFotoFromCamera = "false"
                             })
                     }
                 }.popover(isPresented: $isMostrarPopOver) {
-                    VentanaPopUp(isCerrarPopOver: $isMostrarPopOver, isCameraSelected: $isCameraActive, isLibrarySelected: $isLibraryActive)
+                    VentanaPopUp(isCerrarPopOver: $isMostrarPopOver, isCameraSelected: $isCameraActive, isLibrarySelected: $isLibraryActive, isLoadedFromCamera: $isLoadedFromCamera)
                 }
                     
                     
@@ -215,9 +219,9 @@ struct RegistroView: View {
                             
                             let objetoActualizadorDatos = SaveData()
                             
-                            var isFotoFromCamera:String = "false"
-                            if isCameraActive {
-                                print("Entro a setear isFotoFromCamera = true")
+                            print("antes de evaluar isLoadedFromCamera \(isLoadedFromCamera)")
+                            if isLoadedFromCamera {
+                                print("Entro a setear isLoadedFromCamera = true")
                                 isFotoFromCamera = "true"
                             }
                             

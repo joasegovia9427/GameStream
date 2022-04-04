@@ -10,7 +10,16 @@ import SwiftUI
 var isFromCamera:Bool = false
 var isFromCameraReturned:String = ""
 
+//var isFotoFromCamera:String = "false"
+
+//var isLoadedFromCameraEdit:Bool = false
+
+
+
 struct PantallaPerfilEdit: View {
+    @State var isLoadedFromCamera = false
+    
+
     
     var body: some View {
         ZStack{
@@ -18,8 +27,8 @@ struct PantallaPerfilEdit: View {
             
             ScrollView(showsIndicators: false){
                 VStack{
-                    ModuloEditarPhoto()
-                    ModuloEditarData()
+                    ModuloEditarPhoto(isLoadedFromCamera: $isLoadedFromCamera)
+                    ModuloEditarData(isLoadedFromCamera: $isLoadedFromCamera)
                 }
             }
         }
@@ -27,6 +36,9 @@ struct PantallaPerfilEdit: View {
 }
 
 struct ModuloEditarPhoto : View{
+    @Binding var isLoadedFromCamera:Bool
+    
+    
     @State var imagenPerfil: Image? = Image("40-profile-picture")
     @State var isCameraActive = false
     @State var isLibraryActive = false
@@ -40,6 +52,10 @@ struct ModuloEditarPhoto : View{
     @State var isCerrarPopOverReturned = false
     @State var isCameraSelectedReturned = false
     @State var isLibrarySelectedReturned = false
+    
+//    @State var isLoadedFromCamera = false
+//    isLoadedFromCamera: Binding<Bool>
+//    @State var isLoadedFromCameraEdit:Bool = false
     
     
     var body: some View{
@@ -60,15 +76,15 @@ struct ModuloEditarPhoto : View{
                         //                        Image("40-profile-picture").resizable().aspectRatio(contentMode: .fill).frame(width: 118, height: 118, alignment: .center).clipShape(Circle())
                         Image(systemName: "camera").resizable().aspectRatio(contentMode: .fit).frame(width: 40, height:40, alignment: .center).foregroundColor(Color("pure-white"))
                             .sheet(isPresented: $isCameraActive, content: {
-                                SUImagePickerView(sourceType: .camera, image: $imagenPerfil, isPresented: $isCameraActive, capturo: $ocultarAnterior)
+                                SUImagePickerView(sourceType: .camera, image: $imagenPerfil, isPresented: $isCameraActive, capturo: $ocultarAnterior, isLoadedFromCamera: $isLoadedFromCamera)
                             })
                             .sheet(isPresented: $isLibraryActive, content: {
-                                SUImagePickerView(sourceType: .photoLibrary, image: $imagenPerfil, isPresented: $isLibraryActive, capturo: $ocultarAnterior)
+                                SUImagePickerView(sourceType: .photoLibrary, image: $imagenPerfil, isPresented: $isLibraryActive, capturo: $ocultarAnterior, isLoadedFromCamera: $isLoadedFromCamera)
                             })
                         
                     }
                 }.popover(isPresented: $isMostrarPopOver) {
-                    VentanaPopUp(isCerrarPopOver: $isMostrarPopOver, isCameraSelected: $isCameraActive, isLibrarySelected: $isLibraryActive)
+                    VentanaPopUp(isCerrarPopOver: $isMostrarPopOver, isCameraSelected: $isCameraActive, isLibrarySelected: $isLibraryActive, isLoadedFromCamera: $isLoadedFromCamera)
                     
 //                    .popover(isPresented: $isMostrarPopOver) {
 //                        VentanaPopUp(isCerrarPopOver: $isMostrarPopOver, isCameraSelected: $isCameraSelectedReturned, isLibrarySelected: $isLibrarySelectedReturned)
@@ -85,7 +101,7 @@ struct ModuloEditarPhoto : View{
             if returnUIImage(named: "fotoperfil.png") != nil{
                 imagenRecuperadaPerfilAUX = returnUIImage(named: "fotoperfil.png")!
                 
-                if isFromCameraReturned=="true" {
+                if isFotoFromCameraGlobal=="true" {
                     imagenRecuperadaPerfil = imagenRecuperadaPerfilAUX.rotate(radians: .pi/2)! // Rotate 90 degrees
                 }else{
                     imagenRecuperadaPerfil = imagenRecuperadaPerfilAUX
@@ -102,6 +118,8 @@ struct ModuloEditarPhoto : View{
     
     func tomarFoto() {
         print("Estoy editando la foto")
+        
+        
         
         isMostrarPopOver.toggle()
         
@@ -130,6 +148,8 @@ struct ModuloEditarPhoto : View{
 }
 
 struct ModuloEditarData : View{
+    @Binding var isLoadedFromCamera:Bool
+    
     @State var correo_input:String = ""
     @State var contrasenia_input:String = ""
     @State var confirmacionContrasenia_input:String = ""
@@ -144,6 +164,8 @@ struct ModuloEditarData : View{
     @State var isCerrarPopOverReturned = false
     @State var isCameraSelectedReturned = false
     @State var isLibrarySelectedReturned = false
+    
+//    @State var isLoadedFromCamera = false
     
     var body: some View{
         
@@ -323,9 +345,12 @@ struct ModuloEditarData : View{
                             
                             let objetoActualizadorDatos = SaveData()
                             
-                            var isFotoFromCamera:String = "false"
-                            if isFromCamera {
+                            print("antes de evaluar isLoadedFromCamera \(isLoadedFromCamera)")
+                            if isLoadedFromCamera {
+                                print("Entro a setear isLoadedFromCamera = true")
                                 isFotoFromCamera = "true"
+                            }else{
+                                isFotoFromCamera = "false"
                             }
                             
                             let resultado = objetoActualizadorDatos.guardarDatos(correo: correo_input, contrasenia: contrasenia_input, nombre: nombre_input, isFotoFromCamera: isFotoFromCamera)
@@ -368,7 +393,10 @@ struct ModuloEditarData : View{
             nombre_input = datosUsuario[2]
         }
         if !datosUsuario[3].isEmpty {
-            isFromCameraReturned = datosUsuario[3]
+            isFotoFromCameraGlobal = datosUsuario[3]
+            if isFotoFromCameraGlobal=="true" {
+                isLoadedFromCamera = true
+            }
         }
         
     }

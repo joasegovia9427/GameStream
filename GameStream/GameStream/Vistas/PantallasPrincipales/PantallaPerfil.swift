@@ -9,6 +9,7 @@ import SwiftUI
 import UIKit
 
 //var isFromCameraReturned:String = ""
+var isFotoFromCameraGlobal:String = "false"
 
 struct PantallaPerfil: View {
     @State var nombreUsuario:String = "Lanie Janecki"
@@ -79,7 +80,7 @@ struct PantallaPerfil: View {
                 if returnUIImage(named: "fotoperfil.png") != nil{
                     imagenPerfilAUX = returnUIImage(named: "fotoperfil.png")!
                     
-                    if isFromCameraReturned=="true" {
+                    if isFotoFromCameraGlobal=="true" {
                         imagenPerfil = imagenPerfilAUX.rotate(radians: .pi/2)! // Rotate 90 degrees
                     }else{
                         imagenPerfil = imagenPerfilAUX
@@ -105,8 +106,9 @@ struct PantallaPerfil: View {
         
         if !datosUsuario[3].isEmpty {
             print("Entro a buscar dato camara")
-            isFromCameraReturned = datosUsuario[3]
-            print("dato: \(isFromCameraReturned)")
+            isFotoFromCameraGlobal = datosUsuario[3]
+//            isLoadedFromCamera = datosUsuario[3]
+//            print("dato de cam recuperado: \(isLoadedFromCamera)")
         }
         
     }

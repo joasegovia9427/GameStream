@@ -113,11 +113,11 @@ struct SubModuloHome: View {
             Text("LOS MÁS POPULARES").font(.title3).foregroundColor(.white).fontWeight(.bold).frame(minWidth: 0, maxWidth: .infinity, alignment: .leading).padding(.top).padding(.bottom, -15)
             ZStack{
                 Button(action: {
-                    //                    url = urlVideos[0]
+                    url = urlVideos[0]
                     urlGlobal = url
                     print("URL: \(url)")
-                    //                    isPlayerActive.toggle()
-                    watchGame(name: "The Witcher 3: Wild Hunt")
+                    isPlayerActive.toggle()
+//                    watchGame(name: "The Witcher 3: Wild Hunt")
                     imagenNameToLoadBG = "13-swiftuiapps-2105-thewitcher"
                 }, label: {
                     VStack(spacing:0){
@@ -342,7 +342,13 @@ struct SubModuloHome: View {
                 tags = juegoEncontrado.gameInfo[0].tags
                 imgUrls = juegoEncontrado.gameInfo[0].galleryImages
                 
-                isGameViewActive = true
+                print("description recuperado:: \(description)")
+                
+                if description.isEmpty {
+                    isGameInfoEmpty.toggle()
+                }else{
+                    isGameViewActive = true                    
+                }
             }
         }
         

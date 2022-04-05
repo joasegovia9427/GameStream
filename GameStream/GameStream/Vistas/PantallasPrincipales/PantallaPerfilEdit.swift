@@ -324,6 +324,8 @@ struct ModuloEditarData : View{
     }
     
     func actualizarDatos() {
+        
+        
         tituloAlerta = "ERROR :("
         
         if nombre_input.isEmpty {
@@ -358,6 +360,8 @@ struct ModuloEditarData : View{
                             print("Se guardaron los datos con exito? \(resultado)")
                             
                             if resultado {
+                                UIApplication.shared.keyWindow?.endEditing(true)
+                                
                                 tituloAlerta = "CORRECTO :)"
                                 textoAlerta = "Resultado de actualiar datos: Se han guardado los datos correctamente"
                             } else {

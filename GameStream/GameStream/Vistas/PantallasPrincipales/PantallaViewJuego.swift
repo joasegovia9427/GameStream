@@ -38,9 +38,10 @@ struct PantallaViewJuego: View {
                     video(url: url).frame(height: 200).padding(.top,-60)
                     
                     
-                    videoInfo(title: juegoPorParametroIn!.title, studio: studio, calification: calification, anoPublicacion: anoPublicacion, description: description, tags: tags).padding(.bottom, 30)
+//                    videoInfo(title: juegoPorParametroIn!.title, studio: studio, calification: calification, anoPublicacion: anoPublicacion, description: description, tags: tags).padding(.bottom, 30)
                     
-//                    videoInfo(title: title, studio: studio, calification: calification, anoPublicacion: anoPublicacion, description: description, tags: tags).padding(.bottom, 30)
+                    videoInfo(title: title, studio: studio, calification: calification, anoPublicacion: anoPublicacion, description: description, tags: tags).padding(.bottom, 30)
+                    
                     videoGallery(imgUrls: imgUrls).padding(.bottom, 30)
                     
                     videoComentarios().padding(.bottom, 30)
@@ -160,6 +161,12 @@ struct videoGallery: View {
 }
 
 struct videoComentarios: View {
+    @State var nombreUsuario:String = "Lanie Janecki"
+    
+    @State var imagenPerfil: UIImage = UIImage(named: "40-profile-picture")!
+    @State var imagenPerfilAUX: UIImage = UIImage(named: "40-profile-picture")!
+    
+    
     let screenWidth = UIScreen.main.bounds.width
     var text1 = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five (...)"
     var text2 = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
@@ -189,9 +196,13 @@ struct videoComentarios: View {
             if(isMostrarMiComentarioActive){
                 VStack{
                     HStack{
-                        Image("40-profile-picture").resizable().aspectRatio( contentMode: .fit).frame(width: 50, height: 50, alignment: .center)
-                        VStack{
-                            Text("Geoff Atto").fontWeight(.bold).foregroundColor(Color("dark-cian")).font(.subheadline)//.padding(.top, 5).padding(.leading)
+                        Image(uiImage: imagenPerfil).resizable().aspectRatio( contentMode: .fill).frame(width: 50, height: 50, alignment: .center).clipShape(Circle())
+                        
+//                        Image("40-profile-picture").resizable().aspectRatio( contentMode: .fit).frame(width: 50, height: 50, alignment: .center)
+                        VStack(alignment:.leading){
+                            Text(nombreUsuario).fontWeight(.bold).foregroundColor(Color("dark-cian")).font(.subheadline).multilineTextAlignment(.leading)//.padding(.top, 5).padding(.leading)
+                            
+//                            Text("Geoff Atto").fontWeight(.bold).foregroundColor(Color("dark-cian")).font(.subheadline)//.padding(.top, 5).padding(.leading)
                             Spacer().frame(height: 10)
                             Text("Hace 7 días").foregroundColor(.white).font(.subheadline)//.padding(.top, 5)
                         }.padding(.leading, 10)
@@ -244,6 +255,27 @@ struct videoComentarios: View {
             
             
         }.frame(maxWidth: .infinity, alignment: .leading)
+            .onAppear(perform: {
+                
+                print("Revisando si tengo datos de usuario en mis UserDefaults")
+                
+                recuperarNombreDeUsuario()
+                
+                if returnUIImage(named: "fotoperfil.png") != nil{
+                    imagenPerfilAUX = returnUIImage(named: "fotoperfil.png")!
+                    
+                    if isFotoFromCameraGlobal=="true" {
+                        imagenPerfil = imagenPerfilAUX.rotate(radians: .pi/2)! // Rotate 90 degrees
+                    }else{
+                        imagenPerfil = imagenPerfilAUX
+                    }
+                    
+
+                }else{
+                    print("No se encontro foto de perfil guardada en el dispositivo")
+                }
+                
+            })
         
         Button(action:{} , label: {
             Text("Cargar mas comentarios")
@@ -253,6 +285,37 @@ struct videoComentarios: View {
         }).background(Color("blue-action")).cornerRadius(8.0
         ).padding(.top, -20)
     }
+    
+    
+    func recuperarNombreDeUsuario(){
+        let objetoActualizadorDatos = SaveData()
+        
+        let datosUsuario:[String] = objetoActualizadorDatos.recuperarDatos()
+        
+        if !datosUsuario[2].isEmpty {
+            nombreUsuario = datosUsuario[2]
+        }
+        
+        if !datosUsuario[3].isEmpty {
+            print("Entro a buscar dato camara")
+            isFotoFromCameraGlobal = datosUsuario[3]
+//            isLoadedFromCamera = datosUsuario[3]
+//            print("dato de cam recuperado: \(isLoadedFromCamera)")
+        }
+        
+    }
+    
+    func returnUIImage(named: String) -> UIImage?{
+        if let dir = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+        {
+            return UIImage(contentsOfFile: URL(fileURLWithPath: dir.absoluteString).appendingPathComponent(named).path)
+        }
+        
+        return nil
+    }
+    
+    
+    
 }
 
 struct juegosSimilares: View {

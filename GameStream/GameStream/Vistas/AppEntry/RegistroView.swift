@@ -219,7 +219,7 @@ struct RegistroView: View {
                             
                             let objetoActualizadorDatos = SaveData()
                             
-                            print("antes de evaluar isLoadedFromCamera \(isLoadedFromCamera)")
+                            print("Registro / antes de evaluar isLoadedFromCamera \(isLoadedFromCamera)")
                             if isLoadedFromCamera {
                                 print("Entro a setear isLoadedFromCamera = true")
                                 isFotoFromCamera = "true"
@@ -230,6 +230,8 @@ struct RegistroView: View {
                             print("Se creo el usuario con con exito? \(resultado)")
                             
                             if resultado {
+                                UIApplication.shared.keyWindow?.endEditing(true)
+                                
                                 tituloAlerta = "CORRECTO :)"
                                 textoAlerta = "Resultado de crear usuario: Se ha creado el usuario correctamente"
 //                                tipoInicioSesion = true
@@ -244,6 +246,8 @@ struct RegistroView: View {
         isAlertCrearUsuarioViewActive.toggle()
         
     }
+    
+    
 }
 
 //struct RegistroView_Previews: PreviewProvider {

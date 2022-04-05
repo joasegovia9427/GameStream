@@ -16,7 +16,8 @@ struct InicioSesionView: View {
     @State var isAlertLoginViewActive = false
     @State var tituloAlerta = ""
     @State var textoAlerta = ""
-       
+    
+    @State var countTwitterTap = 0
     
     var body: some View{
         
@@ -97,7 +98,7 @@ struct InicioSesionView: View {
                             }.padding(EdgeInsets(top: 11, leading: 11, bottom: 11, trailing: 11))
                         }).background(Color("blue-grey")).cornerRadius(/*@START_MENU_TOKEN@*/8.0/*@END_MENU_TOKEN@*/)
                         Spacer().frame(width: 20, alignment: .center)
-                        Button(action: {}, label: {
+                        Button(action: {doTwitterFasterLogin()}, label: {
                             HStack(alignment: .center){
                                 Image("twitter").resizable().frame(width: 20, height: 20, alignment: .center).padding(.trailing,5).padding(.leading,10)
                                 Text("Twitter")
@@ -107,9 +108,22 @@ struct InicioSesionView: View {
                             }.padding(EdgeInsets(top: 11, leading: 11, bottom: 11, trailing: 11))
                         }).background(Color("blue-grey")).cornerRadius(/*@START_MENU_TOKEN@*/8.0/*@END_MENU_TOKEN@*/)
                     }
+                    if(countTwitterTap>1){
+                        Text("\(countTwitterTap)").foregroundColor(.white).frame(width: 300, alignment: .center).padding(.bottom).font(.footnote)
+                        
+                    }
+                    if(countTwitterTap>2){
+                        Text("Tap ones more time to cheat login").foregroundColor(.white).frame(width: 300, alignment: .center).padding(.bottom).font(.footnote)
+                        
+                    }
+                    
                 }
             }.padding(.horizontal, 77)
-        }.background(Color("marine"))
+        }.background(Color("marine")).onAppear(
+            perform: {
+                countTwitterTap = 0
+            }
+        )
         
         //        NavigationLink(destination: MenuTabView(), isActive: $isActiveHome, label: {
         //            EmptyView()
@@ -146,6 +160,13 @@ struct InicioSesionView: View {
                     isAlertLoginViewActive.toggle()
                 }
             }
+        }
+    }
+    
+    func doTwitterFasterLogin() {
+        countTwitterTap+=1
+        if countTwitterTap==4 {
+            isActiveHome.toggle()
         }
     }
 }

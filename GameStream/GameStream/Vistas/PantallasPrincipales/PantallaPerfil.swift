@@ -58,7 +58,7 @@ struct PantallaPerfil: View {
                                 
                             }.padding(EdgeInsets(top: 21, leading: 16, bottom: 21, trailing: 16))
                         }).background(Color("blue-grey"))
-                    }.padding(.top, 16)//.padding(.horizontal, 16)
+                    }.padding(.top, 16).padding(.bottom, 20)//.padding(.horizontal, 16)
                 }
             }
             

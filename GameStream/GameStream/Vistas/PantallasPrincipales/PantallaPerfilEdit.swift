@@ -97,7 +97,6 @@ struct ModuloEditarPhoto : View{
         }.onAppear {
             print("Revisando si tengo foto de perfil")
             
-            
             if returnUIImage(named: "fotoperfil.png") != nil{
                 imagenRecuperadaPerfilAUX = returnUIImage(named: "fotoperfil.png")!
                 
@@ -106,7 +105,6 @@ struct ModuloEditarPhoto : View{
                 }else{
                     imagenRecuperadaPerfil = imagenRecuperadaPerfilAUX
                 }
-
                 
                 isImageGuardadaShow = true
             }else{
@@ -141,7 +139,6 @@ struct ModuloEditarPhoto : View{
         {
             return UIImage(contentsOfFile: URL(fileURLWithPath: dir.absoluteString).appendingPathComponent(named).path)
         }
-        
         return nil
     }
     

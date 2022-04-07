@@ -64,8 +64,7 @@ class ImagePickerViewCoordinator: NSObject, UINavigationControllerDelegate, UIIm
 //
                 
             }
-            
-            
+                        
             //codigo agregado
             if let data = UiImageFromUser.pngData(){
                 let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]

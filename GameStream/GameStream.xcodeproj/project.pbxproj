@@ -30,6 +30,7 @@
 		20B642D527B9DBD500A02CB0 /* StructGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B642D427B9DBD500A02CB0 /* StructGameView.swift */; };
 		20EBE18127B9BA24000C9CEC /* PantallaReproductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EBE18027B9BA24000C9CEC /* PantallaReproductor.swift */; };
 		20EBE18427B9C36D000C9CEC /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 20EBE18327B9C36D000C9CEC /* Kingfisher */; };
+		20EF8C08280116520031C954 /* SistemaPuntos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EF8C07280116520031C954 /* SistemaPuntos.swift */; };
 		20F463ED27DEB36200C4B834 /* SUImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F463EC27DEB36100C4B834 /* SUImagePickerView.swift */; };
 		20F463EF27DED94C00C4B834 /* RotateImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F463EE27DED94C00C4B834 /* RotateImage.swift */; };
 		20F463F327E0076100C4B834 /* VentanaPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F463F227E0076100C4B834 /* VentanaPopUp.swift */; };
@@ -60,6 +61,7 @@
 		20B642D427B9DBD500A02CB0 /* StructGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructGameView.swift; sourceTree = "<group>"; };
 		20B642D627BB421500A02CB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		20EBE18027B9BA24000C9CEC /* PantallaReproductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantallaReproductor.swift; sourceTree = "<group>"; };
+		20EF8C07280116520031C954 /* SistemaPuntos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SistemaPuntos.swift; sourceTree = "<group>"; };
 		20F463EC27DEB36100C4B834 /* SUImagePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SUImagePickerView.swift; sourceTree = "<group>"; };
 		20F463EE27DED94C00C4B834 /* RotateImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotateImage.swift; sourceTree = "<group>"; };
 		20F463F227E0076100C4B834 /* VentanaPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentanaPopUp.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				209CE07F27B83D040058D70A /* MenuTabView.swift */,
 				209CE07E27B83A740058D70A /* AppEntry */,
 				209CE08327B84A530058D70A /* PantallasPrincipales */,
+				20EF8C07280116520031C954 /* SistemaPuntos.swift */,
 			);
 			path = Vistas;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				20ABEBAB27DAD39C00AF1F3E /* AlertaPersonalizada.swift in Sources */,
 				2038872027D9898300AE9121 /* PantallaPerfilEdit.swift in Sources */,
 				209CE08727B84A700058D70A /* PantallaInicio.swift in Sources */,
+				20EF8C08280116520031C954 /* SistemaPuntos.swift in Sources */,
 				2005022A27B9A76E0042B5FC /* Model.swift in Sources */,
 				2005022227B883920042B5FC /* AuxNivelador.swift in Sources */,
 				209CE07B27B839F10058D70A /* InicioSesionView.swift in Sources */,

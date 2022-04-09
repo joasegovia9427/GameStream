@@ -182,7 +182,7 @@ struct RegistroView: View {
                                 Text("Twitter")
                                     .fontWeight(.bold)
                                     .foregroundColor(.white)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .frame(maxWidth: .infinity, alignment: .center)
                             }.padding(EdgeInsets(top: 11, leading: 11, bottom: 11, trailing: 11))
                         }).background(Color("blue-grey")).cornerRadius(/*@START_MENU_TOKEN@*/8.0/*@END_MENU_TOKEN@*/)
                     }

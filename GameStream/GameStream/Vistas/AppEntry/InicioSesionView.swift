@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+let screenWidth = UIScreen.main.bounds.width
+var toRest:CGFloat = 0
+var spaceToGrow:CGFloat = 300
+
 struct InicioSesionView: View {
     @State var correo_input:String = ""
     @State var contrasenia_input:String = ""
@@ -69,8 +73,13 @@ struct InicioSesionView: View {
                 }
                 //// -
                 VStack{
+//                    Button(action: {}, label: {
+//                        Text("Olvidaste tu contraseña?").font(.footnote).foregroundColor(Color("dark-cian")).frame(width: 300, alignment: .trailing).padding(.bottom)
+//                    })
+                    
+                    
                     Button(action: {}, label: {
-                        Text("Olvidaste tu contraseña?").font(.footnote).foregroundColor(Color("dark-cian")).frame(width: 300, alignment: .trailing).padding(.bottom)
+                        Text("Olvidaste tu contraseña?").font(.footnote).foregroundColor(Color("dark-cian")).frame(width: spaceToGrow, alignment: .trailing).padding(.bottom)
                     })
                     
                     Button(action: iniciarSesion, label: {
@@ -104,7 +113,7 @@ struct InicioSesionView: View {
                                 Text("Twitter")
                                     .fontWeight(.bold)
                                     .foregroundColor(.white)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .frame(maxWidth: .infinity, alignment: .center)
                             }.padding(EdgeInsets(top: 11, leading: 11, bottom: 11, trailing: 11))
                         }).background(Color("blue-grey")).cornerRadius(/*@START_MENU_TOKEN@*/8.0/*@END_MENU_TOKEN@*/)
                     }
@@ -122,6 +131,11 @@ struct InicioSesionView: View {
         }.background(Color("marine")).onAppear(
             perform: {
                 countTwitterTap = 0
+                
+                if(screenWidth>300){
+                    toRest=200
+                }
+                spaceToGrow = screenWidth - toRest
             }
         )
         

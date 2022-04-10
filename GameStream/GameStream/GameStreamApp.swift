@@ -12,6 +12,10 @@ struct GameStreamApp: App {
     @Environment(\.scenePhase) var scenePhase
     @State private var estado = "hola"
     
+    init(){
+        print("Init de la vista GameStreamApp")
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

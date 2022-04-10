@@ -16,10 +16,14 @@ import SwiftUI
 var dispositivo = UIDevice.current.model
 
 struct ContentView: View {
+    init(){
+        print("Init de la vista ContentView")
+    }
+    
     var body: some View {
         NavigationView{
             ZStack {
-//                Spacer()
+                //                Spacer()
                 //            Color(red: 21/255, green: 27/255, blue: 53/255, opacity: 1).ignoresSafeArea()
                 Color("marine").ignoresSafeArea()
                 

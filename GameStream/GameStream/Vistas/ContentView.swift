@@ -18,23 +18,17 @@ var dispositivo = UIDevice.current.model
 struct ContentView: View {
     var body: some View {
         NavigationView{
-            
             ZStack {
 //                Spacer()
                 //            Color(red: 21/255, green: 27/255, blue: 53/255, opacity: 1).ignoresSafeArea()
                 Color("marine").ignoresSafeArea()
                 
                 VStack{
-                    
-                    
                     Spacer().frame(height: 10)
                     Image("appLogo").resizable().aspectRatio( contentMode: .fit).frame(width: 250).padding(.bottom, 20).offset(x: 0, y: 0)
-                    
                     InicioYResgistroView()
                 }
-                
             }.navigationBarHidden(true)
-            
         }.navigationBarHidden(true)
             .navigationBarBackButtonHidden(true).navigationViewStyle(StackNavigationViewStyle())
     }

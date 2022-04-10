@@ -44,7 +44,7 @@ struct PantallaInicio: View {
             NavigationLink(isActive: $isAuxNiveladorActive, destination: {AuxNivelador()}, label: {EmptyView()})
         }.onAppear {
             let objetoActualizadorDatos = SaveData()
-            objetoActualizadorDatos.crearClaveVacia()
+            objetoActualizadorDatos.crearClaveVaciaIfNil()
         }
     }
 }

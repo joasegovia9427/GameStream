@@ -3,15 +3,15 @@ A project to get practice the Platzi's courses, "Curso de Desarrollo de Aplicaci
 
 ## 1st Course "Curso de Desarrollo de Aplicaciones iOS con SwiftUI" 
 (https://platzi.com/cursos/swiftui-apps-ios/)
-Start at 2022.02.10 to 2022.03.13 with note 9.33
+Start at 2022.02.10 to 2022.03.13 with note 9.33 (14/15)
 Platzi credential https://platzi.com/p/joasegovia9427/course/2354-swiftui-apps-ios/diploma/detalle/
 
 You can see my GoodNotes in pdf:: https://drive.google.com/file/d/1Ze-PUjk80VODRRclqTyuCRmqw5dcTGZ0/view?usp=sharing
 
 ## 2nd Course "Curso de SwiftUI: Porteo y Ciclo de Vida de Aplicaciones" 
 (https://platzi.com/cursos/swiftui-especializacion/)
-Start at 2022.04. to 2022.04.__ with note ___
-Platzi credential ___
+Start at 2022.04.03 to 2022.04.10 with note 10 (12/12)
+Platzi credential https://platzi.com/p/joasegovia9427/course/2365-swiftui-especializacion/diploma/detalle/
 
 You can see my GoodNotes in pdf:: https://drive.google.com/file/d/1AQn3lb-tLaO_j3U4kPoxmVXz041HyV1B/view?usp=sharing
 

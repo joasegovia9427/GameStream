@@ -16,8 +16,8 @@ class SaveData{
     
     let llaveParaGuardarYRecuperarDatos = "datosUsuario"
     
-    func crearClaveVacia() {
-        print("crearClaveVacia")
+    func crearClaveVaciaIfNil() {
+        print("crearClaveVaciaIfNil")
         if UserDefaults.standard.object(forKey: llaveParaGuardarYRecuperarDatos) == nil {
             UserDefaults.standard.set(["", "", "", "false"], forKey: llaveParaGuardarYRecuperarDatos)
         }
@@ -31,7 +31,7 @@ class SaveData{
     }
     
     func recuperarDatos() -> [String] {
-        crearClaveVacia()
+        crearClaveVaciaIfNil()
         let datosUsuario:[String] = UserDefaults.standard.stringArray(forKey: llaveParaGuardarYRecuperarDatos)!
         print("Estoy en el metodo recuperar datos y obtuve: \(datosUsuario) ")
         return datosUsuario

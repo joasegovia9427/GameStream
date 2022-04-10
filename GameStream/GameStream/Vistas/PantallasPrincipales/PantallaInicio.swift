@@ -67,6 +67,12 @@ struct SubModuloHome: View {
     @State var tags: [String] = [""]
     @State var imgUrls: [String] = [""]
     
+    @State var medidaCategoriaBoxWidth:CGFloat=160
+    @State var medidaCategoriaBoxHeight:CGFloat=120
+    @State var medidaCategoriaCornerRadious:CGFloat=8
+    @State var medidaCategoriaImageWidth:CGFloat=30
+    @State var medidaCategoriaImageHeight:CGFloat=30
+    @State var medidaCategoriaFontSizeType:Font=Font.body
     
     var body: some View {
         
@@ -137,40 +143,69 @@ struct SubModuloHome: View {
             Text("CATEGORÍAS SUGERIDAS PARA TI").font(.title3).foregroundColor(.white).fontWeight(.bold).frame(minWidth: 0, maxWidth: .infinity, alignment: .leading).padding(.top)
             ScrollView(.horizontal, showsIndicators: false){
                 HStack{
+                    Button(action: {}, label: {
+                        ZStack {
+                            RoundedRectangle(cornerRadius:medidaCategoriaCornerRadious).fill(Color("blue-grey")).frame(width: medidaCategoriaBoxWidth, height: medidaCategoriaBoxHeight, alignment: .center
+                            )
+                            VStack(alignment: .center){
+                                Image("Vector-shot").resizable().frame(width: medidaCategoriaImageWidth, height: medidaCategoriaImageHeight, alignment: .center).padding(.top, 10)
+                                Text("FPS")
+                                    .font(medidaCategoriaFontSizeType)
+                                    .fontWeight(.heavy)
+                                    .foregroundColor(Color("cian"))
+                                    .frame(maxWidth: .infinity, alignment: .center).padding(.bottom,10)
+                            }.padding(EdgeInsets(top: 11, leading: 11, bottom: 11, trailing: 11))
+                        }
+                    })
                     
                     Button(action: {}, label: {
-                        VStack(alignment: .center){
-                            Image("Vector-shot").resizable().frame(width: 30, height: 30, alignment: .center).padding(.top, 10)
-                            Text("FPS")
-                                .fontWeight(.heavy)
-                                .foregroundColor(Color("cian"))
-                                .frame(maxWidth: .infinity, alignment: .center).padding(.bottom,10)
-                        }.padding(EdgeInsets(top: 11, leading: 11, bottom: 11, trailing: 11))
-                    }).background(Color("blue-grey")).cornerRadius(8.0).frame(width: 160, height: 120, alignment: .center
-                    )
+                        ZStack {
+                            RoundedRectangle(cornerRadius:medidaCategoriaCornerRadious).fill(Color("blue-grey")).frame(width: medidaCategoriaBoxWidth, height: medidaCategoriaBoxHeight, alignment: .center
+                            )
+                            VStack(alignment: .center){
+                                Image("rpg-icon").resizable().frame(width: medidaCategoriaImageWidth, height: medidaCategoriaImageHeight, alignment: .center).padding(.top, 10)
+                                Text("RPG")
+                                    .font(medidaCategoriaFontSizeType)
+                                    .fontWeight(.heavy)
+                                    .foregroundColor(Color("cian"))
+                                    .frame(maxWidth: .infinity, alignment: .center).padding(.bottom,10)
+                            }.padding(EdgeInsets(top: 11, leading: 11, bottom: 11, trailing: 11))
+                        }
+                    })
                     
                     Button(action: {}, label: {
-                        VStack(alignment: .center){
-                            Image("rpg-icon").resizable().frame(width: 30, height: 30, alignment: .center).padding(.top, 10)
-                            Text("RPG")
-                                .fontWeight(.heavy)
-                                .foregroundColor(Color("cian"))
-                                .frame(maxWidth: .infinity, alignment: .center).padding(.bottom,10)
-                        }.padding(EdgeInsets(top: 11, leading: 11, bottom: 11, trailing: 11))
-                    }).background(Color("blue-grey")).cornerRadius(8.0).frame(width: 160, height: 120, alignment: .center
-                    )
+                        ZStack {
+                            RoundedRectangle(cornerRadius:medidaCategoriaCornerRadious).fill(Color("blue-grey")).frame(width: medidaCategoriaBoxWidth, height: medidaCategoriaBoxHeight, alignment: .center
+                            )
+                            
+                            VStack(alignment: .center){
+                                Image("open-world-icon").resizable().frame(width: medidaCategoriaImageWidth, height: medidaCategoriaImageHeight, alignment: .center).padding(.top, 10)
+                                Text("OPEN WORLD")
+                                    .font(medidaCategoriaFontSizeType)
+                                    .fontWeight(.heavy)
+                                    .foregroundColor(Color("cian"))
+                                    .frame(maxWidth: .infinity, alignment: .center).padding(.bottom,10)
+                            }.padding(EdgeInsets(top: 11, leading: 11, bottom: 11, trailing: 11))
+                        }
+                    })
                     
-                    Button(action: {}, label: {
-                        VStack(alignment: .center){
-                            Image("open-world-icon").resizable().frame(width: 30, height: 30, alignment: .center).padding(.top, 10)
-                            Text("OPEN WORLD")
-                                .fontWeight(.heavy)
-                                .foregroundColor(Color("cian"))
-                                .frame(maxWidth: .infinity, alignment: .center).padding(.bottom,10)
-                        }.padding(EdgeInsets(top: 11, leading: 11, bottom: 11, trailing: 11))
-                    }).background(Color("blue-grey")).cornerRadius(8.0).frame(width: 160, height: 120, alignment: .center
-                    )
-                }
+                }.onAppear(perform: {
+                    if(dispositivo=="iPad"){
+                        medidaCategoriaBoxWidth=300
+                        medidaCategoriaBoxHeight=220
+                        medidaCategoriaCornerRadious=18
+                        medidaCategoriaImageWidth=70
+                        medidaCategoriaImageHeight=70
+                        medidaCategoriaFontSizeType=Font.title
+                    }else{//iPhone
+                        medidaCategoriaBoxWidth=160
+                        medidaCategoriaBoxHeight=120
+                        medidaCategoriaCornerRadious=8
+                        medidaCategoriaImageWidth=30
+                        medidaCategoriaImageHeight=30
+                        medidaCategoriaFontSizeType=Font.body
+                    }
+                })
             }
         }.frame(minWidth: 0, maxWidth: .infinity, alignment: .center).padding(.vertical)
         ////-

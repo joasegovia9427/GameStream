@@ -11,8 +11,10 @@ import SwiftUI
 struct GameStreamApp: App {
     var body: some Scene {
         WindowGroup {
-//            ContentView()
-            SistemaPuntos()
+            ContentView()
+//            SistemaPuntos()
+//            Assets2x3x()
+//            OffsetPosition()
         }
     }
 }

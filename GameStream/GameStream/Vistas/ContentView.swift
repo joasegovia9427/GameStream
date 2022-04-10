@@ -13,6 +13,8 @@ import SwiftUI
 //    }
 //}
 
+var dispositivo = UIDevice.current.model
+
 struct ContentView: View {
     var body: some View {
         NavigationView{
@@ -26,7 +28,7 @@ struct ContentView: View {
                     
                     
                     Spacer().frame(height: 10)
-                    Image("appLogo").resizable().aspectRatio( contentMode: .fit).frame(width: 250).padding(.bottom, 20)
+                    Image("appLogo").resizable().aspectRatio( contentMode: .fit).frame(width: 250).padding(.bottom, 20).offset(x: 0, y: 0)
                     
                     InicioYResgistroView()
                 }
@@ -82,5 +84,6 @@ struct ContentView_Previews: PreviewProvider {
         //        Image("pantalla1").resizable()
         //        Image("pantalla2").resizable()
         ContentView()
+            .previewDevice("iPhone 13 Pro")
     }
 }

@@ -27,10 +27,10 @@ struct RegistroView: View {
     @State var imagenPerfil: Image? = Image("40-profile-picture")
     @State var isCameraActive = false
     @State var isLibraryActive = false
-//
-//    @State var imagenRecuperadaPerfil: UIImage = UIImage(named: "40-profile-picture")!
-//    @State var imagenRecuperadaPerfilAUX: UIImage = UIImage(named: "40-profile-picture")!
-//    @State var isImageGuardadaShow = false
+    //
+    //    @State var imagenRecuperadaPerfil: UIImage = UIImage(named: "40-profile-picture")!
+    //    @State var imagenRecuperadaPerfilAUX: UIImage = UIImage(named: "40-profile-picture")!
+    //    @State var isImageGuardadaShow = false
     @State var ocultarAnterior = false
     
     
@@ -51,22 +51,21 @@ struct RegistroView: View {
                         imagenPerfil!
                             .resizable().aspectRatio(contentMode: .fill).frame(width: 68, height: 68, alignment: .center).clipShape(Circle())
                         
-//                        Image("40-profile-picture").resizable().aspectRatio(contentMode: .fill).frame(width: 68, height: 68, alignment: .center).clipShape(Circle())
+                        //                        Image("40-profile-picture").resizable().aspectRatio(contentMode: .fill).frame(width: 68, height: 68, alignment: .center).clipShape(Circle())
                         Image(systemName: "camera").resizable().aspectRatio(contentMode: .fit).frame(width: 20, height:20, alignment: .center).foregroundColor(Color("pure-white"))
                             .sheet(isPresented: $isCameraActive, content: {
                                 SUImagePickerView(sourceType: .camera, image: $imagenPerfil, isPresented: $isCameraActive, capturo: $ocultarAnterior, isLoadedFromCamera: $isLoadedFromCamera)
-//                                isFotoFromCamera = "true"
+                                //                                isFotoFromCamera = "true"
                             })
                             .sheet(isPresented: $isLibraryActive, content: {
                                 SUImagePickerView(sourceType: .photoLibrary, image: $imagenPerfil, isPresented: $isLibraryActive, capturo: $ocultarAnterior, isLoadedFromCamera: $isLoadedFromCamera)
-//                                isFotoFromCamera = "false"
+                                //                                isFotoFromCamera = "false"
                             })
                     }
                 }.popover(isPresented: $isMostrarPopOver) {
                     VentanaPopUp(isCerrarPopOver: $isMostrarPopOver, isCameraSelected: $isCameraActive, isLibrarySelected: $isLibraryActive, isLoadedFromCamera: $isLoadedFromCamera)
                 }
-                    
-                    
+                
             }.padding(.bottom, 5)
             VStack(alignment: .leading) {
                 
@@ -197,7 +196,7 @@ struct RegistroView: View {
         isMostrarPopOver.toggle()
     }
     
-    func registro() {
+    func registro() { ////have to refactor this code
         print("Estoy registrando")
         tituloAlerta = "ERROR :("
         
@@ -234,7 +233,7 @@ struct RegistroView: View {
                                 
                                 tituloAlerta = "CORRECTO :)"
                                 textoAlerta = "Resultado de crear usuario: Se ha creado el usuario correctamente"
-//                                tipoInicioSesion = true
+                                //                                tipoInicioSesion = true
                             } else {
                                 textoAlerta = "Resultado de crear usuario: Ha ocurrido un error al intentar crear el usuario, reintente"
                             }
@@ -244,10 +243,7 @@ struct RegistroView: View {
             }
         }
         isAlertCrearUsuarioViewActive.toggle()
-        
     }
-    
-    
 }
 
 //struct RegistroView_Previews: PreviewProvider {

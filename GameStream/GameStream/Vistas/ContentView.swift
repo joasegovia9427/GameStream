@@ -63,18 +63,14 @@ struct InicioYResgistroView: View{
                 Spacer()
             }//.padding(.horizontal, 30)
             
-            
             if tipoInicioSesion == true{
                 Spacer(minLength: 42)
                 InicioSesionView()
             }else{
                 RegistroView(tipoInicioSesion: $tipoInicioSesion)
             }
-            
         }
-        
     }
-    
 }
 
 struct ContentView_Previews: PreviewProvider {

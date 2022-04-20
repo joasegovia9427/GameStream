@@ -73,10 +73,9 @@ struct InicioSesionView: View {
                 }
                 //// -
                 VStack{
-//                    Button(action: {}, label: {
-//                        Text("Olvidaste tu contraseña?").font(.footnote).foregroundColor(Color("dark-cian")).frame(width: 300, alignment: .trailing).padding(.bottom)
-//                    })
-                    
+                    //                    Button(action: {}, label: {
+                    //                        Text("Olvidaste tu contraseña?").font(.footnote).foregroundColor(Color("dark-cian")).frame(width: 300, alignment: .trailing).padding(.bottom)
+                    //                    })
                     
                     Button(action: {}, label: {
                         Text("Olvidaste tu contraseña?").font(.footnote).foregroundColor(Color("dark-cian")).frame(width: spaceToGrow, alignment: .trailing).padding(.bottom)
@@ -119,13 +118,10 @@ struct InicioSesionView: View {
                     }
                     if(countTwitterTap>1){
                         Text("\(countTwitterTap)").foregroundColor(.white).frame(width: 300, alignment: .center).padding(.bottom).font(.footnote)
-                        
                     }
                     if(countTwitterTap>2){
                         Text("Tap ones more time to cheat login").foregroundColor(.white).frame(width: 300, alignment: .center).padding(.bottom).font(.footnote)
-                        
                     }
-                    
                 }
             }.padding(.horizontal, 77)
         }.background(Color("marine")).onAppear(
@@ -138,13 +134,11 @@ struct InicioSesionView: View {
                 spaceToGrow = screenWidth - toRest
             }
         )
-        
         //        NavigationLink(destination: MenuTabView(), isActive: $isActiveHome, label: {
         //            EmptyView()
         //        })
         NavigationLink(isActive: $isActiveHome, destination: {MenuTabView()}, label: {EmptyView()})
         //        NavigationLink(isActive: $isActiveHome, destination: {WelcomeScreen()}, label: {EmptyView()})
-        
     }
     
     func iniciarSesion() {
@@ -184,11 +178,6 @@ struct InicioSesionView: View {
         }
     }
 }
-
-
-
-
-
 
 struct InicioSesionView_Previews: PreviewProvider {
     static var previews: some View {

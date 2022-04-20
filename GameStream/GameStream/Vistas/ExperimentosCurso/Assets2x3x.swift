@@ -19,15 +19,14 @@ struct Assets2x3x: View {
         Image("platzi3").resizable().aspectRatio(contentMode: .fill).frame(width: size, height: size, alignment: .center)
             .onAppear(perform: {
                 print("screenWidth \(screenWidth)")
-//                if(screenWidth>450){
-                    print("if(screenWidth>450){")
-                    toRest=100
-                    size = screenWidth - toRest
-//                }
-
+                //                if(screenWidth>450){
+                print("if(screenWidth>450){")
+                toRest=100
+                size = screenWidth - toRest
+                //                }
+                
                 print("size \(size)")
-        })
-        
+            })
     }
 }
 

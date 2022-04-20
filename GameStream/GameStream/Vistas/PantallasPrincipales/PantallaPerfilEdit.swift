@@ -9,17 +9,11 @@ import SwiftUI
 
 var isFromCamera:Bool = false
 var isFromCameraReturned:String = ""
-
 //var isFotoFromCamera:String = "false"
-
 //var isLoadedFromCameraEdit:Bool = false
-
-
 
 struct PantallaPerfilEdit: View {
     @State var isLoadedFromCamera = false
-    
-
     
     var body: some View {
         ZStack{
@@ -38,7 +32,6 @@ struct PantallaPerfilEdit: View {
 struct ModuloEditarPhoto : View{
     @Binding var isLoadedFromCamera:Bool
     
-    
     @State var imagenPerfil: Image? = Image("40-profile-picture")
     @State var isCameraActive = false
     @State var isLibraryActive = false
@@ -53,10 +46,9 @@ struct ModuloEditarPhoto : View{
     @State var isCameraSelectedReturned = false
     @State var isLibrarySelectedReturned = false
     
-//    @State var isLoadedFromCamera = false
-//    isLoadedFromCamera: Binding<Bool>
-//    @State var isLoadedFromCameraEdit:Bool = false
-    
+    //    @State var isLoadedFromCamera = false
+    //    isLoadedFromCamera: Binding<Bool>
+    //    @State var isLoadedFromCameraEdit:Bool = false
     
     var body: some View{
         VStack(alignment: .center){
@@ -70,7 +62,6 @@ struct ModuloEditarPhoto : View{
                         } else {
                             imagenPerfil!
                                 .resizable().aspectRatio(contentMode: .fill).frame(width: 118, height: 118, alignment: .center).clipShape(Circle())
-                            
                         }
                         
                         //                        Image("40-profile-picture").resizable().aspectRatio(contentMode: .fill).frame(width: 118, height: 118, alignment: .center).clipShape(Circle())
@@ -86,10 +77,9 @@ struct ModuloEditarPhoto : View{
                 }.popover(isPresented: $isMostrarPopOver) {
                     VentanaPopUp(isCerrarPopOver: $isMostrarPopOver, isCameraSelected: $isCameraActive, isLibrarySelected: $isLibraryActive, isLoadedFromCamera: $isLoadedFromCamera)
                     
-//                    .popover(isPresented: $isMostrarPopOver) {
-//                        VentanaPopUp(isCerrarPopOver: $isMostrarPopOver, isCameraSelected: $isCameraSelectedReturned, isLibrarySelected: $isLibrarySelectedReturned)
+                    //                    .popover(isPresented: $isMostrarPopOver) {
+                    //                        VentanaPopUp(isCerrarPopOver: $isMostrarPopOver, isCameraSelected: $isCameraSelectedReturned, isLibrarySelected: $isLibrarySelectedReturned)
                     
-                   
                 }
                 
             }.padding(EdgeInsets(top: 26, leading: 0, bottom: 32, trailing: 0))
@@ -111,27 +101,24 @@ struct ModuloEditarPhoto : View{
                 print("No se encontro foto de perfil guardada en el dispositivo")
             }
         }
-        
     }
     
     func tomarFoto() {
         print("Estoy editando la foto")
         
-        
-        
         isMostrarPopOver.toggle()
         
         isFromCamera = isCameraActive
-//        print("valores de varialbes luego de popup")
-//        print("isCameraSelectedReturned: \(isCameraSelectedReturned)")
-//        print("isLibrarySelectedReturned: \(isLibrarySelectedReturned)")
-//
-//        if isCameraSelectedReturned {
-//            isCameraActive.toggle()
-//        }
-//        if isLibrarySelectedReturned {
-//            isLibraryActive.toggle()
-//        }
+        //        print("valores de varialbes luego de popup")
+        //        print("isCameraSelectedReturned: \(isCameraSelectedReturned)")
+        //        print("isLibrarySelectedReturned: \(isLibrarySelectedReturned)")
+        //
+        //        if isCameraSelectedReturned {
+        //            isCameraActive.toggle()
+        //        }
+        //        if isLibrarySelectedReturned {
+        //            isLibraryActive.toggle()
+        //        }
     }
     
     func returnUIImage(named: String) -> UIImage?{
@@ -162,7 +149,7 @@ struct ModuloEditarData : View{
     @State var isCameraSelectedReturned = false
     @State var isLibrarySelectedReturned = false
     
-//    @State var isLoadedFromCamera = false
+    //    @State var isLoadedFromCamera = false
     
     var body: some View{
         
@@ -248,9 +235,6 @@ struct ModuloEditarData : View{
                 }
                 //// -
             }
-            
-            
-            
             ///
             Spacer().padding(5)
             VStack{
@@ -270,30 +254,30 @@ struct ModuloEditarData : View{
                 }
                 
                 
-//                Button(action: {isMostrarPopOver.toggle()}, label: {
-//                    Text(String("Mostrar popup").uppercased())
-//                        .fontWeight(.bold)
-//                        .foregroundColor(.white).frame(maxWidth: .infinity, minHeight: 20, maxHeight: 20, alignment: .center)
-//                        .padding(EdgeInsets(top: 11, leading: 18, bottom: 11, trailing: 18))
-//
-//                }).popover(isPresented: $isMostrarPopOver) {
-//                    VentanaPopUp(isCerrarPopOver: $isMostrarPopOver, isCameraSelected: $isCameraSelectedReturned, isLibrarySelected: $isLibrarySelectedReturned)
-//                }
+                //                Button(action: {isMostrarPopOver.toggle()}, label: {
+                //                    Text(String("Mostrar popup").uppercased())
+                //                        .fontWeight(.bold)
+                //                        .foregroundColor(.white).frame(maxWidth: .infinity, minHeight: 20, maxHeight: 20, alignment: .center)
+                //                        .padding(EdgeInsets(top: 11, leading: 18, bottom: 11, trailing: 18))
+                //
+                //                }).popover(isPresented: $isMostrarPopOver) {
+                //                    VentanaPopUp(isCerrarPopOver: $isMostrarPopOver, isCameraSelected: $isCameraSelectedReturned, isLibrarySelected: $isLibrarySelectedReturned)
+                //                }
                 
-                    
-//                    .popover(isPresented: $isMostrarPopOver, attachmentAnchor: .point(UnitPoint(x: 20, y: 20)), arrowEdge: .top, content: {
-//                        VStack { // just example
-//                            Text("Test").padding(.top)
-//                            TextField("Placeholder", text: $nombre_input)
-//                                .padding(.horizontal)
-//                                .padding(.bottom)
-//                                .frame(width: 200)
-//                        }
-//                    }
-//                )
-//
                 
-//
+                //                    .popover(isPresented: $isMostrarPopOver, attachmentAnchor: .point(UnitPoint(x: 20, y: 20)), arrowEdge: .top, content: {
+                //                        VStack { // just example
+                //                            Text("Test").padding(.top)
+                //                            TextField("Placeholder", text: $nombre_input)
+                //                                .padding(.horizontal)
+                //                                .padding(.bottom)
+                //                                .frame(width: 200)
+                //                        }
+                //                    }
+                //                )
+                //
+                
+                //
                 
                 
                 //                    .popover(isPresented: $isMostrarPopOver, attachmentAnchor: .rect(.bounds), arrowEdge: .bottom, content: {
@@ -308,9 +292,6 @@ struct ModuloEditarData : View{
                 //                        .padding(EdgeInsets(top: 11, leading: 18, bottom: 11, trailing: 18))
                 //                })
                 
-                
-                
-                
             }
             Spacer()
             
@@ -322,10 +303,9 @@ struct ModuloEditarData : View{
     
     func actualizarDatos() {
         
-        
         tituloAlerta = "ERROR :("
         
-        if nombre_input.isEmpty {
+        if nombre_input.isEmpty { ////this must to be refactored to
             textoAlerta = "Debe ingresar un nombre"
         }else{
             
@@ -372,9 +352,6 @@ struct ModuloEditarData : View{
         }
         isAlertActualizarDatosViewActive.toggle()
         
-        
-        
-        
     }
     
     func recuperarDatos() {
@@ -399,12 +376,8 @@ struct ModuloEditarData : View{
                 isLoadedFromCamera = true
             }
         }
-        
     }
-    
-    
 }
-
 
 struct PantallaPerfilEdit_Previews: PreviewProvider {
     static var previews: some View {

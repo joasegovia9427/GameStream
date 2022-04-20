@@ -37,12 +37,12 @@ struct PantallaReproductor: View {
         }.ignoresSafeArea()
     }
     
-//    init(in_urlGlobal : String, in_imagenNameToLoadBG : String){
-//        self.urlGlobal = in_urlGlobal
-//        self.imagenNameToLoadBG = in_urlGlobal
-//
-//        print("urlGlobal \(urlGlobal)")
-//    }
+    //    init(in_urlGlobal : String, in_imagenNameToLoadBG : String){
+    //        self.urlGlobal = in_urlGlobal
+    //        self.imagenNameToLoadBG = in_urlGlobal
+    //
+    //        print("urlGlobal \(urlGlobal)")
+    //    }
 }
 
 struct PantallaReproductor_Previews: PreviewProvider {
@@ -50,6 +50,3 @@ struct PantallaReproductor_Previews: PreviewProvider {
         PantallaReproductor(in_urlGlobal : "", in_imagenNameToLoadBG : "")
     }
 }
-
-
-

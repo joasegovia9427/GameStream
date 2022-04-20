@@ -42,9 +42,6 @@ struct GameStreamApp: App {
         }
     }
 }
-
-
-
 //            SistemaPuntos()
 //            Assets2x3x()
 //            OffsetPosition()

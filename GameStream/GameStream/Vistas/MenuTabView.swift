@@ -13,26 +13,26 @@ struct MenuTabView: View {
     var body: some View {
         TabView(selection: $tabSeleccionado){
             PantallaPerfil().tabItem{
-                    Image(systemName: "person")
-                    Text("Perfil")
-                }.tag(0)
+                Image(systemName: "person")
+                Text("Perfil")
+            }.tag(0)
             PantallaJuegos().tabItem{
-                    Image(systemName: "gamecontroller")
-                    Text("Juegos")
-                }.tag(1)
+                Image(systemName: "gamecontroller")
+                Text("Juegos")
+            }.tag(1)
             PantallaInicio().tabItem{
                 Image(systemName: "house")
                 Text("Inicio")
             }.tag(2)
-//            Text("Inicio").font(.system(size: 30, weight: .bold, design: .rounded))
-//                .tabItem{
-//                    Image(systemName: "house")
-//                    Text("Inicio")
-//                }.tag(2)
+            //            Text("Inicio").font(.system(size: 30, weight: .bold, design: .rounded))
+            //                .tabItem{
+            //                    Image(systemName: "house")
+            //                    Text("Inicio")
+            //                }.tag(2)
             PantallaFavoritos().tabItem{
-                    Image(systemName: "heart")
-                    Text("Favoritos")
-                }.tag(3)
+                Image(systemName: "heart")
+                Text("Favoritos")
+            }.tag(3)
         }.navigationBarHidden(true).navigationBarBackButtonHidden(true).accentColor(Color("pure-white"))
     }
     init(){

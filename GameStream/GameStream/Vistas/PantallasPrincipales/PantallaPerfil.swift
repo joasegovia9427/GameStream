@@ -30,17 +30,14 @@ struct PantallaPerfil: View {
                         VStack{
                             Image(uiImage: imagenPerfil).resizable().aspectRatio(contentMode: .fill).frame(width: 118, height: 118, alignment: .center).clipShape(Circle())
                             
-//                            Image("40-profile-picture").resizable().aspectRatio(contentMode: .fill).frame(width: 118, height: 118, alignment: .center).clipShape(Circle())
-//
+                            //                            Image("40-profile-picture").resizable().aspectRatio(contentMode: .fill).frame(width: 118, height: 118, alignment: .center).clipShape(Circle())
+                            //
                             Text(nombreUsuario).fontWeight(.bold).foregroundColor(.white).frame(width: 300, alignment: .center)
                             
                         }.padding(EdgeInsets(top: 26, leading: 0, bottom: 32, trailing: 0))
                         
-                        
-                        
                         Text("AJUSTES").font(.title3).foregroundColor(.white).fontWeight(.bold).frame(minWidth: 0, maxWidth: .infinity, alignment: .leading).padding(.top)
                     }.padding(.horizontal, 16)
-                    
                     
                     ModuloAjustes()
                     
@@ -52,9 +49,8 @@ struct PantallaPerfil: View {
                                     .foregroundColor(.white)
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                 
-//                                    Image(systemName: "figure.walk").frame(width: 20, height: 20, alignment: .center).padding(.trailing,5).padding(.leading,5).foregroundColor(.white)
-                                    Image(systemName: "rectangle.portrait.and.arrow.right").frame(width: 20, height: 20, alignment: .center).padding(.trailing,5).padding(.leading,5).foregroundColor(.white)
-                                
+                                //                                    Image(systemName: "figure.walk").frame(width: 20, height: 20, alignment: .center).padding(.trailing,5).padding(.leading,5).foregroundColor(.white)
+                                Image(systemName: "rectangle.portrait.and.arrow.right").frame(width: 20, height: 20, alignment: .center).padding(.trailing,5).padding(.leading,5).foregroundColor(.white)
                                 
                             }.padding(EdgeInsets(top: 21, leading: 16, bottom: 21, trailing: 16))
                         }).background(Color("blue-grey"))
@@ -86,13 +82,10 @@ struct PantallaPerfil: View {
                         imagenPerfil = imagenPerfilAUX
                     }
                     
-
                 }else{
                     print("No se encontro foto de perfil guardada en el dispositivo")
                 }
-                
             })
-        
     }
     
     func recuperarNombreDeUsuario(){
@@ -107,8 +100,8 @@ struct PantallaPerfil: View {
         if !datosUsuario[3].isEmpty {
             print("Entro a buscar dato camara")
             isFotoFromCameraGlobal = datosUsuario[3]
-//            isLoadedFromCamera = datosUsuario[3]
-//            print("dato de cam recuperado: \(isLoadedFromCamera)")
+            //            isLoadedFromCamera = datosUsuario[3]
+            //            print("dato de cam recuperado: \(isLoadedFromCamera)")
         }
         
     }
@@ -118,7 +111,6 @@ struct PantallaPerfil: View {
         {
             return UIImage(contentsOfFile: URL(fileURLWithPath: dir.absoluteString).appendingPathComponent(named).path)
         }
-        
         return nil
     }
     
@@ -175,9 +167,7 @@ struct ModuloAjustes:View {
             }).background(Color("blue-grey"))
             
             NavigationLink(isActive: $isEditProfileVIewActive, destination: {PantallaPerfilEdit()}, label: {EmptyView()})
-            
         }
-        
     }
 }
 

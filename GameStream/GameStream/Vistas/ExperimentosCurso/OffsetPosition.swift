@@ -15,9 +15,8 @@ struct OffsetPosition: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: geometria.size.width-100, height: geometria.size.height-100)
-                
-    //            Offsets()
-    //            Positions()
+                //            Offsets()
+                //            Positions()
             }.frame(maxWidth: .infinity, maxHeight: .infinity)
         })
     }
@@ -45,8 +44,8 @@ struct Positions:View {
                 .frame(width: 200, height: 200)
                 .position(x: 100, y: 32)
             
-//            Text("HolaMundo").foregroundColor(.blue).bold()
-//                .position(x: 0, y: 0)
+            //            Text("HolaMundo").foregroundColor(.blue).bold()
+            //                .position(x: 0, y: 0)
         }
     }
 }

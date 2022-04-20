@@ -13,7 +13,7 @@ struct WelcomeScreen: View {
         NavigationView{
             
             ZStack {
-//                Spacer()
+                //                Spacer()
                 //            Color(red: 21/255, green: 27/255, blue: 53/255, opacity: 1).ignoresSafeArea()
                 Color("marine").ignoresSafeArea()
                 
@@ -21,7 +21,6 @@ struct WelcomeScreen: View {
                     Text("Bienvenido").foregroundColor(Color("dark-cian"))
                     
                     Spacer().frame(height: 100)
-                    
                     
                     Spacer()
                     
@@ -37,14 +36,10 @@ struct WelcomeScreen: View {
                 }.padding(.horizontal, 77)
                 
                 Image("appLogo").resizable().aspectRatio( contentMode: .fit).frame(width: 250).padding(.bottom, 20)
-                
             }
-            
-            
             
         }.navigationBarHidden(true).navigationBarBackButtonHidden(true)
         NavigationLink(isActive: $isEntrarActive, destination: {MenuTabView()}, label: {EmptyView()})
-    
     }
 }
 

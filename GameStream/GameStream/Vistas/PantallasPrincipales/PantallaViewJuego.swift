@@ -37,8 +37,7 @@ struct PantallaViewJuego: View {
                     
                     video(url: url).frame(height: 200).padding(.top,-60)
                     
-                    
-//                    videoInfo(title: juegoPorParametroIn!.title, studio: studio, calification: calification, anoPublicacion: anoPublicacion, description: description, tags: tags).padding(.bottom, 30)
+                    //                    videoInfo(title: juegoPorParametroIn!.title, studio: studio, calification: calification, anoPublicacion: anoPublicacion, description: description, tags: tags).padding(.bottom, 30)
                     
                     videoInfo(title: title, studio: studio, calification: calification, anoPublicacion: anoPublicacion, description: description, tags: tags).padding(.bottom, 30)
                     
@@ -51,18 +50,13 @@ struct PantallaViewJuego: View {
                 }.frame(maxWidth: .infinity)
             }
         }
-    
     }
     
     func inicio() -> some View{
         print("Datos desde la otra pantalla: \(juegoPorParametroIn?.title)")
-        
         return VStack{}
     }
-
-    
 }
-
 
 struct video: View {
     var url : String
@@ -99,7 +93,6 @@ struct videoInfo: View {
     
     @State var isFavouriteActive:Bool = true
     
-    
     var body: some View {
         VStack(alignment: .leading  ) {
             
@@ -127,10 +120,8 @@ struct videoInfo: View {
                 ForEach(tags, id:\.self){
                     tag in
                     Text("#\(tag)").foregroundColor(.white).font(.subheadline).padding(.top, 4).padding(.leading)
-                    
                 }
             }
-            
             
         }.frame(maxWidth: .infinity, alignment: .leading).padding(.trailing)
     }
@@ -151,7 +142,6 @@ struct videoGallery: View {
                     ForEach(imgUrls, id:\.self){
                         imgUrl in
                         KFImage(URL(string: imgUrl)).resizable().aspectRatio(contentMode: .fit).clipShape(RoundedRectangle.init(cornerRadius: 4)).padding(.leading)//.padding(.bottom, -15)
-                        
                     }
                 }
             }.frame(height: 180)
@@ -166,7 +156,6 @@ struct videoComentarios: View {
     @State var imagenPerfil: UIImage = UIImage(named: "40-profile-picture")!
     @State var imagenPerfilAUX: UIImage = UIImage(named: "40-profile-picture")!
     
-    
     let screenWidth = UIScreen.main.bounds.width
     var text1 = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five (...)"
     var text2 = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
@@ -178,7 +167,6 @@ struct videoComentarios: View {
     @State var textCompleteIsActive : Bool = false
     
     @State var isMostrarMiComentarioActive : Bool = true
-    
     
     var body: some View {
         VStack (alignment:.leading){
@@ -198,11 +186,11 @@ struct videoComentarios: View {
                     HStack{
                         Image(uiImage: imagenPerfil).resizable().aspectRatio( contentMode: .fill).frame(width: 50, height: 50, alignment: .center).clipShape(Circle())
                         
-//                        Image("40-profile-picture").resizable().aspectRatio( contentMode: .fit).frame(width: 50, height: 50, alignment: .center)
+                        //                        Image("40-profile-picture").resizable().aspectRatio( contentMode: .fit).frame(width: 50, height: 50, alignment: .center)
                         VStack(alignment:.leading){
                             Text(nombreUsuario).fontWeight(.bold).foregroundColor(Color("dark-cian")).font(.subheadline).multilineTextAlignment(.leading)//.padding(.top, 5).padding(.leading)
                             
-//                            Text("Geoff Atto").fontWeight(.bold).foregroundColor(Color("dark-cian")).font(.subheadline)//.padding(.top, 5).padding(.leading)
+                            //                            Text("Geoff Atto").fontWeight(.bold).foregroundColor(Color("dark-cian")).font(.subheadline)//.padding(.top, 5).padding(.leading)
                             Spacer().frame(height: 10)
                             Text("Hace 7 días").foregroundColor(.white).font(.subheadline)//.padding(.top, 5)
                         }.padding(.leading, 10)
@@ -214,7 +202,6 @@ struct videoComentarios: View {
                         Button(action: {isMostrarMiComentarioActive.toggle()}, label: {
                             Image(systemName: "trash").foregroundColor(.white)
                         })
-                        
                         
                     }.frame(maxWidth: .infinity, alignment: .leading).padding().padding(.bottom,-15).padding(.leading,-5)
                     Text("He visto que como media tiene una gran calificación, y estoy completamente de acuerdo. Es el mejor juego que he jugado sin ninguna duda, combina una buena trama con una buenísima experiencia de juego libre gracias a su inmenso mapa y actividades.").foregroundColor(.white).font(.subheadline).padding().padding(.top,-15).padding(.leading,-5)
@@ -253,7 +240,6 @@ struct videoComentarios: View {
                 
             }.background(Color("blue-grey")).cornerRadius(8.0).frame(width: (screenWidth-30), alignment: .center).padding()
             
-            
         }.frame(maxWidth: .infinity, alignment: .leading)
             .onAppear(perform: {
                 
@@ -270,11 +256,9 @@ struct videoComentarios: View {
                         imagenPerfil = imagenPerfilAUX
                     }
                     
-
                 }else{
                     print("No se encontro foto de perfil guardada en el dispositivo")
                 }
-                
             })
         
         Button(action:{} , label: {
@@ -285,7 +269,6 @@ struct videoComentarios: View {
         }).background(Color("blue-action")).cornerRadius(8.0
         ).padding(.top, -20)
     }
-    
     
     func recuperarNombreDeUsuario(){
         let objetoActualizadorDatos = SaveData()
@@ -299,8 +282,8 @@ struct videoComentarios: View {
         if !datosUsuario[3].isEmpty {
             print("Entro a buscar dato camara")
             isFotoFromCameraGlobal = datosUsuario[3]
-//            isLoadedFromCamera = datosUsuario[3]
-//            print("dato de cam recuperado: \(isLoadedFromCamera)")
+            //            isLoadedFromCamera = datosUsuario[3]
+            //            print("dato de cam recuperado: \(isLoadedFromCamera)")
         }
         
     }
@@ -310,11 +293,8 @@ struct videoComentarios: View {
         {
             return UIImage(contentsOfFile: URL(fileURLWithPath: dir.absoluteString).appendingPathComponent(named).path)
         }
-        
         return nil
     }
-    
-    
     
 }
 
@@ -329,7 +309,7 @@ struct juegosSimilares: View {
             Text("VIDEOS DE JUEGOS SIMILIARES").font(.title3).foregroundColor(.white).fontWeight(.bold).frame(minWidth: 0, maxWidth: .infinity, alignment: .leading).padding(.leading)
             ScrollView(.horizontal, showsIndicators: false){
                 HStack{
-
+                    
                     Button(action: {
                         urlGlobal = urlVideos[6]
                         isPlayerActive.toggle()
@@ -343,7 +323,6 @@ struct juegosSimilares: View {
                         }.padding(EdgeInsets(top: 11, leading: 11, bottom: 11, trailing: 11))
                     })
                     
-                
                     Button(action: {
                         urlGlobal = urlVideos[4]
                         isPlayerActive.toggle()
@@ -369,14 +348,14 @@ struct juegosSimilares: View {
                             }
                         }.padding(EdgeInsets(top: 11, leading: 11, bottom: 11, trailing: 11))
                     })
-
+                    
                 }
             }
         }
         
         NavigationLink(isActive: $isPlayerActive, destination: {PantallaReproductor(in_urlGlobal: urlGlobal, in_imagenNameToLoadBG: imagenNameToLoadBG)}, label: {EmptyView()})
     }
-        
+    
 }
 
 //
@@ -398,4 +377,3 @@ struct juegosSimilares: View {
 //    }
 //
 //}
-

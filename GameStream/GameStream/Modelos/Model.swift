@@ -8,7 +8,6 @@
 ////////HERRAMIENTA PARA GENERAR STRUCT A PARTIR DE UN JSON
 ////////   https://app.quicktype.io
 ////////   fundamental
-///
 
 import Foundation
 
@@ -29,8 +28,6 @@ struct videosUrl: Codable, Hashable {
 struct Resultados: Codable {   // para busqueda del home
     var results:[Game]
 }
-
-
 
 //{
 //    "title": "The Witcher 3: Wild Hunt",
@@ -58,8 +55,6 @@ struct Resultados: Codable {   // para busqueda del home
 //      "https://cdn.cloudflare.steamstatic.com/steam/apps/292030/ss_908485cbb1401b1ebf42e3d21a860ddc53517b08.600x338.jpg"
 //    ]
 //}
-
-
 
 //// MARK: - Welcome
 //struct Welcome: Codable {

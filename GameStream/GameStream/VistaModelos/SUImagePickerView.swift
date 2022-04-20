@@ -27,11 +27,10 @@ struct SUImagePickerView: UIViewControllerRepresentable {
         pickerController.delegate = context.coordinator
         return pickerController
     }
-
+    
     func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {
         // Nothing to update here
     }
-
 }
 
 class ImagePickerViewCoordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
@@ -40,7 +39,7 @@ class ImagePickerViewCoordinator: NSObject, UINavigationControllerDelegate, UIIm
     @Binding var isPresented: Bool
     @Binding var capturo: Bool
     @Binding var isLoadedFromCamera: Bool
-        
+    
     init(image: Binding<Image?>, isPresented: Binding<Bool>, capturo: Binding<Bool>, isLoadedFromCamera: Binding<Bool>) {
         self._image = image
         self._isPresented = isPresented
@@ -55,16 +54,16 @@ class ImagePickerViewCoordinator: NSObject, UINavigationControllerDelegate, UIIm
             self.image = Image(uiImage: UiImageFromUser)
             
             if self.isLoadedFromCamera {
-//                var imagenRecuperadaPerfilAUX: UIImage = UIImage(named: "40-profile-picture")!
-//                imagenRecuperadaPerfilAUX = returnUIImage(self.image)!
-////                imagenRecuperadaPerfilAUX = self.image
-//
-//
-//                self.image = imagenRecuperadaPerfilAUX.rotate(radians: .pi/2)! // Rotate 90 degrees
-//
+                //                var imagenRecuperadaPerfilAUX: UIImage = UIImage(named: "40-profile-picture")!
+                //                imagenRecuperadaPerfilAUX = returnUIImage(self.image)!
+                ////                imagenRecuperadaPerfilAUX = self.image
+                //
+                //
+                //                self.image = imagenRecuperadaPerfilAUX.rotate(radians: .pi/2)! // Rotate 90 degrees
+                //
                 
             }
-                        
+            
             //codigo agregado
             if let data = UiImageFromUser.pngData(){
                 let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
@@ -73,11 +72,9 @@ class ImagePickerViewCoordinator: NSObject, UINavigationControllerDelegate, UIIm
                 do{
                     try data.write(to: url)
                 }catch{
-                   print("no pude guardar foto en el folder del dispositivo \(error)")
+                    print("no pude guardar foto en el folder del dispositivo \(error)")
                 }
-                
             }
-            
         }
         self.capturo = true
         self.isPresented = false
@@ -86,8 +83,4 @@ class ImagePickerViewCoordinator: NSObject, UINavigationControllerDelegate, UIIm
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.isPresented = false
     }
-    
-    
-    
 }
-

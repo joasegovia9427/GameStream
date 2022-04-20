@@ -20,8 +20,6 @@ let urlVideos:[String] = ["https://cdn.cloudflare.steamstatic.com/steam/apps/256
 //    5 hades de anime
 //    6 gta online
 
-
-
 struct PantallaInicio: View {
     @State var isAuxNiveladorActive:Bool = false
     
@@ -94,7 +92,6 @@ struct SubModuloHome: View {
                 }
             }
             
-            
             if(textoBusqueda.isEmpty){
                 Image(systemName: "xmark").foregroundColor(textoBusqueda.isEmpty ? Color("blue-action") : Color("cian"))
             }else{
@@ -103,16 +100,8 @@ struct SubModuloHome: View {
                 })
             }
             
-            
-            
-            
-            
-            
         }.padding(.all, 11.0).background(Color("blue-grey")).cornerRadius(/*@START_MENU_TOKEN@*/8.0/*@END_MENU_TOKEN@*/)
         // .clipShape(Capsule())
-        
-        
-        
         
         ////- 1) LOS MÁS POPULARES
         VStack {
@@ -123,7 +112,7 @@ struct SubModuloHome: View {
                     urlGlobal = url
                     print("URL: \(url)")
                     isPlayerActive.toggle()
-//                    watchGame(name: "The Witcher 3: Wild Hunt")
+                    //                    watchGame(name: "The Witcher 3: Wild Hunt")
                     imagenNameToLoadBG = "13-swiftuiapps-2105-thewitcher"
                 }, label: {
                     VStack(spacing:0){
@@ -387,7 +376,6 @@ struct SubModuloHome: View {
             }
         }
         
-        
     }
 }
 //
@@ -417,10 +405,6 @@ struct SubModuloHome: View {
 //        }.ignoresSafeArea()
 //    }
 //}
-
-
-
-
 
 //struct SubModuloLosMasPopulares: View {
 //    var body: some View {

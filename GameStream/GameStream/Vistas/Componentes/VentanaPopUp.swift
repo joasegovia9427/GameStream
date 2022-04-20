@@ -26,11 +26,10 @@ struct VentanaPopUp: View {
         ZStack{
             Color("marine").ignoresSafeArea()
             
-        
             VStack {
                 Text("Elije un metodo para cargar una foto de perfil").font(.title2).fontWeight(.bold).foregroundColor(.white).multilineTextAlignment(.center).padding(EdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 0)).padding(50)
                 
-//                Spacer()
+                //                Spacer()
                 
                 HStack{
                     
@@ -44,7 +43,7 @@ struct VentanaPopUp: View {
                         VStack(alignment: .center){
                             
                             Image(systemName: "camera.shutter.button.fill").resizable().aspectRatio(contentMode: .fit).frame(width: 60, height:60, alignment: .center).foregroundColor(Color("pure-white"))
-                                
+                            
                             Spacer().padding(.bottom, 10)
                             
                             Text("Camara")
@@ -68,7 +67,7 @@ struct VentanaPopUp: View {
                         VStack(alignment: .center){
                             
                             Image(systemName: "photo.fill.on.rectangle.fill").resizable().aspectRatio(contentMode: .fit).frame(width: 60, height:60, alignment: .center).foregroundColor(Color("pure-white"))
-                                
+                            
                             Spacer().padding(.bottom, 10)
                             
                             Text("Carrusel")
@@ -79,12 +78,10 @@ struct VentanaPopUp: View {
                         }.padding(EdgeInsets(top: 35, leading: 11, bottom: 35, trailing: 11))
                     }).background(Color("blue-grey")).cornerRadius(8.0).frame(width: 160, height: 120, alignment: .center
                     )
-                            
-                    
                     
                 }.padding(50)
                 
-//                Spacer()
+                //                Spacer()
                 
                 Button(action: {
                     self.isCameraSelected = false
@@ -93,17 +90,14 @@ struct VentanaPopUp: View {
                     self.isLoadedFromCamera = false
                     self.presentationMode.wrappedValue.dismiss()
                 }, label: {
-                        Text("Volver")
-                            .fontWeight(.bold)
-                            .foregroundColor(.white)
-                            .frame(maxWidth: .infinity, alignment: .center).padding(EdgeInsets(top: 11, leading: 11, bottom: 11, trailing: 11))
+                    Text("Volver")
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity, alignment: .center).padding(EdgeInsets(top: 11, leading: 11, bottom: 11, trailing: 11))
                 }).background(Color("blue-grey")).cornerRadius(/*@START_MENU_TOKEN@*/8.0/*@END_MENU_TOKEN@*/).padding(50)
                 
-                                
             }.padding()
             
-            
-        
         }
     }
 }
@@ -111,6 +105,6 @@ struct VentanaPopUp: View {
 struct VentanaPopUp_Previews: PreviewProvider {
     static var previews: some View {
         Text("")
-//        VentanaPopUp()
+        //        VentanaPopUp()
     }
 }

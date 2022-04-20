@@ -16,14 +16,14 @@ struct GameViewObject {
     var description: String
     var tags: [String]
     var imgUrls: [String]
-//    let url: String
-//    let title: String
-//    let studio: String
-//    let calification: String
-//    let v: String
-//    let description: String
-//    let tags: [String]
-//    let imgUrls: [String]
+    //    let url: String
+    //    let title: String
+    //    let studio: String
+    //    let calification: String
+    //    let v: String
+    //    let description: String
+    //    let tags: [String]
+    //    let imgUrls: [String]
     
     init(game: Game) {
         url = game.videosUrls.mobile

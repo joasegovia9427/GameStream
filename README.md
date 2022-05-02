@@ -1,6 +1,10 @@
 # GameStream
 A project to get practice the Platzi's courses, "Curso de Desarrollo de Aplicaciones iOS con SwiftUI" (https://platzi.com/cursos/swiftui-apps-ios/) and course "Curso de SwiftUI: Porteo y Ciclo de Vida de Aplicaciones" (https://platzi.com/cursos/swiftui-especializacion/)
 
+![Tech](https://img.shields.io/badge/Tech-SwiftUI-red)
+![Platform](https://img.shields.io/badge/Platform-iOS-blue)
+![Dependencies](https://img.shields.io/badge/Dependencies-1-green)
+
 ## 1st Course "Curso de Desarrollo de Aplicaciones iOS con SwiftUI" 
 (https://platzi.com/cursos/swiftui-apps-ios/)
 Start at 2022.02.10 to 2022.03.13 with note 9.33 (14/15)
